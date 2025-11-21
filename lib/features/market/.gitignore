@@ -1,0 +1,19 @@
+# Generated files
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# IDE specific
+.idea/
+.vscode/
+*.iml
+
+# OS specific
+.DS_Store
+Thumbs.db
+
