@@ -1,4 +1,4 @@
-import 'package:fintech_app/core/shared/app_text_styles.dart';
+import '../app_text_styles.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ ThemeData getLightModeTheme() {
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
       foregroundColor: AppColors.mainColor,
-      titleTextStyle: AppTextStyles.headingLarge,
+      titleTextStyle: AppTextStyles.styles.latoW600S24,
     ),
 
     //======================= text theme=======================
@@ -38,7 +38,7 @@ ThemeData getLightModeTheme() {
         disabledBackgroundColor: Colors.grey,
         disabledForegroundColor: Colors.grey[300],
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: AppTextStyles.bodyLarge,
+        textStyle: AppTextStyles.styles.latoW400S16,
       ),
     ),
 
