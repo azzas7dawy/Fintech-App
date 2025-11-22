@@ -3,8 +3,10 @@ import 'package:fintech_app/core/constant/translation_keys.dart';
 import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constant/assets.dart';
+import '../../../../core/routing/routes.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -88,7 +90,9 @@ class SettingScreen extends StatelessWidget {
                 SettingItem(
                   iconName: Assets.language,
                   title: TranslationKeys.language.tr(),
-                  onTap: () {},
+                  onTap: () {
+                    context.push(Routes.language);
+                  },
                 ),
                 SizedBox(height: 15.0.h),
                 Divider(

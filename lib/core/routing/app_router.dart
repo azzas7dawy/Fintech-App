@@ -11,5 +11,10 @@ final GoRouter appRouter = GoRouter(
       name: Routes.settings,
       builder: (context, state) => const SettingScreen(),
     ),
+    GoRoute(
+      path: Routes.language,
+      name: Routes.language,
+      builder: (context, state) => const LanguageScreen(),
+    ),
   ],
 );
