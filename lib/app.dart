@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/routing/app_router.dart';
 import 'package:fintech_app/core/theme/cubit/theme_cubit.dart';
 import 'package:fintech_app/core/theme/theme_modes/dark_mode.dart';
@@ -22,6 +23,9 @@ class CoinsApp extends StatelessWidget {
           builder: (context, newMode) {
             log('the mode is $newMode');
             return MaterialApp.router(
+               localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
               title: 'Theme App',
               debugShowCheckedModeBanner: false,
               theme: getLightModeTheme(),

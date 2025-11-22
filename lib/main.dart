@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/app.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,9 @@ import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  
+  //================= Easy Localization Initialization =================//
+  await EasyLocalization.ensureInitialized();
   //================= Hydrated Bloc Initialization for themeing =================//
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
@@ -25,5 +28,11 @@ Future<void> main() async {
   await Hive.initFlutter();
 
   //==================
-  runApp(const CoinsApp());
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      path: 'assets/translations',
+      child: const CoinsApp(),
+    ),
+  );
 }
