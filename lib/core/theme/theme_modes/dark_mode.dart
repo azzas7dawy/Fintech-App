@@ -18,9 +18,7 @@ ThemeData getDarkModeTheme() {
       backgroundColor: AppColors.darkModeBackGroundColor,
       foregroundColor: Colors.white,
 
-      titleTextStyle: AppTextStyles.styles.latoW600S24.copyWith(
-        color: AppColors.mainColor,
-      ),
+      titleTextStyle: AppTextStyles.styles.latoW600S24,
     ),
 
     //======================= text theme=======================

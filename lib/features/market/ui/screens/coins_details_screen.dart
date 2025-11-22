@@ -11,6 +11,7 @@ class CoinsDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Coins Details'),
+        centerTitle: true,
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 18.0),

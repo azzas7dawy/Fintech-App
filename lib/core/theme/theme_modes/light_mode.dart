@@ -17,7 +17,9 @@ ThemeData getLightModeTheme() {
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.lightModeBackGroundColor,
       foregroundColor: AppColors.mainColor,
-      titleTextStyle: AppTextStyles.styles.latoW600S24,
+      titleTextStyle: AppTextStyles.styles.latoW600S24.copyWith(
+        color: AppColors.mainColor
+      ),
     ),
 
     //======================= text theme=======================
