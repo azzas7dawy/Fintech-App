@@ -16,5 +16,10 @@ final GoRouter appRouter = GoRouter(
       name: Routes.language,
       builder: (context, state) => const LanguageScreen(),
     ),
+    GoRoute(
+      path: Routes.cryptoMarket,
+      name: Routes.cryptoMarket,
+      builder: (context, state) => const CryptoMarketScreen(),
+    ),
   ],
 );

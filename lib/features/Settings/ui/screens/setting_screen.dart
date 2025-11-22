@@ -52,7 +52,10 @@ class SettingScreen extends StatelessWidget {
                 SettingItem(
                   iconName: Assets.person,
                   title: TranslationKeys.myAccount.tr(),
-                  onTap: () {},
+                  onTap: () {
+                    // TODO: Navigate to crypto market screen
+                    context.push(Routes.cryptoMarket);
+                  },
                 ),
                 SizedBox(height: 15.0.h),
                 Divider(
