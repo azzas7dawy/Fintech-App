@@ -1,4 +1,5 @@
 class Routes {
 
-  static const String demoScreen = "/demoScreen";
+  static const String demoScreen = '/demoScreen';
+  static const String coinsDetailsScreen = '/coinsDetails';
 }
