@@ -18,7 +18,6 @@ class CoinDetailsHeader extends StatelessWidget {
             Container(
               width: 36.w,
               height: 36.h,
-
               decoration: BoxDecoration(
                 color: isDark ? AppColors.lightOrange : Colors.white,
                 shape: BoxShape.circle,
