@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
+//todo: use this like this AppTextStyles.styles.latoW400S14 
 class AppTextStyles {
   static const styles = _TextStyles();
 }
