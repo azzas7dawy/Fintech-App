@@ -1,11 +1,11 @@
-import 'package:fintech_app/core/shared/app_text_styles.dart';
+import '../app_text_styles.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 ThemeData getLightModeTheme() {
   return ThemeData(
     brightness: Brightness.light,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: AppColors.lightModeBackGroundColor,
 
     //=======================  الحاجات اللي مش بتاخد لون زي مثلا ال مسطره
     colorScheme: ColorScheme.fromSeed(
@@ -15,9 +15,9 @@ ThemeData getLightModeTheme() {
 
     //======================= app bar =======================
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.lightModeBackGroundColor,
       foregroundColor: AppColors.mainColor,
-      titleTextStyle: AppTextStyles.headingLarge,
+      titleTextStyle: AppTextStyles.styles.latoW600S24,
     ),
 
     //======================= text theme=======================
@@ -38,7 +38,7 @@ ThemeData getLightModeTheme() {
         disabledBackgroundColor: Colors.grey,
         disabledForegroundColor: Colors.grey[300],
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: AppTextStyles.bodyLarge,
+        textStyle: AppTextStyles.styles.latoW400S16,
       ),
     ),
 

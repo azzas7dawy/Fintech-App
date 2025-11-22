@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:fintech_app/core/networking/api_result.dart';
-import 'package:fintech_app/features/demo/data/api_service/demo_api_service.dart';
-import 'package:fintech_app/features/demo/data/local_data/demo_local_data.dart';
+import 'package:fintech_app/features/demo/data/datasources/remote/demo_api_service.dart';
+import 'package:fintech_app/features/demo/data/datasources/local/demo_local_data.dart';
 import 'package:fintech_app/features/demo/data/model/movie_model.dart';
 
 class DemoRepo {

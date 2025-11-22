@@ -22,13 +22,15 @@ class CoinsApp extends StatelessWidget {
           builder: (context, newMode) {
             log('the mode is $newMode');
             return MaterialApp.router(
-              title: 'Theme App',
+              title: 'Fintech App',
               debugShowCheckedModeBanner: false,
               theme: getLightModeTheme(),
               darkTheme: getDarkModeTheme(),
               themeMode: newMode,
+              
               // home: const ToggleThemeScreen(),
                routerConfig: appRouter,
+              
             );
           },
         ),

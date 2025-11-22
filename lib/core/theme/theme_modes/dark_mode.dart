@@ -1,4 +1,4 @@
-import 'package:fintech_app/core/shared/app_text_styles.dart';
+import '../app_text_styles.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,9 @@ ThemeData getDarkModeTheme() {
       backgroundColor: AppColors.darkModeBackGroundColor,
       foregroundColor: Colors.white,
 
-      titleTextStyle: AppTextStyles.headingLarge.copyWith(color: Colors.white),
+      titleTextStyle: AppTextStyles.styles.latoW600S24.copyWith(
+        color: AppColors.mainColor,
+      ),
     ),
 
     //======================= text theme=======================
@@ -40,7 +42,7 @@ ThemeData getDarkModeTheme() {
 
           side: const BorderSide(color: AppColors.gray700),
         ),
-        textStyle: AppTextStyles.bodyMedium,
+        textStyle: AppTextStyles.styles.latoW400S14,
       ),
     ),
 
@@ -68,8 +70,8 @@ ThemeData getDarkModeTheme() {
       ),
       fillColor: AppColors.gray800,
       filled: true,
-      labelStyle: AppTextStyles.bodyMedium,
-      hintStyle: AppTextStyles.bodyLarge,
+      labelStyle: AppTextStyles.styles.latoW400S14,
+      hintStyle: AppTextStyles.styles.latoW400S16,
     ),
   );
 }
