@@ -6,7 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constant/translation_keys.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
+import '../widgets/card_crypto_market.dart';
 import '../widgets/crypto_market_tabbar.dart';
+
 import '../widgets/search_text_field.dart';
 
 class CryptoMarketScreen extends StatelessWidget {
@@ -38,6 +40,23 @@ class CryptoMarketScreen extends StatelessWidget {
                 DefaultTabController(
                   length: 5,
                   child: CryptoMarketTabBar(isDark: isDark),
+                ),
+                SizedBox(height: 23.0.h),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return CardCryptoMarket(
+                      isDark: isDark,
+                      name: 'Bitcoin',
+                      rank: 'Rank #$index',
+                      price: '\$54,382.64',
+                      percentage: '1.23%',
+                      imageUrl:
+                          'https://pbs.twimg.com/profile_images/1991199815905259520/du1BKgLK.jpg',
+                    );
+                  },
                 ),
               ],
             ),

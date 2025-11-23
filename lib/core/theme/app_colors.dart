@@ -27,4 +27,12 @@ class AppColors {
   static const darkModeIconColor = Color(0xff222222);
   static const lightModeIconColor = Color(0xffdddddd);
   static const darkModeTextColor = Color(0xff222222);
+
+  static const bgCardColorLightMode = Color(0xFFF7F7F7);
+  static const bgCardColorDarkMode = Color(0xff151515);
+
+  static const darkGreen = Color(0xFF142C06);
+  static const lightGreen = Color(0xFFE1F8D2);
+  static const greenDarkMode = Color(0xff00E576);
+  static const greenLightMode = Color(0xff00CB6A);
 }
