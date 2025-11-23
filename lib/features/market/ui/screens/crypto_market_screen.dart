@@ -3,6 +3,7 @@ import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/constant/assets.dart';
 import '../../../../core/constant/translation_keys.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
@@ -51,10 +52,9 @@ class CryptoMarketScreen extends StatelessWidget {
                       isDark: isDark,
                       name: 'Bitcoin',
                       rank: 'Rank #$index',
-                      price: '\$54,382.64',
-                      percentage: '1.23%',
-                      imageUrl:
-                          'https://pbs.twimg.com/profile_images/1991199815905259520/du1BKgLK.jpg',
+                      price: '\$${((index + 1) * 1534.23).toStringAsFixed(2)}',
+                      percentage: index.isEven ? '-12.2%' : '12.2%',
+                      imageUrl: Assets.bitcoin,
                     );
                   },
                 ),

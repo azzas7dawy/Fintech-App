@@ -7,4 +7,5 @@ class Assets {
   static const String language = 'assets/images/Language.svg';
   static const String search = 'assets/images/search.svg';
   static const String filter = 'assets/images/filter.svg';
+  static const String bitcoin = 'assets/images/image.png';
 }

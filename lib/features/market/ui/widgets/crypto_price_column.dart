@@ -31,9 +31,11 @@ class CryptoPriceColumn extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(4.0.r),
           decoration: ShapeDecoration(
-            color: isDark
-                ? AppColors.greenDarkMode.withValues(alpha: 0.8)
+            // con
+            color: percentage.startsWith('-')
+                ? AppColors.redColor.withValues(alpha: 0.8)
                 : AppColors.greenLightMode.withValues(alpha: 0.8),
+
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.r),
             ),
@@ -41,7 +43,9 @@ class CryptoPriceColumn extends StatelessWidget {
           child: Row(
             children: [
               Icon(
-                Icons.call_made_outlined,
+                percentage.startsWith('-')
+                    ? Icons.call_received_outlined
+                    : Icons.call_made_outlined,
                 size: 16.0.sp,
                 color: isDark
                     ? AppColors.darkModeContainerColor
