@@ -18,4 +18,16 @@ class TranslationKeys {
   static const String nft = 'nft';
   static const String gaming = 'gaming';
   static const String metaverse = 'metaverse';
+
+  // Coin Details
+  static const String coinDetails = 'coinDetails';
+  static const String statics = 'statics';
+  static const String currentPrice = 'currentPrice';
+  static const String marketCap = 'marketCap';
+  static const String volume24h = 'volume24h';
+  static const String availableSupply = 'availableSupply';
+  static const String maxSupply = 'maxSupply';
+  static const String aboutCoin = 'aboutCoin';
+  static const String sell = 'sell';
+  static const String buy = 'buy';
 }
