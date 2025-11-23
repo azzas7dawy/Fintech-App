@@ -18,4 +18,9 @@ class TranslationKeys {
   static const String nft = 'nft';
   static const String gaming = 'gaming';
   static const String metaverse = 'metaverse';
+
+  // Language
+  static const String english = 'english';
+  static const String arabic = 'arabic';
+  static const String selectLanguage = 'selectLanguage';
 }
