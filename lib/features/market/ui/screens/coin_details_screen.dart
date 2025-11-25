@@ -10,9 +10,11 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 
 import '../../../../core/theme/cubit/theme_cubit.dart';
+import '../widgets/about_coin_details.dart';
 import '../widgets/crypto_chart.dart';
 import '../widgets/row_name_details.dart';
 import '../widgets/statics_details.dart';
+import '../widgets/trade_buttons.dart';
 
 class CoinDetailsScreen extends StatelessWidget {
   const CoinDetailsScreen({super.key});
@@ -50,16 +52,23 @@ class CoinDetailsScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 30.h),
-            const RowNameDetails(),
-            SizedBox(height: 40.h),
-            const CryptoChart(),
-            SizedBox(height: 20.h),
-            const StaticsDetails(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 30.h),
+              const RowNameDetails(),
+              SizedBox(height: 40.h),
+              const CryptoChart(),
+              SizedBox(height: 20.h),
+              const StaticsDetails(),
+              SizedBox(height: 20.h),
+              const AboutCoinDetails(),
+              SizedBox(height: 25.h),
+              const TradeButtons(),
+              SizedBox(height: 25.h),
+            ],
+          ),
         ),
       ),
     );
