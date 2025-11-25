@@ -87,6 +87,7 @@ class _TextStyles {
   TextStyle get latoW700S21 => _style(21.sp, _w700);
   TextStyle get latoW700S22 => _style(22.sp, _w700);
   TextStyle get latoW700S24 => _style(24.sp, _w700);
+  TextStyle get latoW700S32 => _style(32.sp, _w700);
 
   // Private builder
   TextStyle _style(double size, FontWeight weight) {

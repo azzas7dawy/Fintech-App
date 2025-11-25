@@ -28,56 +28,34 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cached_network_image: ^3.4.1
+  cupertino_icons: ^1.0.8
+  dio: ^5.9.0
+  easy_localization: ^3.0.8
+  fl_chart: ^1.1.1
   flutter:
     sdk: flutter
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
-
-  
-  hydrated_bloc: ^10.1.1
-  path_provider: ^2.1.5
-
-  #A flutter plugin for adapting screen and font size.Guaranteed to look good on different models
-  flutter_screenutil: ^5.9.3
-
   flutter_bloc: ^9.1.1
-  
-  cached_network_image: ^3.4.1
-  #networking package, supports Interceptors, Aborting and canceling a request,
-  dio: ^5.9.0
-  #retrofit.dart is an dio client generator using source_gen and inspired by Chopper and Retrofit.
-  retrofit: ^4.7.3
-
-  retrofit_generator: any
-
-  #network calls in a pretty, easy to read format.
-  pretty_dio_logger: ^1.4.0
-
-  #Annotations for the freezed code-generator. This package does nothing without freezed too.
+  flutter_screenutil: ^5.9.3
   freezed_annotation: any
-
-  #allows to decouple the interface from a concrete implementation and to access the concrete implementation from everywhere in your App"
   get_it: ^8.2.0
-
-  shared_preferences: ^2.5.3
-  
-  #A package that automatically generate a loading widget from your own widget.
-  redacted: ^1.0.13
-  
-  # hive
+  go_router: ^17.0.0
+  google_fonts: ^6.3.2
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-
-  google_fonts: ^6.3.2
-  go_router: ^17.0.0
-
-  #easy_localization is a package that allows you to localize your app.
-  easy_localization: ^3.0.8
+  hydrated_bloc: ^10.1.1
+  path_provider: ^2.1.5
+  pretty_dio_logger: ^1.4.0
+  redacted: ^1.0.13
+  retrofit: ^4.7.3
+  retrofit_generator: any
+  shared_preferences: ^2.5.3
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+
+  analyzer: any
+
+  #A build system for Dart code generation and modular compilation.c
+  build_runner: any
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -85,19 +63,15 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
 
-  analyzer: any
-       
-  #A build system for Dart code generation and modular compilation.c
-  build_runner: any
- 
   #Code generation for immutable classes that has a simple syntax/API without compromising on the features.
   freezed: any
-  
+
   hive_generator: any
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -109,13 +83,10 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/translations/
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
