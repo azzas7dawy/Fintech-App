@@ -1,0 +1,30 @@
+{
+  "home": {
+    "greeting": "Hi, Ahmed 👋",
+    "change_language_tooltip": "Change language",
+    "balance": {
+      "current": "Current Balance",
+      "weekly_profit": "Weekly Profit"
+    },
+    "market_overview": {
+      "title": "Market Overview",
+      "market_cap": "Market Cap",
+      "volume_24h": "24h Volume",
+      "btc_dominance": "BTC Dominance",
+      "active_coins": "Active Coins"
+    },
+    "trending": {
+      "title": "Trending Now",
+      "view_all": "View all"
+    },
+    "top_gainers": {
+      "title": "Top Gainers"
+    },
+    "nav": {
+      "home": "Home",
+      "market": "Market",
+      "portfolio": "Portfolio",
+      "settings": "Settings"
+    }
+  }
+}

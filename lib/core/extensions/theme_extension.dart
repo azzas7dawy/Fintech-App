@@ -19,6 +19,7 @@ extension ThemeExtension on BuildContext {
   
   // ألوان النصوص
   Color get primaryText => isDarkMode ? Colors.white : Colors.black;
+  Color get mainText => isDarkMode ? Colors.white : const Color(0xFF1D3A70);
   
   Color get secondaryText => isDarkMode 
       ? const Color(0xFFB0B0B0) 
@@ -26,4 +27,20 @@ extension ThemeExtension on BuildContext {
   
   // ألوان الأيقونات
   Color get iconColor => isDarkMode ? Colors.white70 : Colors.black87;
+
+  Color get cardBackground => isDarkMode ? AppColors.gray800 : Colors.white;
+
+  Color get cardBorderColor => isDarkMode
+      ? Colors.white10
+      : const Color(0xFFE5E7EB);
+
+  List<BoxShadow> get cardShadow => isDarkMode
+      ? []
+      : [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ];
 }

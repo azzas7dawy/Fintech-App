@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/routing/app_router.dart';
 import 'package:fintech_app/core/theme/cubit/theme_cubit.dart';
 import 'package:fintech_app/core/theme/theme_modes/dark_mode.dart';
@@ -27,6 +28,9 @@ class CoinsApp extends StatelessWidget {
               theme: getLightModeTheme(),
               darkTheme: getDarkModeTheme(),
               themeMode: newMode,
+              locale: context.locale,
+              supportedLocales: context.supportedLocales,
+              localizationsDelegates: context.localizationDelegates,
               
               // home: const ToggleThemeScreen(),
                routerConfig: appRouter,
