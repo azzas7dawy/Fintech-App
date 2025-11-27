@@ -3,6 +3,8 @@ import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'nested_circles.dart';
+
 class BalanceCard extends StatelessWidget {
   const BalanceCard({super.key});
 
@@ -17,9 +19,7 @@ class BalanceCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: const Color(0xFF1D3A70),
             borderRadius: BorderRadius.circular(20.r),
-            boxShadow: const [
-
-            ],
+            boxShadow: const [],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -86,70 +86,16 @@ class BalanceCard extends StatelessWidget {
         Positioned(
           top: -90.h,
           right: -90.w,
-          child: nestedCircles(
-            big: 200.w,
-            mid: 150.w,
-            small: 100.w,
-          ),
+          child: nestedCircles(big: 200.w, mid: 150.w, small: 100.w),
         ),
 
         // -------------------- BOTTOM LEFT (2/3 VISIBLE) --------------------
         Positioned(
           bottom: -80.h,
           left: -80.w,
-          child: nestedCircles(
-            big: 200.w,
-            mid: 150.w,
-            small: 100.w,
-          ),
+          child: nestedCircles(big: 200.w, mid: 150.w, small: 100.w),
         ),
       ],
-    );
-  }
-
-  // -------------------- NESTED CIRCLES WIDGET --------------------
-  Widget nestedCircles({
-    required double big,
-    required double mid,
-    required double small,
-  }) {
-    return SizedBox(
-      width: big,
-      height: big,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          // Big circle
-          Container(
-            width: big,
-            height: big,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white.withOpacity(0.05),
-            ),
-          ),
-
-          // Mid circle
-          Container(
-            width: mid,
-            height: mid,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white.withOpacity(0.08),
-            ),
-          ),
-
-          // Small circle
-          Container(
-            width: small,
-            height: small,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white.withOpacity(0.12),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

@@ -5,48 +5,39 @@ import 'package:flutter/material.dart';
 ThemeData getDarkModeTheme() {
   return ThemeData(
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: AppColors.darkModeBackGroundColor,
+    scaffoldBackgroundColor: AppColors.backgroundDark,
 
-    //=======================  الحاجات اللي مش بتاخد لون زي مثلا ال مسطره
     colorScheme: ColorScheme.fromSeed(
-      seedColor: AppColors.gray400,
+      seedColor: AppColors.textSecondary,
       brightness: Brightness.dark,
     ),
 
-    //======================= app bar =======================
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.darkModeBackGroundColor,
+      backgroundColor: AppColors.backgroundDark,
       foregroundColor: Colors.white,
-
       titleTextStyle: AppTextStyles.styles.latoW600S24.copyWith(
-        color: AppColors.mainColor,
+        color: Colors.white,
       ),
     ),
 
-    //======================= text theme=======================
-    textTheme: ThemeData.light().textTheme.apply(bodyColor: Colors.white),
+    textTheme: ThemeData.light().textTheme.apply(
+      bodyColor: Colors.white,
+      displayColor: Colors.white,
+    ),
 
-    //======================= btns =======================
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         minimumSize: const Size(double.infinity, 52),
-
         backgroundColor: Colors.white,
-        foregroundColor: AppColors.mainColor,
-
-        //================= onpressed  مفيش  معطل ====
-        // disabledBackgroundColor: AppColors.gray800,
-        // disabledForegroundColor: AppColors.gray400,
+        foregroundColor: AppColors.primaryDark,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
-
-          side: const BorderSide(color: AppColors.gray700),
+          side: const BorderSide(color: AppColors.borderColor),
         ),
         textStyle: AppTextStyles.styles.latoW400S14,
       ),
     ),
 
-    //====================== input decoration theme  borders ==============================
     inputDecorationTheme: InputDecorationTheme(
       border: const OutlineInputBorder(
         borderSide: BorderSide(color: Colors.black45),
@@ -56,19 +47,19 @@ ThemeData getDarkModeTheme() {
         borderSide: BorderSide(color: Colors.black45),
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
-      errorBorder: const OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.red),
-        borderRadius: BorderRadius.all(Radius.circular(8)),
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.errorColor),
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
       ),
       disabledBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: Colors.grey),
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
-      focusedBorder: const OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.mainColor),
-        borderRadius: BorderRadius.all(Radius.circular(8)),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.primary),
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
       ),
-      fillColor: AppColors.gray800,
+      fillColor: AppColors.surfaceVariant,
       filled: true,
       labelStyle: AppTextStyles.styles.latoW400S14,
       hintStyle: AppTextStyles.styles.latoW400S16,

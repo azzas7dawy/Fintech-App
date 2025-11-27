@@ -19,7 +19,7 @@ class IconForToggleMode extends StatelessWidget {
       },
       icon: Icon(
         context.isDarkMode ? Icons.dark_mode : Icons.light_mode,
-        color: context.isDarkMode ? Colors.white : AppColors.mainColor,
+        color: context.isDarkMode ? Colors.white : AppColors.primaryDark,
         size: 35.w,
       ),
     );

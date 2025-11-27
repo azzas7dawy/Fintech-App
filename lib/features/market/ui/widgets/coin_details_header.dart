@@ -18,41 +18,19 @@ class CoinDetailsHeader extends StatelessWidget {
             Container(
               width: 36.w,
               height: 36.h,
-
               decoration: BoxDecoration(
-                color: isDark ? AppColors.lightOrange : Colors.white,
+                color: isDark ? AppColors.accentOrange : Colors.white,
                 shape: BoxShape.circle,
               ),
               child: Icon(
                 Icons.currency_bitcoin,
-                color: !isDark ? AppColors.lightOrange : Colors.white,
+                color: isDark ? Colors.white : AppColors.accentOrange,
               ),
             ),
             SizedBox(width: 12.w),
             Text('Bitcoin', style: AppTextStyles.styles.latoW700S20),
           ],
         ),
-
-        //   Container(
-        //     padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-        //     decoration: BoxDecoration(
-        //       color: isDark ? AppColors.darkModeContainerColor : AppColors.mainColor,
-        //       borderRadius: BorderRadius.circular(20.r),
-        //     ),
-        //     child: Row(
-        //       children: [
-        //         Icon(Icons.show_chart, size: 14.w, color: Colors.white),
-        //         SizedBox(width: 4.w),
-        //         Text(
-        //           '3.12%',
-        //           style: AppTextStyles.styles.latoW600S12.copyWith(
-        //             color: Colors.white,
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // ],
       ],
     );
   }

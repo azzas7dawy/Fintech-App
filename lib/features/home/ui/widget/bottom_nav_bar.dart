@@ -29,25 +29,25 @@ class BottomNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           BottomNavItem(
-            icon: Icons.home_rounded,
+            image: 'assets/icons/home.png',
             label: tr('home.nav.home'),
             isSelected: true,
             onTap: () {},
           ),
           BottomNavItem(
-            icon: Icons.bar_chart_rounded,
+            image: 'assets/icons/chart.png',
             label: tr('home.nav.market'),
             isSelected: false,
             onTap: () {},
           ),
           BottomNavItem(
-            icon: Icons.pie_chart_rounded,
+            image: 'assets/icons/briefcase.png',
             label: tr('home.nav.portfolio'),
             isSelected: false,
             onTap: () {},
           ),
           BottomNavItem(
-            icon: Icons.settings_rounded,
+            image: 'assets/icons/setting.png',
             label: tr('home.nav.settings'),
             isSelected: false,
             onTap: () {},
