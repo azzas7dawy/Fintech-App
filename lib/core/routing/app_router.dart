@@ -1,3 +1,4 @@
+// TODO: Do NOT add screen imports here. Add them in routes_exports.dart instead.
 
 import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/features/market/ui/screens/coins_details_screen.dart';
@@ -14,17 +15,13 @@ final GoRouter appRouter = GoRouter(
       name: 'home page',
       builder: (context, state) => const HomePage(),
     ),
-    GoRoute(
-      path: 'demo',
-      name: 'demo',
-      builder: (context, state) => const DemoScreen(),
-    ),
 
      GoRoute(
       path: Routes.coinsDetailsScreen ,
       name: 'coins details screen',
       builder: (context, state) => const CoinsDetailsScreen(),
     ),
+
 
   ],
 );

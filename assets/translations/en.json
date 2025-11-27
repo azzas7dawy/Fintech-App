@@ -28,3 +28,19 @@
     }
   }
 }
+  "settings": "Settings",
+  "general": "General",
+  "myAccount": "My Account",
+  "billingPayment": "Billing/Payment",
+  "faqSupport": "FAQ & Support",
+  "language": "Language",
+  "darkMode": "Dark Mode",
+  "cryptoMarket": "Crypto Market",
+  "search": "Search",
+  "all": "All",
+  "defi": "DeFi",
+  "nft": "NFT",
+  "gaming": "Gaming",
+  "metaverse": "Metaverse"
+}
+
