@@ -15,5 +15,15 @@
     "metaverse": "الميتافيرس",
     "english": "English-انجليزية",
     "arabic": "Arabic-العربية",
-    "selectLanguage": "اختر اللغة"
+    "selectLanguage": "اختر اللغة",
+    "coinDetails": "تفاصيل العملة",
+    "statics": "الإحصائيات",
+    "currentPrice": "السعر الحالي",
+    "marketCap": "القيمة السوقية",
+    "volume24h": "الحجم 24 ساعة",
+    "availableSupply": "العرض المتاح",
+    "maxSupply": "الحد الأقصى للعرض",
+    "aboutCoin": "عن {name}",
+    "sell": "بيع",
+    "buy": "شراء"
 }

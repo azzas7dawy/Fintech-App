@@ -32,7 +32,7 @@ ThemeData getLightModeTheme() {
         minimumSize: const Size(double.infinity, 52),
 
         backgroundColor: AppColors.mainColor,
-        foregroundColor: Colors.white,
+        foregroundColor: AppColors.white,
 
         //================= onpressed  مفيش  معطل ====
         disabledBackgroundColor: Colors.grey,

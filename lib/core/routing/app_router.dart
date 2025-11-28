@@ -1,6 +1,6 @@
 // TODO: Do NOT add screen imports here. Add them in routes_exports.dart instead.
 
-import 'routes.dart';
+import 'package:fintech_app/core/routing/routes.dart';
 import 'routes_exports.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,6 +20,11 @@ final GoRouter appRouter = GoRouter(
       path: Routes.cryptoMarket,
       name: Routes.cryptoMarket,
       builder: (context, state) => const CryptoMarketScreen(),
+    ),
+    GoRoute(
+      path: Routes.coinDetails,
+      name: Routes.coinDetails,
+      builder: (context, state) => const CoinDetailsScreen(),
     ),
   ],
 );

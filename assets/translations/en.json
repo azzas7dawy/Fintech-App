@@ -15,6 +15,15 @@
   "metaverse": "Metaverse",
   "english": "English-الإنجليزية",
   "arabic": "Arabic-العربية",
-  "selectLanguage": "Select Language"
+  "selectLanguage": "Select Language",
+  "coinDetails": "Coin Details",
+  "statics": "Statics",
+  "currentPrice": "Current Price",
+  "marketCap": "Market Cap",
+  "volume24h": "Volume 24h",
+  "availableSupply": "Available Supply",
+  "maxSupply": "Max Supply",
+  "aboutCoin": "About {name}",
+  "sell": "Sell",
+  "buy": "Buy"
 }
-

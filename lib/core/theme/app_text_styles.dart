@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-//todo: use this like this AppTextStyles.styles.latoW400S14 
+//todo: use this like this AppTextStyles.styles.latoW400S14
 class AppTextStyles {
   static const styles = _TextStyles();
 }
@@ -88,6 +87,7 @@ class _TextStyles {
   TextStyle get latoW700S21 => _style(21.sp, _w700);
   TextStyle get latoW700S22 => _style(22.sp, _w700);
   TextStyle get latoW700S24 => _style(24.sp, _w700);
+  TextStyle get latoW700S32 => _style(32.sp, _w700);
 
   // Private builder
   TextStyle _style(double size, FontWeight weight) {

@@ -23,4 +23,16 @@ class TranslationKeys {
   static const String english = 'english';
   static const String arabic = 'arabic';
   static const String selectLanguage = 'selectLanguage';
+
+  // Coin Details
+  static const String coinDetails = 'coinDetails';
+  static const String statics = 'statics';
+  static const String currentPrice = 'currentPrice';
+  static const String marketCap = 'marketCap';
+  static const String volume24h = 'volume24h';
+  static const String availableSupply = 'availableSupply';
+  static const String maxSupply = 'maxSupply';
+  static const String aboutCoin = 'aboutCoin';
+  static const String sell = 'sell';
+  static const String buy = 'buy';
 }

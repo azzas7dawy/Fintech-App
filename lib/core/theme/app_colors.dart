@@ -35,4 +35,16 @@ class AppColors {
   static const lightGreen = Color(0xFFE1F8D2);
   static const greenDarkMode = Color(0xff00E576);
   static const greenLightMode = Color(0xff00CB6A);
+
+  static const gridColorLightMode = Color(0xffBEBEBE);
+  static const tooltipColor = Color(0xFFF56C2A);
+  static const infoColorDarkMode = Color(0xff6079FA);
+  static const infoColorLightMode = Color(0xff4766F9);
+  static const dividerColorLightMode = Color(0xffE2E3E4);
+  static const dividerColorDarkMode = Color(0xff27292A);
+
+  static const redButtonColorDarkMode = Color(0x33FF5A54);
+  static const redButtonColorLightMode = Color(0x33FF403B);
+  static const redTextColorLightMode = Color(0xFFFF403B);
+  static const redTextColorDarkMode = Color(0xFFFF5A54);
 }
