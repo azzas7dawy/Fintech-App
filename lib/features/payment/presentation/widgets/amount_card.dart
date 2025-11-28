@@ -28,7 +28,7 @@ class AmountCard extends StatelessWidget {
           boxShadow: [
             // subtle soft shadow
             BoxShadow(
-              color: Colors.white.withOpacity(theme.brightness == Brightness.dark ? 0.35 : 0.06),
+              color: Colors.white.withValues(alpha: theme.brightness == Brightness.dark ? 0.35 : 0.06),
               blurRadius: 18,
               offset: const Offset(0, 8),
             ),
