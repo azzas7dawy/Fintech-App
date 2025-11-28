@@ -4,13 +4,23 @@ import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:fintech_app/features/payment/presentation/pages/buy_screen.dart';
 import 'package:fintech_app/features/payment/presentation/pages/payment_method_screen.dart';
+import 'package:fintech_app/features/market/ui/screens/coins_details_screen.dart';
+import 'package:fintech_app/features/home/ui/screens/home_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes_exports.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: Routes.cryptoMarket,
+  initialLocation: Routes.homePage,
   routes: <GoRoute>[
+    // Home
+    GoRoute(
+      path: Routes.homePage,
+      name: 'home page',
+      builder: (context, state) => const HomePage(),
+    ),
+
+    // Settings
     GoRoute(
       path: Routes.settings,
       name: Routes.settings,
@@ -21,6 +31,8 @@ final GoRouter appRouter = GoRouter(
       name: Routes.language,
       builder: (context, state) => const LanguageScreen(),
     ),
+
+    // Market
     GoRoute(
       path: Routes.cryptoMarket,
       name: Routes.cryptoMarket,
@@ -31,6 +43,12 @@ final GoRouter appRouter = GoRouter(
       name: Routes.coinDetails,
       builder: (context, state) => const CoinDetailsScreen(),
     ),
+    GoRoute(
+      path: Routes.coinsDetailsScreen,
+      name: 'coins details screen',
+      builder: (context, state) => const CoinsDetailsScreen(),
+    ),
+
     // Payment routes
     GoRoute(
       path: Routes.buyCryptoScreen,

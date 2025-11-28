@@ -1,5 +1,3 @@
-// lib/core/theme/theme_extensions.dart
-
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -8,20 +6,36 @@ extension ThemeExtension on BuildContext {
 
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
 
-  // ألوان الـ containers
+  // Containers / Surfaces
   Color get containerBackground =>
-      isDarkMode ? AppColors.gray800 : const Color.fromARGB(255, 227, 229, 234);
+      isDarkMode ? AppColors.surfaceVariant : const Color(0xFFE3E5EA);
 
-  // Color get cardBorder => isDarkMode
-  //     ? const Color(0xFF2C2C2C)
-  //     : const Color(0xFFD1D5DB);
-
-  // ألوان النصوص
+  // Text
   Color get primaryText => isDarkMode ? Colors.white : Colors.black;
+  Color get mainText => isDarkMode ? Colors.white : AppColors.primaryDark;
 
   Color get secondaryText =>
-      isDarkMode ? const Color(0xFFB0B0B0) : AppColors.gray400;
+      isDarkMode ? const Color(0xFFB0B0B0) : AppColors.textSecondary;
 
-  // ألوان الأيقونات
+  Color get bttnav => AppColors.primary;
+
+  // Icons
   Color get iconColor => isDarkMode ? Colors.white70 : Colors.black87;
+
+  // Cards
+  Color get cardBackground =>
+      isDarkMode ? AppColors.surfaceVariant : Colors.white;
+
+  Color get cardBorderColor =>
+      isDarkMode ? Colors.white10 : const Color(0xFFE5E7EB);
+
+  List<BoxShadow> get cardShadow => isDarkMode
+      ? []
+      : [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ];
 }

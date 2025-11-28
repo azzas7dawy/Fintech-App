@@ -5,44 +5,36 @@ import 'package:flutter/material.dart';
 ThemeData getLightModeTheme() {
   return ThemeData(
     brightness: Brightness.light,
-    scaffoldBackgroundColor: AppColors.backgroundLightModeColor,
+    scaffoldBackgroundColor: AppColors.backgroundLight,
 
-    //=======================  الحاجات اللي مش بتاخد لون زي مثلا ال مسطره
     colorScheme: ColorScheme.fromSeed(
-      seedColor: AppColors.mainColor,
+      seedColor: AppColors.primaryDark,
       brightness: Brightness.light,
     ),
 
-    //======================= app bar =======================
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.backgroundLightModeColor,
-      foregroundColor: AppColors.mainColor,
+      backgroundColor: AppColors.backgroundLight,
+      foregroundColor: AppColors.primaryDark,
       titleTextStyle: AppTextStyles.styles.latoW600S24,
     ),
 
-    //======================= text theme=======================
     textTheme: ThemeData.light().textTheme.apply(
       bodyColor: Colors.black,
       displayColor: Colors.black,
     ),
 
-    //======================= btns =======================
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         minimumSize: const Size(double.infinity, 52),
-
-        backgroundColor: AppColors.mainColor,
-        foregroundColor: AppColors.white,
-
-        //================= onpressed  مفيش  معطل ====
-        disabledBackgroundColor: Colors.grey,
-        disabledForegroundColor: Colors.grey[300],
+        backgroundColor: AppColors.primaryDark,
+        foregroundColor: Colors.white,
+        disabledBackgroundColor: AppColors.textDisabled,
+        disabledForegroundColor: Colors.white70,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         textStyle: AppTextStyles.styles.latoW400S16,
       ),
     ),
 
-    //====================== input decoration theme  borders ==============================
     inputDecorationTheme: const InputDecorationTheme(
       border: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.black45),
@@ -53,7 +45,7 @@ ThemeData getLightModeTheme() {
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       errorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.red),
+        borderSide: BorderSide(color: AppColors.errorColor),
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       disabledBorder: OutlineInputBorder(
@@ -61,7 +53,7 @@ ThemeData getLightModeTheme() {
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.mainColor),
+        borderSide: BorderSide(color: AppColors.primaryDark),
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       labelStyle: TextStyle(color: Colors.black45),
