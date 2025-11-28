@@ -5,6 +5,8 @@ class AppColors {
   static const mainColor = Color(0xFF1D3A70);
   static const darkModeBackGroundColor = Color(0xFF121212);
   static const darkModeContainerColor = Color(0xFF0D0D0D);
+  static const darkLightContainerColor = Color(0xffFFFFFF);
+  static const darkLightGroundColor = Color.fromARGB(223, 221, 213, 213);
   static const darkBlue = Color(0xff1E1F4B);
   static const gray = Color(0xff5D5C5D);
   static const greenText = Color(0xff152C07);

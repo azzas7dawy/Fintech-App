@@ -5,6 +5,7 @@ import 'package:fintech_app/core/routing/app_router.dart';
 import 'package:fintech_app/core/theme/cubit/theme_cubit.dart';
 import 'package:fintech_app/core/theme/theme_modes/dark_mode.dart';
 import 'package:fintech_app/core/theme/theme_modes/light_mode.dart';
+import 'package:fintech_app/features/payment/presentation/pages/buy_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,8 +32,10 @@ class CoinsApp extends StatelessWidget {
               theme: getLightModeTheme(),
               darkTheme: getDarkModeTheme(),
               themeMode: newMode,
+           
               // home: const ToggleThemeScreen(),
                routerConfig: appRouter,
+               
             );
           },
         ),

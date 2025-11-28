@@ -10,7 +10,7 @@ import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   //================= Easy Localization Initialization =================//
   await EasyLocalization.ensureInitialized();
   //================= Hydrated Bloc Initialization for themeing =================//

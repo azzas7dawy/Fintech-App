@@ -36,7 +36,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  flutter_inappwebview: ^6.0.0-beta.27
+  flutter_paypal_payment: ^1.0.8
   flutter_screenutil: ^5.9.3
+  flutter_stripe: 11.5.0
   flutter_svg: ^2.2.3
   freezed_annotation: any
   get_it: ^8.2.0
@@ -44,15 +47,18 @@ dependencies:
   google_fonts: ^6.3.2
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  http: ^1.6.0
   hydrated_bloc: ^10.1.1
   path_provider: ^2.1.5
+  pay: ^3.3.0
   pretty_dio_logger: ^1.4.0
   redacted: ^1.0.13
   retrofit: ^4.7.3
   retrofit_generator: any
   shared_preferences: ^2.5.3
+  url_launcher: ^6.3.2
+  webview_flutter: ^4.13.0
 dev_dependencies:
-
   analyzer: any
 
   #A build system for Dart code generation and modular compilation.c
