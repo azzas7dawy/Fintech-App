@@ -23,7 +23,7 @@ class CustomToggleSwitch extends StatelessWidget {
         decoration: BoxDecoration(
           color: isDark
               ? AppColors.mainColor
-              : AppColors.grayColor.withOpacity(0.3),
+              : AppColors.grayColor.withValues(alpha: 0.3),
           borderRadius: BorderRadius.circular(14.0.r),
         ),
         child: Stack(
@@ -41,7 +41,7 @@ class CustomToggleSwitch extends StatelessWidget {
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
+                      color: Colors.black.withValues(alpha: 0.2),
                       blurRadius: 4.0,
                       offset: const Offset(0, 2),
                     ),
