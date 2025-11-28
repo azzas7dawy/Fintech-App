@@ -23,7 +23,7 @@ class CoinsApp extends StatelessWidget {
           builder: (context, newMode) {
             log('the mode is $newMode');
             return MaterialApp.router(
-               localizationsDelegates: context.localizationDelegates,
+              localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
               locale: context.locale,
               title: 'Theme App',
@@ -31,10 +31,9 @@ class CoinsApp extends StatelessWidget {
               theme: getLightModeTheme(),
               darkTheme: getDarkModeTheme(),
               themeMode: newMode,
-           
+
               // home: const ToggleThemeScreen(),
-               routerConfig: appRouter,
-               
+              routerConfig: appRouter,
             );
           },
         ),
