@@ -12,6 +12,11 @@ class AppColors {
   static const gray500 = Color(0xff666D80);
   static const gray700 = Color(0xff272835);
   static const gray800 = Color(0xff1A1B25);
-  
+   static const Color primary = Color(0xFF18191F);
+  static const Color background = Color(0xFFF4F6FB);
+  static const Color textPrimary = Color(0xFF18191F);
+  static const Color textSecondary = Color(0xFF9EA4B0);
+  static const Color buttonText = Color(0xFFFFFFFF);
+  static const Color inputBorder = Color(0xFFE1E4EB);
   static const shadowColor = Color(0xFF0D0D12);
 }

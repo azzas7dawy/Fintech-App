@@ -25,7 +25,7 @@ class CoinsApp extends StatelessWidget {
               title: 'Theme App',
               debugShowCheckedModeBanner: false,
               theme: getLightModeTheme(),
-              darkTheme: getDarkModeTheme(),
+              darkTheme: getLightModeTheme(),
               themeMode: newMode,
               // home: const ToggleThemeScreen(),
                routerConfig: appRouter,
