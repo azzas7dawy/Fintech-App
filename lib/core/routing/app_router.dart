@@ -1,11 +1,4 @@
 // TODO: Do NOT add screen imports here. Add them in routes_exports.dart instead.
-
-import 'package:fintech_app/core/routing/routes.dart';
-import 'package:fintech_app/features/payment/presentation/cubits/payment_cubit.dart';
-import 'package:fintech_app/features/payment/presentation/pages/buy_screen.dart';
-import 'package:fintech_app/features/payment/presentation/pages/payment_method_screen.dart';
-import 'package:fintech_app/features/market/ui/screens/coins_details_screen.dart';
-import 'package:fintech_app/features/home/ui/screens/home_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes_exports.dart';
 import 'package:go_router/go_router.dart';
@@ -16,7 +9,7 @@ final GoRouter appRouter = GoRouter(
     // Home
     GoRoute(
       path: Routes.homePage,
-      name: 'home page',
+      name: Routes.homePage,
       builder: (context, state) => const HomePage(),
     ),
 
@@ -43,16 +36,11 @@ final GoRouter appRouter = GoRouter(
       name: Routes.coinDetails,
       builder: (context, state) => const CoinDetailsScreen(),
     ),
-    GoRoute(
-      path: Routes.coinsDetailsScreen,
-      name: 'coins details screen',
-      builder: (context, state) => const CoinsDetailsScreen(),
-    ),
 
     // Payment routes
     GoRoute(
       path: Routes.buyCryptoScreen,
-      name: 'buy',
+      name: Routes.buyCryptoScreen,
       builder: (context, state) => BlocProvider(
         create: (_) => PaymentCubit(),
         child: const BuyCryptoPage(),
@@ -60,7 +48,7 @@ final GoRouter appRouter = GoRouter(
     ),
     GoRoute(
       path: Routes.paymentMethodScreen,
-      name: 'payment',
+      name: Routes.paymentMethodScreen,
       builder: (context, state) => const PaymentMethodScreen(amount: 100.0),
     ),
   ],
