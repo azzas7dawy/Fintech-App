@@ -22,14 +22,14 @@ class PriceHeaderRow extends StatelessWidget {
               '\$54,382.64',
               textAlign: TextAlign.center,
               style: AppTextStyles.styles.latoW700S32.copyWith(
-                color: isDark ? AppColors.white : AppColors.darkGreen,
+                color: isDark ? AppColors.white : AppColors.successDark,
               ),
             ),
             Text(
               '/ 1 BTC',
               textAlign: TextAlign.center,
               style: AppTextStyles.styles.latoW700S14.copyWith(
-                color: AppColors.gray,
+                color: AppColors.textDisabled,
               ),
             ),
           ],
@@ -38,7 +38,7 @@ class PriceHeaderRow extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(8.r),
           decoration: ShapeDecoration(
-            color: isDark ? AppColors.white : AppColors.mainColor,
+            color: isDark ? AppColors.white : AppColors.primaryDark,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.r),
             ),
@@ -51,17 +51,13 @@ class PriceHeaderRow extends StatelessWidget {
             children: [
               Icon(
                 Icons.call_made_outlined,
-                color: isDark
-                    ? AppColors.darkModeContainerColor
-                    : AppColors.white,
+                color: isDark ? AppColors.containerDark : AppColors.white,
               ),
               Text(
                 '15.3%',
                 textAlign: TextAlign.center,
                 style: AppTextStyles.styles.latoW700S12.copyWith(
-                  color: isDark
-                      ? AppColors.darkModeContainerColor
-                      : AppColors.white,
+                  color: isDark ? AppColors.containerDark : AppColors.white,
                 ),
               ),
             ],

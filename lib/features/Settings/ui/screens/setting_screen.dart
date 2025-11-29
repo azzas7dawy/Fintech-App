@@ -32,7 +32,7 @@ class SettingScreen extends StatelessWidget {
                 Text(
                   TranslationKeys.settings.tr(),
                   style: AppTextStyles.styles.latoW700S24.copyWith(
-                    color: isDark ? Colors.white : AppColors.mainColor,
+                    color: isDark ? Colors.white : AppColors.primaryDark,
                   ),
                 ),
                 SizedBox(height: 23.0.h),
@@ -45,7 +45,7 @@ class SettingScreen extends StatelessWidget {
                 Text(
                   TranslationKeys.general.tr(),
                   style: AppTextStyles.styles.latoW600S16.copyWith(
-                    color: isDark ? Colors.white : AppColors.mainColor,
+                    color: isDark ? Colors.white : AppColors.primaryDark,
                   ),
                 ),
                 SizedBox(height: 20.0.h),
@@ -59,7 +59,7 @@ class SettingScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15.0.h),
                 Divider(
-                  color: AppColors.grayColor,
+                  color: AppColors.neutral500,
                   endIndent: 4.0.w,
                   indent: 4.0.w,
                 ),
@@ -71,7 +71,7 @@ class SettingScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15.0.h),
                 Divider(
-                  color: AppColors.grayColor,
+                  color: AppColors.neutral500,
                   endIndent: 4.0.w,
                   indent: 4.0.w,
                 ),
@@ -86,7 +86,7 @@ class SettingScreen extends StatelessWidget {
                 Text(
                   TranslationKeys.settings.tr(),
                   style: AppTextStyles.styles.latoW600S16.copyWith(
-                    color: isDark ? Colors.white : AppColors.mainColor,
+                    color: isDark ? Colors.white : AppColors.primaryDark,
                   ),
                 ),
                 SizedBox(height: 20.0.h),
@@ -99,7 +99,7 @@ class SettingScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15.0.h),
                 Divider(
-                  color: AppColors.grayColor,
+                  color: AppColors.neutral500,
                   endIndent: 4.0.w,
                   indent: 4.0.w,
                 ),
@@ -110,15 +110,15 @@ class SettingScreen extends StatelessWidget {
                     CircleAvatar(
                       radius: 15.0.r,
                       backgroundColor: isDark
-                          ? AppColors.mainColor
-                          : AppColors.blueColor,
+                          ? AppColors.primaryDark
+                          : AppColors.infoSecondary,
                       child: SvgPicture.asset(Assets.imagesMoon),
                     ),
                     SizedBox(width: 15.0.w),
                     Text(
                       TranslationKeys.darkMode.tr(),
                       style: AppTextStyles.styles.latoW600S16.copyWith(
-                        color: isDark ? Colors.white : AppColors.mainColor,
+                        color: isDark ? Colors.white : AppColors.primaryDark,
                       ),
                     ),
                     const Spacer(),

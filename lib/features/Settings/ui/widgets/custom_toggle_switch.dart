@@ -22,8 +22,8 @@ class CustomToggleSwitch extends StatelessWidget {
         height: 28.0.h,
         decoration: BoxDecoration(
           color: isDark
-              ? AppColors.mainColor
-              : AppColors.grayColor.withValues(alpha: 0.3),
+              ? AppColors.primaryDark
+              : AppColors.neutral500.withValues(alpha: 0.3),
           borderRadius: BorderRadius.circular(14.0.r),
         ),
         child: Stack(

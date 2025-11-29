@@ -7,26 +7,18 @@ import 'package:fintech_app/features/payment/presentation/widgets/custom_bottom_
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-enum PaymentMethod {
-  card,
-  googlePay,
-  mobileBanking,
-}
+enum PaymentMethod { card, googlePay, mobileBanking }
 
 class PaymentMethodScreen extends StatefulWidget {
   final double amount;
 
-  const PaymentMethodScreen({
-    super.key,
-    required this.amount,
-  });
+  const PaymentMethodScreen({super.key, required this.amount});
 
   @override
   State<PaymentMethodScreen> createState() => _PaymentMethodScreenState();
 }
 
 class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
-  
   PaymentMethod? _selectedMethod;
   bool _sendToEmail = false;
 
@@ -52,8 +44,12 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
           PaymentMethod.mobileBanking => 'Mobile Banking',
           PaymentMethod.card => 'Credit Card',
         };
-   
-        return CustomBottomSheet(methodText: methodText, widget: widget, primaryDark: _primaryDark);
+
+        return CustomBottomSheet(
+          methodText: methodText,
+          widget: widget,
+          primaryDark: _primaryDark,
+        );
       },
     );
   }
@@ -67,14 +63,18 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios,color: AppColors.mainColor,size: 18,),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.primaryDark,
+            size: 18,
+          ),
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
           'Payment method',
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: AppColors.mainColor,
+            color: AppColors.primaryDark,
           ),
         ),
       ),
@@ -98,20 +98,20 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // العنوان + سهم صغير
-                const  Row(
+                  const Row(
                     children: [
-                       Text(
+                      Text(
                         'Credit Card',
                         style: TextStyle(
                           fontSize: 14,
-                          color: AppColors.mainColor,
+                          color: AppColors.primaryDark,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                       Spacer(),
+                      Spacer(),
                       Icon(
                         Icons.keyboard_arrow_up,
-                        color: AppColors.mainColor,
+                        color: AppColors.primaryDark,
                       ),
                     ],
                   ),
@@ -120,16 +120,27 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                   // أزرار فيزا / ماستر كارد / كارد فاضي
                   Row(
                     children: [
-                      buildCardTypeChip('VISA', selected: true,logoImage: Image.asset('assets/images/Mask group.png')),
+                      buildCardTypeChip(
+                        'VISA',
+                        selected: true,
+                        logoImage: Image.asset('assets/images/Mask group.png'),
+                      ),
                       const SizedBox(width: 12),
-                      buildCardTypeChip('', logoImage: Image.asset('assets/images/Mastercard Logo.png')),
+                      buildCardTypeChip(
+                        '',
+                        logoImage: Image.asset(
+                          'assets/images/Mastercard Logo.png',
+                        ),
+                      ),
                       const SizedBox(width: 12),
-                      buildCardTypeChip('',logoImage: Image.asset('assets/images/apple.png')),
+                      buildCardTypeChip(
+                        '',
+                        logoImage: Image.asset('assets/images/apple.png'),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 20),
 
-                 
                   const CustomColoredCard(),
                 ],
               ),
@@ -140,7 +151,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
             // ======= Google Pay =======
             Container(
               decoration: BoxDecoration(
-                 color: Colors.white10,
+                color: Colors.white10,
                 borderRadius: BorderRadius.circular(24),
               ),
               child: Column(
@@ -149,7 +160,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                     title: 'Google Pay',
                     onTap: () => _onSelectMethod(PaymentMethod.googlePay),
                   ),
-                
+
                   buildPaymentRow(
                     title: 'Mobile Banking',
                     onTap: () => _onSelectMethod(PaymentMethod.mobileBanking),
@@ -165,15 +176,16 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
               children: [
                 const Text(
                   'Send receipt to your email',
-                  style: TextStyle(fontSize: 13,
-                  color: AppColors.mainColor,
-                  fontWeight: FontWeight.bold,
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: AppColors.primaryDark,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 const Spacer(),
                 Switch(
                   value: _sendToEmail,
-                  activeColor: AppColors.mainColor,
+                  activeThumbColor: AppColors.primaryDark,
                   activeTrackColor: _primaryDark,
                   onChanged: (value) {
                     setState(() {
@@ -197,9 +209,8 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
             height: 52,
             width: double.infinity,
             child: ElevatedButton(
-              onPressed:
-                 ()async=>_pay(),
-               
+              onPressed: () async => _pay(),
+
               style: ElevatedButton.styleFrom(
                 backgroundColor: _primaryDark,
                 shape: RoundedRectangleBorder(
@@ -211,7 +222,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: Colors.white
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -219,18 +230,15 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         ),
       ),
     );
-    
   }
 }
 
-
-
 Future<dynamic> _pay() async {
-  PaymobManager().getPaymentKey(
-      10,"EGP"
-    ).then((String paymentKey) {
-      launchUrl(
-        Uri.parse("https://accept.paymob.com/api/acceptance/iframes/982007?payment_token=$paymentKey"),
-      );
-    });
+  PaymobManager().getPaymentKey(10, 'EGP').then((String paymentKey) {
+    launchUrl(
+      Uri.parse(
+        'https://accept.paymob.com/api/acceptance/iframes/982007?payment_token=$paymentKey',
+      ),
+    );
+  });
 }

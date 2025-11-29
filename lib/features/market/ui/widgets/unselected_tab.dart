@@ -18,7 +18,7 @@ class UnSelectedTab extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 6.0.h),
       clipBehavior: Clip.antiAlias,
       decoration: ShapeDecoration(
-        color: isDark ? AppColors.darkModeContainerColor : AppColors.white,
+        color: isDark ? AppColors.containerDark : AppColors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
       ),
       child: Row(
@@ -30,7 +30,7 @@ class UnSelectedTab extends StatelessWidget {
             label.tr(),
             textAlign: TextAlign.center,
             style: AppTextStyles.styles.latoW600S14.copyWith(
-              color: isDark ? AppColors.white : AppColors.darkBlue,
+              color: isDark ? AppColors.white : AppColors.surfaceDark,
             ),
           ),
         ],

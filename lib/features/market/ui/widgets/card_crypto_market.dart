@@ -24,12 +24,12 @@ class CardCryptoMarket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: isDark ? AppColors.darkModeContainerColor : AppColors.white,
+      color: isDark ? AppColors.containerDark : AppColors.white,
       elevation: 0.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0.r),
         side: BorderSide(
-          color: isDark ? AppColors.darkModeContainerColor : AppColors.white,
+          color: isDark ? AppColors.containerDark : AppColors.white,
         ),
       ),
       child: Padding(
@@ -45,8 +45,8 @@ class CardCryptoMarket extends StatelessWidget {
               clipBehavior: Clip.antiAlias,
               decoration: ShapeDecoration(
                 color: isDark
-                    ? AppColors.bgCardColorDarkMode
-                    : AppColors.bgCardColorLightMode,
+                    ? AppColors.cardBackgroundDark
+                    : AppColors.cardBackgroundLight,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0.r),
                 ),

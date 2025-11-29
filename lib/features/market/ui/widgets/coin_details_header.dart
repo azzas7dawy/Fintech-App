@@ -19,12 +19,12 @@ class CoinDetailsHeader extends StatelessWidget {
               width: 36.w,
               height: 36.h,
               decoration: BoxDecoration(
-                color: isDark ? AppColors.accentOrange : Colors.white,
+                color: isDark ? AppColors.accent : Colors.white,
                 shape: BoxShape.circle,
               ),
               child: Icon(
                 Icons.currency_bitcoin,
-                color: isDark ? Colors.white : AppColors.accentOrange,
+                color: isDark ? Colors.white : AppColors.accent,
               ),
             ),
             SizedBox(width: 12.w),

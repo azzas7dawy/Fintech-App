@@ -23,7 +23,7 @@ class CoinDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         titleTextStyle: AppTextStyles.styles.latoW700S24.copyWith(
-          color: isDark ? AppColors.white : AppColors.mainColor,
+          color: isDark ? AppColors.white : AppColors.primaryDark,
         ),
         title: Text(TranslationKeys.coinDetails.tr()),
         centerTitle: true,
@@ -33,7 +33,7 @@ class CoinDetailsScreen extends StatelessWidget {
           },
           icon: Icon(
             Icons.arrow_back,
-            color: isDark ? AppColors.white : AppColors.mainColor,
+            color: isDark ? AppColors.white : AppColors.primaryDark,
           ),
         ),
       ),

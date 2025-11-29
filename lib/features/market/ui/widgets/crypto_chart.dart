@@ -17,11 +17,11 @@ class CryptoChart extends StatelessWidget {
       height: 315.h,
       padding: EdgeInsets.all(16.r),
       decoration: BoxDecoration(
-        color: isDark ? AppColors.darkModeContainerColor : AppColors.white,
+        color: isDark ? AppColors.containerDark : AppColors.white,
         borderRadius: BorderRadius.circular(10.r),
         boxShadow: [
           BoxShadow(
-            color: AppColors.gray.withValues(alpha: 0.1),
+            color: AppColors.textDisabled.withValues(alpha: 0.1),
             spreadRadius: 5,
             blurRadius: 10,
           ),

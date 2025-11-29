@@ -28,9 +28,7 @@ class SearchTextField extends StatelessWidget {
             width: 24.0.w,
             height: 24.0.h,
             colorFilter: ColorFilter.mode(
-              isDark
-                  ? AppColors.lightModeIconColor
-                  : AppColors.darkModeIconColor,
+              isDark ? AppColors.iconLight : AppColors.iconDark,
               BlendMode.srcIn,
             ),
           ),
@@ -47,9 +45,7 @@ class SearchTextField extends StatelessWidget {
               width: 24.0.w,
               height: 24.0.h,
               colorFilter: ColorFilter.mode(
-                isDark
-                    ? AppColors.lightModeIconColor
-                    : AppColors.darkModeIconColor,
+                isDark ? AppColors.iconLight : AppColors.iconDark,
                 BlendMode.srcIn,
               ),
             ),
@@ -57,43 +53,39 @@ class SearchTextField extends StatelessWidget {
         ),
         hintText: TranslationKeys.search.tr(),
         hintStyle: AppTextStyles.styles.latoW400S16.copyWith(
-          color: AppColors.gray300,
+          color: AppColors.neutral300,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0.r),
           borderSide: BorderSide(
-            color: isDark ? AppColors.darkModeContainerColor : AppColors.white,
+            color: isDark ? AppColors.containerDark : AppColors.white,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0.r),
           borderSide: BorderSide(
-            color: isDark ? AppColors.darkModeContainerColor : AppColors.white,
+            color: isDark ? AppColors.containerDark : AppColors.white,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0.r),
           borderSide: BorderSide(
-            color: isDark ? AppColors.darkModeContainerColor : AppColors.white,
+            color: isDark ? AppColors.containerDark : AppColors.white,
           ),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0.r),
           borderSide: BorderSide(
-            color: isDark
-                ? AppColors.redColor
-                : AppColors.darkModeContainerColor,
+            color: isDark ? AppColors.errorPrimary : AppColors.containerDark,
           ),
         ),
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0.r),
           borderSide: BorderSide(
-            color: isDark
-                ? AppColors.darkModeContainerColor
-                : AppColors.gray300,
+            color: isDark ? AppColors.containerDark : AppColors.neutral300,
           ),
         ),
-        fillColor: isDark ? AppColors.darkModeContainerColor : AppColors.white,
+        fillColor: isDark ? AppColors.containerDark : AppColors.white,
         filled: true,
       ),
     );

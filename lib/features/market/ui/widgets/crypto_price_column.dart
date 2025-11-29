@@ -24,7 +24,7 @@ class CryptoPriceColumn extends StatelessWidget {
         Text(
           price,
           style: AppTextStyles.styles.latoW700S20.copyWith(
-            color: isDark ? AppColors.lightGreen : AppColors.darkGreen,
+            color: isDark ? AppColors.successLight : AppColors.successDark,
           ),
         ),
         SizedBox(height: 4.0.h),
@@ -33,8 +33,8 @@ class CryptoPriceColumn extends StatelessWidget {
           decoration: ShapeDecoration(
             // con
             color: percentage.startsWith('-')
-                ? AppColors.redColor.withValues(alpha: 0.8)
-                : AppColors.greenLightMode.withValues(alpha: 0.8),
+                ? AppColors.errorPrimary.withValues(alpha: 0.8)
+                : AppColors.successPrimaryLight.withValues(alpha: 0.8),
 
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.r),
@@ -47,16 +47,12 @@ class CryptoPriceColumn extends StatelessWidget {
                     ? Icons.call_received_outlined
                     : Icons.call_made_outlined,
                 size: 16.0.sp,
-                color: isDark
-                    ? AppColors.darkModeContainerColor
-                    : AppColors.white,
+                color: isDark ? AppColors.containerDark : AppColors.white,
               ),
               Text(
                 percentage,
                 style: AppTextStyles.styles.latoW400S16.copyWith(
-                  color: isDark
-                      ? AppColors.darkModeContainerColor
-                      : AppColors.white,
+                  color: isDark ? AppColors.containerDark : AppColors.white,
                 ),
               ),
             ],

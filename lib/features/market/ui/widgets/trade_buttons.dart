@@ -21,11 +21,11 @@ class TradeButtons extends StatelessWidget {
             title: TranslationKeys.sell.tr(),
             onPressed: () {},
             backgroundColor: isDark
-                ? AppColors.redButtonColorDarkMode
-                : AppColors.redButtonColorLightMode,
+                ? AppColors.errorBackgroundDark
+                : AppColors.errorBackgroundLight,
             textColor: isDark
-                ? AppColors.redTextColorDarkMode
-                : AppColors.redTextColorLightMode,
+                ? AppColors.errorTextDark
+                : AppColors.errorTextLight,
           ),
         ),
         SizedBox(width: 10.w),

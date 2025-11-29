@@ -27,20 +27,22 @@ class SettingItem extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 15.0.r,
-            backgroundColor: isDark ? AppColors.mainColor : AppColors.blueColor,
+            backgroundColor: isDark
+                ? AppColors.primaryDark
+                : AppColors.infoSecondary,
             child: SvgPicture.asset(iconName),
           ),
           SizedBox(width: 15.0.w),
           Text(
             title,
             style: AppTextStyles.styles.latoW600S16.copyWith(
-              color: isDark ? Colors.white : AppColors.mainColor,
+              color: isDark ? Colors.white : AppColors.primaryDark,
             ),
           ),
           const Spacer(),
           Icon(
             Icons.arrow_forward_ios,
-            color: isDark ? Colors.white : AppColors.mainColor,
+            color: isDark ? Colors.white : AppColors.primaryDark,
           ),
         ],
       ),

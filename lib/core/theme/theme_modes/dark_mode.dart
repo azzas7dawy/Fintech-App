@@ -32,7 +32,7 @@ ThemeData getDarkModeTheme() {
         foregroundColor: AppColors.primaryDark,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
-          side: const BorderSide(color: AppColors.borderColor),
+          side: const BorderSide(color: AppColors.borderPrimary),
         ),
         textStyle: AppTextStyles.styles.latoW400S14,
       ),
@@ -47,17 +47,17 @@ ThemeData getDarkModeTheme() {
         borderSide: BorderSide(color: Colors.black45),
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
-      errorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.errorColor),
-        borderRadius: const BorderRadius.all(Radius.circular(8)),
+      errorBorder: const OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.errorPrimary),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       disabledBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: Colors.grey),
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
-      focusedBorder: OutlineInputBorder(
+      focusedBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.primary),
-        borderRadius: const BorderRadius.all(Radius.circular(8)),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       fillColor: AppColors.surfaceVariant,
       filled: true,

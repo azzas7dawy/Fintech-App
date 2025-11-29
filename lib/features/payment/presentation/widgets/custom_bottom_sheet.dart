@@ -1,4 +1,3 @@
-
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/features/payment/presentation/pages/payment_method_screen.dart';
 import 'package:flutter/material.dart';
@@ -36,28 +35,31 @@ class CustomBottomSheet extends StatelessWidget {
           ),
           Text(
             'Selected payment method',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium?.copyWith(color: Colors.black54),
           ),
           const SizedBox(height: 4),
           Text(
             methodText,
-            style: Theme.of(context)
-                .textTheme
-                .titleLarge
-                ?.copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           Text(
             'Amount to pay',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium?.copyWith(color: Colors.black54),
           ),
           const SizedBox(height: 4),
           Text(
             '${widget.amount.toStringAsFixed(2)} EGP',
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall
-                ?.copyWith(fontWeight: FontWeight.bold, color: _primaryDark),
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: _primaryDark,
+            ),
           ),
           const SizedBox(height: 24),
           SizedBox(
@@ -72,9 +74,12 @@ class CustomBottomSheet extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                 ),
               ),
-              child: const Text('OK', style: TextStyle(fontSize: 16,color: AppColors.mainColor,) )),
+              child: const Text(
+                'OK',
+                style: TextStyle(fontSize: 16, color: AppColors.primaryDark),
+              ),
             ),
-          
+          ),
         ],
       ),
     );

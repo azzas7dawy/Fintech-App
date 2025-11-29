@@ -15,7 +15,7 @@ class FeeRow extends StatelessWidget {
           children: [
             Expanded(
               child: Card(
-                color: AppColors.darkLightContainerColor,
+                color: AppColors.containerLight,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -29,14 +29,24 @@ class FeeRow extends StatelessWidget {
                           color: Colors.orange.shade100,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Image(image: AssetImage('assets/images/Rectangle 897.png')),
+                        child: const Image(
+                          image: AssetImage('assets/images/Rectangle 897.png'),
+                        ),
                       ),
                       const SizedBox(width: 12),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('Exchange fee',style: TextStyle(color: AppColors.darkLightGroundColor),),
-                          Text('${state.feePercent}%',style: TextStyle(color: AppColors.mainColor),),
+                          const Text(
+                            'Exchange fee',
+                            style: TextStyle(color: AppColors.neutral700),
+                          ),
+                          Text(
+                            '${state.feePercent}%',
+                            style: const TextStyle(
+                              color: AppColors.primaryDark,
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -52,13 +62,12 @@ class FeeRow extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   '\$26',
                   style: TextStyle(
-                  
                     fontSize: 25,
-                    color:AppColors.mainColor,
+                    color: AppColors.primaryDark,
                     // Theme.of(context).primaryColor,
                   ),
                 ),

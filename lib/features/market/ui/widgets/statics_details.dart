@@ -19,7 +19,7 @@ class StaticsDetails extends StatelessWidget {
         Text(
           TranslationKeys.statics.tr(),
           style: AppTextStyles.styles.latoW600S18.copyWith(
-            color: isDark ? AppColors.white : AppColors.darkBlue,
+            color: isDark ? AppColors.white : AppColors.surfaceDark,
           ),
         ),
         StaticsItem(
@@ -49,9 +49,7 @@ class DividerStatics extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = context.isDarkMode;
     return Divider(
-      color: isDark
-          ? AppColors.dividerColorDarkMode
-          : AppColors.dividerColorLightMode,
+      color: isDark ? AppColors.dividerDark : AppColors.dividerLight,
       height: 1,
     );
   }
@@ -72,7 +70,7 @@ class StaticsItem extends StatelessWidget {
         Text(
           title,
           style: AppTextStyles.styles.latoW400S12.copyWith(
-            color: isDark ? AppColors.white : AppColors.darkBlue,
+            color: isDark ? AppColors.white : AppColors.surfaceDark,
           ),
         ),
         IconButton(
@@ -80,16 +78,14 @@ class StaticsItem extends StatelessWidget {
           icon: Icon(
             Icons.info_rounded,
             size: 12.sp,
-            color: isDark
-                ? AppColors.infoColorDarkMode
-                : AppColors.infoColorLightMode,
+            color: isDark ? AppColors.infoDark : AppColors.infoLight,
           ),
         ),
         const Spacer(),
         Text(
           value,
           style: AppTextStyles.styles.latoW500S14.copyWith(
-            color: isDark ? AppColors.white : AppColors.darkBlue,
+            color: isDark ? AppColors.white : AppColors.surfaceDark,
           ),
         ),
       ],

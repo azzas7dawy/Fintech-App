@@ -19,14 +19,14 @@ class AboutCoinDetails extends StatelessWidget {
         Text(
           TranslationKeys.aboutCoin.tr(namedArgs: {'name': 'Bitcoin'}),
           style: AppTextStyles.styles.latoW600S18.copyWith(
-            color: context.isDarkMode ? AppColors.white : AppColors.darkBlue,
+            color: context.isDarkMode ? AppColors.white : AppColors.surfaceDark,
           ),
         ),
         SizedBox(height: 20.h),
         Text(
           'Bitcoin is a decentralized cryptocurrency originally described in a 2008 whitepaper by a person, or group of people, using the alias Satoshi Nakamoto. It was launched soon after, in January 2009.',
           style: AppTextStyles.styles.latoW400S16.copyWith(
-            color: isDark ? AppColors.white : AppColors.gray,
+            color: isDark ? AppColors.white : AppColors.textDisabled,
             height: 1.50,
           ),
           textAlign: TextAlign.start,

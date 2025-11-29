@@ -14,20 +14,17 @@ class BuyCryptoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-backgroundColor: const Color.fromARGB(223, 247, 244, 244),
+      backgroundColor: const Color.fromARGB(223, 247, 244, 244),
       appBar: AppBar(
-        backgroundColor: AppColors.darkLightGroundColor,
-        title:const Row(
+        backgroundColor: AppColors.neutral700,
+        title: const Row(
           children: [
-            Icon(Icons.arrow_back_ios,color: AppColors.mainColor,),
-            SizedBox(width: 50,),
-             Text('Buy Crypto',
-                   style: TextStyle(
-             color: AppColors.mainColor
-                   ),
-                   ),
+            Icon(Icons.arrow_back_ios, color: AppColors.primaryDark),
+            SizedBox(width: 50),
+            Text('Buy Crypto', style: TextStyle(color: AppColors.primaryDark)),
           ],
-        )),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -51,10 +48,8 @@ backgroundColor: const Color.fromARGB(223, 247, 244, 244),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
               child: PrimaryButton(
                 text: 'Continue',
-        
-                onPressed: () =>
-                context.go('/paymentMethodScreen',
-                ),
+
+                onPressed: () => context.go('/paymentMethodScreen'),
 
                 //  Navigator.of(context).push(
                 //   MaterialPageRoute(builder: (_) => const PaymentMethodPage()),

@@ -13,12 +13,12 @@ class AmountCard extends StatelessWidget {
     final theme = Theme.of(context);
     final cardBg = theme.brightness == Brightness.dark
         ? AppColors
-              .darkLightContainerColor // dark card color similar to screenshot
-        : AppColors.darkModeContainerColor;
+              .containerLight // dark card color similar to screenshot
+        : AppColors.containerDark;
     final innerBg = theme.brightness == Brightness.dark
         ? AppColors
-              .darkModeContainerColor // dark card color similar to screenshot
-        : AppColors.darkLightContainerColor;
+              .containerDark // dark card color similar to screenshot
+        : AppColors.containerLight;
 
     return BlocBuilder<PaymentCubit, PaymentState>(
       builder: (context, state) {
@@ -46,7 +46,7 @@ class AmountCard extends StatelessWidget {
               // "You Pay" label (no toggle)
               const Text(
                 'You Pay',
-                style: TextStyle(color: AppColors.gray, fontSize: 13),
+                style: TextStyle(color: AppColors.textDisabled, fontSize: 13),
               ),
               const SizedBox(height: 6),
               Row(
@@ -57,8 +57,8 @@ class AmountCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 22,
                         color: theme.brightness == Brightness.dark
-                            ? AppColors.mainColor
-                            : AppColors.darkModeContainerColor,
+                            ? AppColors.primaryDark
+                            : AppColors.containerDark,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -70,7 +70,7 @@ class AmountCard extends StatelessWidget {
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.darkLightContainerColor,
+                      color: AppColors.containerLight,
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: Row(
@@ -85,7 +85,7 @@ class AmountCard extends StatelessWidget {
                           state.payCurrency,
                           style: TextStyle(
                             color: theme.brightness == Brightness.dark
-                                ? AppColors.mainColor
+                                ? AppColors.primaryDark
                                 : Colors.black87,
                           ),
                         ),
@@ -93,7 +93,7 @@ class AmountCard extends StatelessWidget {
                         const Icon(
                           Icons.keyboard_arrow_down,
                           size: 18,
-                          color: AppColors.mainColor,
+                          color: AppColors.primaryDark,
                         ),
                       ],
                     ),
@@ -125,7 +125,7 @@ class AmountCard extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.mainColor,
+                        color: AppColors.primaryDark,
                       ),
                     ),
                   ),
@@ -135,7 +135,7 @@ class AmountCard extends StatelessWidget {
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.darkLightContainerColor,
+                      color: AppColors.containerLight,
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: Row(
@@ -146,7 +146,7 @@ class AmountCard extends StatelessWidget {
                           height: 26,
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
-                            color: AppColors.darkModeBackGroundColor,
+                            color: AppColors.backgroundDark,
                           ),
                           child: Center(
                             child: Text(
@@ -160,13 +160,13 @@ class AmountCard extends StatelessWidget {
                         const SizedBox(width: 8),
                         Text(
                           state.receiveCurrency,
-                          style: const TextStyle(color: AppColors.mainColor),
+                          style: const TextStyle(color: AppColors.primaryDark),
                         ),
                         const SizedBox(width: 4),
                         const Icon(
                           Icons.keyboard_arrow_down,
                           size: 18,
-                          color: AppColors.mainColor,
+                          color: AppColors.primaryDark,
                         ),
                       ],
                     ),

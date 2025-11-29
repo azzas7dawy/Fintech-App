@@ -20,8 +20,8 @@ class CryptoMarketScreen extends StatelessWidget {
     final isDark = context.isDarkMode;
     return Scaffold(
       backgroundColor: isDark
-          ? AppColors.darkModeBackGroundColor
-          : AppColors.backgroundLightModeColor,
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 20.0.h),
@@ -32,7 +32,7 @@ class CryptoMarketScreen extends StatelessWidget {
                 Text(
                   TranslationKeys.cryptoMarket.tr(),
                   style: AppTextStyles.styles.latoW700S24.copyWith(
-                    color: isDark ? Colors.white : AppColors.mainColor,
+                    color: isDark ? Colors.white : AppColors.primaryDark,
                   ),
                 ),
                 SizedBox(height: 16.0.h),

@@ -17,9 +17,7 @@ class RowNameDetails extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 20.r,
-          backgroundColor: isDark
-              ? AppColors.darkModeContainerColor
-              : AppColors.white,
+          backgroundColor: isDark ? AppColors.containerDark : AppColors.white,
           child: CachedNetworkImage(
             imageUrl:
                 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/96px-Bitcoin.svg.png?20140331024207',
@@ -33,7 +31,7 @@ class RowNameDetails extends StatelessWidget {
         Text(
           'Bitcoin',
           style: AppTextStyles.styles.latoW700S24.copyWith(
-            color: isDark ? AppColors.white : AppColors.mainColor,
+            color: isDark ? AppColors.white : AppColors.primaryDark,
           ),
         ),
       ],

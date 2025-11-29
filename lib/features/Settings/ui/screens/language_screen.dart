@@ -20,19 +20,15 @@ class LanguageScreen extends StatelessWidget {
         title: Text(
           TranslationKeys.language.tr(),
           style: AppTextStyles.styles.latoW600S16.copyWith(
-            color: isDark ? Colors.white : AppColors.mainColor,
+            color: isDark ? Colors.white : AppColors.primaryDark,
           ),
         ),
-        backgroundColor: isDark
-            ? AppColors.darkModeBackGroundColor
-            : Colors.white,
+        backgroundColor: isDark ? AppColors.backgroundDark : Colors.white,
         iconTheme: IconThemeData(
-          color: isDark ? Colors.white : AppColors.mainColor,
+          color: isDark ? Colors.white : AppColors.primaryDark,
         ),
       ),
-      backgroundColor: isDark
-          ? AppColors.darkModeBackGroundColor
-          : Colors.white,
+      backgroundColor: isDark ? AppColors.backgroundDark : Colors.white,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 20.0.h),
@@ -42,7 +38,7 @@ class LanguageScreen extends StatelessWidget {
               Text(
                 TranslationKeys.selectLanguage.tr(),
                 style: AppTextStyles.styles.latoW600S16.copyWith(
-                  color: isDark ? Colors.white : AppColors.mainColor,
+                  color: isDark ? Colors.white : AppColors.primaryDark,
                 ),
               ),
               SizedBox(height: 20.0.h),
@@ -60,7 +56,7 @@ class LanguageScreen extends StatelessWidget {
               ),
               SizedBox(height: 15.0.h),
               Divider(
-                color: AppColors.grayColor,
+                color: AppColors.neutral500,
                 endIndent: 4.0.w,
                 indent: 4.0.w,
               ),
@@ -123,20 +119,20 @@ class _LanguageOption extends StatelessWidget {
             child: Text(
               title,
               style: AppTextStyles.styles.latoW600S16.copyWith(
-                color: isDark ? Colors.white : AppColors.mainColor,
+                color: isDark ? Colors.white : AppColors.primaryDark,
               ),
             ),
           ),
           if (isSelected)
             Icon(
               Icons.check_circle,
-              color: isDark ? Colors.white : AppColors.mainColor,
+              color: isDark ? Colors.white : AppColors.primaryDark,
               size: 24.0.r,
             )
           else
             Icon(
               Icons.radio_button_unchecked,
-              color: AppColors.grayColor,
+              color: AppColors.neutral500,
               size: 24.0.r,
             ),
         ],

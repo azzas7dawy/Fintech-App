@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
+
 class SelectedTab extends StatelessWidget {
   const SelectedTab({super.key, required this.isDark, required this.label});
 
@@ -17,7 +18,7 @@ class SelectedTab extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 6.0.h),
       clipBehavior: Clip.antiAlias,
       decoration: ShapeDecoration(
-        color: isDark ? AppColors.white : AppColors.mainColor,
+        color: isDark ? AppColors.white : AppColors.primaryDark,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
       ),
       child: Row(
@@ -29,7 +30,7 @@ class SelectedTab extends StatelessWidget {
             label.tr(),
             textAlign: TextAlign.center,
             style: AppTextStyles.styles.latoW600S14.copyWith(
-              color: isDark ? AppColors.darkModeTextColor : AppColors.white,
+              color: isDark ? AppColors.textDark : AppColors.white,
             ),
           ),
         ],

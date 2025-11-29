@@ -19,7 +19,7 @@ class BuildChart extends StatelessWidget {
           horizontalInterval: 1,
           getDrawingHorizontalLine: (value) {
             return const FlLine(
-              color: AppColors.gridColorLightMode,
+              color: AppColors.gridLight,
               strokeWidth: .5,
               dashArray: [10, 10],
             );
@@ -86,7 +86,7 @@ class BuildChart extends StatelessWidget {
               FlSpot(24, 4.8),
             ],
             isCurved: true, // عشان الخط يبقى Smooth Curve
-            color: context.isDarkMode ? AppColors.white : AppColors.mainColor,
+            color: context.isDarkMode ? AppColors.white : AppColors.primaryDark,
             barWidth: 1.5,
             isStrokeCapRound: true,
             dotData: const FlDotData(show: false),
@@ -96,8 +96,8 @@ class BuildChart extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  AppColors.darkBlue.withValues(alpha: 0.8),
-                  AppColors.darkBlue.withValues(alpha: 0.1),
+                  AppColors.surfaceDark.withValues(alpha: 0.8),
+                  AppColors.surfaceDark.withValues(alpha: 0.1),
                 ],
               ),
             ),
@@ -114,7 +114,7 @@ class BuildChart extends StatelessWidget {
                       getDotPainter: (spot, percent, barData, index) {
                         return FlDotCirclePainter(
                           radius: 4,
-                          color: AppColors.tooltipColor,
+                          color: AppColors.tooltip,
                           strokeWidth: 2,
                           strokeColor: Colors.white,
                         );
@@ -124,7 +124,7 @@ class BuildChart extends StatelessWidget {
                 }).toList();
               },
           touchTooltipData: LineTouchTooltipData(
-            getTooltipColor: (spot) => AppColors.tooltipColor,
+            getTooltipColor: (spot) => AppColors.tooltip,
             tooltipPadding: EdgeInsets.all(4.r),
             tooltipBorderRadius: BorderRadius.circular(8.r),
             getTooltipItems: (List<LineBarSpot> touchedBarSpots) {
@@ -148,7 +148,9 @@ class BuildChart extends StatelessWidget {
   Widget _bottomTitle(String text) {
     return Text(
       text,
-      style: AppTextStyles.styles.latoW400S12.copyWith(color: AppColors.gray),
+      style: AppTextStyles.styles.latoW400S12.copyWith(
+        color: AppColors.textDisabled,
+      ),
     );
   }
 }

@@ -24,14 +24,14 @@ class CryptoNameColumn extends StatelessWidget {
         Text(
           name,
           style: AppTextStyles.styles.latoW700S20.copyWith(
-            color: isDark ? AppColors.lightGreen : AppColors.darkGreen,
+            color: isDark ? AppColors.successLight : AppColors.successDark,
           ),
         ),
         SizedBox(height: 4.0.h),
         Text(
           symbol,
           style: AppTextStyles.styles.latoW400S16.copyWith(
-            color: AppColors.gray,
+            color: AppColors.textDisabled,
           ),
         ),
       ],

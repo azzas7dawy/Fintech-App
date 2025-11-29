@@ -21,7 +21,7 @@ class BuildTimeSelector extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
           decoration: isSelected
               ? BoxDecoration(
-                  color: isDark ? AppColors.white : AppColors.mainColor,
+                  color: isDark ? AppColors.white : AppColors.primaryDark,
                   borderRadius: BorderRadius.circular(8.r),
                 )
               : null,
@@ -30,9 +30,9 @@ class BuildTimeSelector extends StatelessWidget {
             style: AppTextStyles.styles.latoW600S12.copyWith(
               color: isSelected
                   ? context.isDarkMode
-                        ? AppColors.darkModeContainerColor
+                        ? AppColors.containerDark
                         : AppColors.white
-                  : AppColors.gray,
+                  : AppColors.textDisabled,
             ),
           ),
         );

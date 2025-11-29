@@ -28,7 +28,7 @@ class ProfileHeader extends StatelessWidget {
                 ? Icon(
                     Icons.person,
                     size: 80.0.r,
-                    color: isDark ? Colors.white : AppColors.mainColor,
+                    color: isDark ? Colors.white : AppColors.primaryDark,
                   )
                 : null,
           ),
@@ -39,7 +39,7 @@ class ProfileHeader extends StatelessWidget {
           child: Text(
             userName,
             style: AppTextStyles.styles.latoW700S20.copyWith(
-              color: isDark ? Colors.white : AppColors.mainColor,
+              color: isDark ? Colors.white : AppColors.primaryDark,
             ),
           ),
         ),

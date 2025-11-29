@@ -45,7 +45,7 @@ ThemeData getLightModeTheme() {
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       errorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.errorColor),
+        borderSide: BorderSide(color: AppColors.errorPrimary),
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       disabledBorder: OutlineInputBorder(

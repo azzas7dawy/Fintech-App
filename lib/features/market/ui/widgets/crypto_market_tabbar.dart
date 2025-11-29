@@ -28,9 +28,9 @@ class CryptoMarketTabBar extends StatelessWidget {
       builder: (context, child) {
         return TabBar(
           isScrollable: true,
-          indicatorColor: isDark ? Colors.white : AppColors.mainColor,
-          labelColor: isDark ? Colors.white : AppColors.mainColor,
-          unselectedLabelColor: AppColors.gray300,
+          indicatorColor: isDark ? Colors.white : AppColors.primaryDark,
+          labelColor: isDark ? Colors.white : AppColors.primaryDark,
+          unselectedLabelColor: AppColors.neutral300,
           labelStyle: AppTextStyles.styles.latoW600S16,
           tabAlignment: TabAlignment.start,
           dividerColor: Colors.transparent,
