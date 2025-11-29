@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 ThemeData getLightModeTheme() {
   return ThemeData(
     brightness: Brightness.light,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: AppColors.lightModeBackGroundColor,
 
     //=======================  الحاجات اللي مش بتاخد لون زي مثلا ال مسطره
     colorScheme: ColorScheme.fromSeed(
@@ -15,7 +15,7 @@ ThemeData getLightModeTheme() {
 
     //======================= app bar =======================
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.lightModeBackGroundColor,
       foregroundColor: AppColors.mainColor,
       titleTextStyle: AppTextStyles.styles.latoW600S24,
     ),
