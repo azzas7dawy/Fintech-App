@@ -16,7 +16,7 @@ class BuyCryptoPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(223, 247, 244, 244),
       appBar: AppBar(
-        backgroundColor: AppColors.neutral700,
+        backgroundColor: Colors.white,
         title: const Row(
           children: [
             Icon(Icons.arrow_back_ios, color: AppColors.primaryDark),

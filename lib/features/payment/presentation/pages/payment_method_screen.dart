@@ -123,13 +123,13 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                       buildCardTypeChip(
                         'VISA',
                         selected: true,
-                        logoImage: Image.asset('assets/images/Mask group.png'),
+                        logoImage: Image.asset('assets/images/Maskgroup.png'),
                       ),
                       const SizedBox(width: 12),
                       buildCardTypeChip(
                         '',
                         logoImage: Image.asset(
-                          'assets/images/Mastercard Logo.png',
+                          'assets/images/MastercardLogo.png',
                         ),
                       ),
                       const SizedBox(width: 12),

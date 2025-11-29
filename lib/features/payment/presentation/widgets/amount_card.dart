@@ -11,10 +11,8 @@ class AmountCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // pick card bg depending on theme (so works light/dark)
     final theme = Theme.of(context);
-    final cardBg = theme.brightness == Brightness.dark
-        ? AppColors
-              .containerLight // dark card color similar to screenshot
-        : AppColors.containerDark;
+
+
     final innerBg = theme.brightness == Brightness.dark
         ? AppColors
               .containerDark // dark card color similar to screenshot
@@ -26,7 +24,7 @@ class AmountCard extends StatelessWidget {
           // use Container to get custom shadow + radius similar to design
           margin: const EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
-            color: cardBg,
+            color: AppColors.containerLight,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               // subtle soft shadow

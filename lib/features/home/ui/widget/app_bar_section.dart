@@ -48,9 +48,9 @@ class AppBarSection extends StatelessWidget {
         ),
 
         SizedBox(width: 8.w),
-        const IconForToggleMode(),
+        //const IconForToggleMode(),
         SizedBox(width: 8.w),
-        const LanguageToggleButton(),
+        //const LanguageToggleButton(),
       ],
     );
   }

@@ -30,7 +30,7 @@ class FeeRow extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: const Image(
-                          image: AssetImage('assets/images/Rectangle 897.png'),
+                          image: AssetImage('assets/images/Rectangle897.png'),
                         ),
                       ),
                       const SizedBox(width: 12),
