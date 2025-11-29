@@ -1,156 +1,114 @@
 import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
+import '../../data/models/chart_config_model.dart';
+import 'chart_builders/grid_configuration.dart';
+import 'chart_builders/touch_configuration.dart';
 
 class BuildChart extends StatelessWidget {
-  const BuildChart({super.key});
+  final ChartConfigModel? config;
+
+  const BuildChart({super.key, this.config});
 
   @override
   Widget build(BuildContext context) {
+    final chartConfig = config ?? ChartConfigModel.mock();
+    final isDarkMode = context.isDarkMode;
+
     return LineChart(
       LineChartData(
-        gridData: FlGridData(
-          show: true,
-          drawVerticalLine: false,
-          horizontalInterval: 1,
-          getDrawingHorizontalLine: (value) {
-            return const FlLine(
-              color: AppColors.gridLight,
-              strokeWidth: .5,
-              dashArray: [10, 10],
-            );
-          },
-        ),
-        titlesData: FlTitlesData(
-          show: true,
-          rightTitles: const AxisTitles(
-            sideTitles: SideTitles(showTitles: false),
-          ),
-          topTitles: const AxisTitles(
-            sideTitles: SideTitles(showTitles: false),
-          ),
-          leftTitles: const AxisTitles(
-            sideTitles: SideTitles(showTitles: false),
-          ),
-          bottomTitles: AxisTitles(
-            sideTitles: SideTitles(
-              showTitles: true,
-
-              getTitlesWidget: (value, meta) {
-                // تحويل الأرقام لساعات وهمية للمثال
-                switch (value.toInt()) {
-                  case 0:
-                    return _bottomTitle('00.00');
-                  case 4:
-                    return _bottomTitle('04.00');
-                  case 8:
-                    return _bottomTitle('08.00');
-                  case 12:
-                    return _bottomTitle('12.00');
-                  case 16:
-                    return _bottomTitle('16.00');
-                  case 20:
-                    return _bottomTitle('20.00');
-                  case 24:
-                    return _bottomTitle('23.59');
-                }
-                return const SizedBox();
-              },
-              interval: 4,
-            ),
-          ),
-        ),
+        gridData: ChartGridConfiguration.buildGridData(),
+        titlesData: _buildTitlesData(chartConfig),
         borderData: FlBorderData(show: false),
-        minX: -1,
-        maxX: 25,
-        minY: 1.3,
-        maxY: 5.5,
-        lineBarsData: [
-          LineChartBarData(
-            spots: const [
-              FlSpot(-1, 3),
-              FlSpot(2, 4),
-              FlSpot(5, 3.2),
-              FlSpot(8, 4.5),
-              FlSpot(10, 3.8),
-              FlSpot(13, 3.8),
-              FlSpot(15, 2.5),
-              FlSpot(17, 4.5),
-              FlSpot(19, 3.5),
-              FlSpot(21, 5.5), // القمة العالية
-              FlSpot(22.5, 4),
-              FlSpot(24, 4.8),
-            ],
-            isCurved: true, // عشان الخط يبقى Smooth Curve
-            color: context.isDarkMode ? AppColors.white : AppColors.primaryDark,
-            barWidth: 1.5,
-            isStrokeCapRound: true,
-            dotData: const FlDotData(show: false),
-            belowBarData: BarAreaData(
-              show: true,
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  AppColors.surfaceDark.withValues(alpha: 0.8),
-                  AppColors.surfaceDark.withValues(alpha: 0.1),
-                ],
-              ),
-            ),
-          ),
-        ],
-
-        lineTouchData: LineTouchData(
-          getTouchedSpotIndicator:
-              (LineChartBarData barData, List<int> spotIndexes) {
-                return spotIndexes.map((spotIndex) {
-                  return TouchedSpotIndicatorData(
-                    const FlLine(color: Colors.transparent), // إخفاء خط المؤشر
-                    FlDotData(
-                      getDotPainter: (spot, percent, barData, index) {
-                        return FlDotCirclePainter(
-                          radius: 4,
-                          color: AppColors.tooltip,
-                          strokeWidth: 2,
-                          strokeColor: Colors.white,
-                        );
-                      },
-                    ),
-                  );
-                }).toList();
-              },
-          touchTooltipData: LineTouchTooltipData(
-            getTooltipColor: (spot) => AppColors.tooltip,
-            tooltipPadding: EdgeInsets.all(4.r),
-            tooltipBorderRadius: BorderRadius.circular(8.r),
-            getTooltipItems: (List<LineBarSpot> touchedBarSpots) {
-              return touchedBarSpots.map((barSpot) {
-                return LineTooltipItem(
-                  '\$${barSpot.y}',
-                  AppTextStyles.styles.latoW600S10.copyWith(
-                    color: AppColors.white,
-                  ),
-                );
-              }).toList();
-            },
-            fitInsideHorizontally: true,
-            fitInsideVertically: true,
-          ),
-        ),
+        minX: chartConfig.minX,
+        maxX: chartConfig.maxX,
+        minY: chartConfig.minY,
+        maxY: chartConfig.maxY,
+        lineBarsData: [_buildLineBarData(chartConfig, isDarkMode)],
+        lineTouchData: ChartTouchConfiguration.buildTouchData(),
       ),
     );
   }
 
-  Widget _bottomTitle(String text) {
+  /// Builds the titles configuration for the chart axes
+  FlTitlesData _buildTitlesData(ChartConfigModel config) {
+    return FlTitlesData(
+      show: true,
+      rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+      topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+      leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+      bottomTitles: _buildBottomTitles(config),
+    );
+  }
+
+  /// Builds the bottom axis titles with time labels
+  AxisTitles _buildBottomTitles(ChartConfigModel config) {
+    return AxisTitles(
+      sideTitles: SideTitles(
+        showTitles: true,
+        getTitlesWidget: (value, meta) {
+          return _getTimeLabel(value);
+        },
+        interval: config.bottomInterval,
+      ),
+    );
+  }
+
+  /// Returns the appropriate time label widget for the given value
+  Widget _getTimeLabel(double value) {
+    final timeLabel = switch (value.toInt()) {
+      0 => '00.00',
+      4 => '04.00',
+      8 => '08.00',
+      12 => '12.00',
+      16 => '16.00',
+      20 => '20.00',
+      24 => '23.59',
+      _ => null,
+    };
+
+    if (timeLabel == null) {
+      return const SizedBox();
+    }
+
+    return _buildTimeLabel(timeLabel);
+  }
+
+  /// Builds a time label text widget with consistent styling
+  Widget _buildTimeLabel(String text) {
     return Text(
       text,
       style: AppTextStyles.styles.latoW400S12.copyWith(
         color: AppColors.textDisabled,
       ),
+    );
+  }
+
+  /// Builds the line bar data with gradient and styling
+  LineChartBarData _buildLineBarData(ChartConfigModel config, bool isDarkMode) {
+    return LineChartBarData(
+      spots: config.dataPoints,
+      isCurved: true,
+      color: isDarkMode ? AppColors.white : AppColors.primaryDark,
+      barWidth: 1.5,
+      isStrokeCapRound: true,
+      dotData: const FlDotData(show: false),
+      belowBarData: BarAreaData(show: true, gradient: _buildGradient()),
+    );
+  }
+
+  /// Builds the gradient for the area below the chart line
+  LinearGradient _buildGradient() {
+    return LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [
+        AppColors.surfaceDark.withValues(alpha: 0.8),
+        AppColors.surfaceDark.withValues(alpha: 0.1),
+      ],
     );
   }
 }
