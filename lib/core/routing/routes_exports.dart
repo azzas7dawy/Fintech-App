@@ -7,3 +7,4 @@ export 'package:fintech_app/features/payment/presentation/cubits/payment_cubit.d
 export 'package:fintech_app/features/payment/presentation/pages/buy_screen.dart';
 export 'package:fintech_app/features/payment/presentation/pages/payment_method_screen.dart';
 export 'package:fintech_app/features/home/ui/screens/home_page.dart';
+export '../main_layout.dart';

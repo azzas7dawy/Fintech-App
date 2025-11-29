@@ -11,22 +11,28 @@ import 'bottom_nav_item.dart';
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
 
+  int _getSelectedIndex(BuildContext context) {
+    final location = GoRouterState.of(context).uri.toString();
+
+    if (location == Routes.homePage) return 0;
+    if (location.startsWith(Routes.cryptoMarket)) return 1;
+    if (location.startsWith(Routes.buyCryptoScreen) ||
+        location.startsWith(Routes.paymentMethodScreen))
+      return 2;
+    if (location.startsWith(Routes.settings)) return 3;
+
+    return 0;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final index = _getSelectedIndex(context);
+
     return Container(
       padding: EdgeInsets.symmetric(vertical: 12.h),
       decoration: BoxDecoration(
         color: context.cardBackground,
         border: Border(top: BorderSide(color: context.cardBorderColor)),
-        boxShadow: context.isDarkMode
-            ? []
-            : [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 10,
-                  offset: const Offset(0, -2),
-                ),
-              ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -34,30 +40,26 @@ class BottomNavBar extends StatelessWidget {
           BottomNavItem(
             image: Assets.iconsHome,
             label: tr('home.nav.home'),
-            isSelected: true,
-            onTap: () {},
+            isSelected: index == 0,
+            onTap: () => context.go(Routes.homePage),
           ),
           BottomNavItem(
             image: Assets.iconsChart,
             label: tr('home.nav.market'),
-            isSelected: false,
-            onTap: () {
-              context.push(Routes.cryptoMarket);
-            },
+            isSelected: index == 1,
+            onTap: () => context.go(Routes.cryptoMarket),
           ),
           BottomNavItem(
             image: Assets.iconsBriefcase,
             label: tr('home.nav.portfolio'),
-            isSelected: false,
-            onTap: () {},
+            isSelected: index == 2,
+            onTap: () => context.go(Routes.buyCryptoScreen),
           ),
           BottomNavItem(
             image: Assets.iconsSetting,
             label: tr('home.nav.settings'),
-            isSelected: false,
-            onTap: () {
-              context.push(Routes.settings);
-            },
+            isSelected: index == 3,
+            onTap: () => context.go(Routes.settings),
           ),
         ],
       ),
