@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constant/translation_keys.dart';
-import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/button_app.dart';
 
 class TradeButtons extends StatelessWidget {
@@ -12,7 +11,6 @@ class TradeButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -20,12 +18,8 @@ class TradeButtons extends StatelessWidget {
           child: ButtonApp(
             title: TranslationKeys.sell.tr(),
             onPressed: () {},
-            backgroundColor: isDark
-                ? AppColors.errorBackgroundDark
-                : AppColors.errorBackgroundLight,
-            textColor: isDark
-                ? AppColors.errorTextDark
-                : AppColors.errorTextLight,
+            backgroundColor: context.errorBackground,
+            textColor: context.errorText,
           ),
         ),
         SizedBox(width: 10.w),

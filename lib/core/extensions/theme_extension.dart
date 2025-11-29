@@ -1,4 +1,5 @@
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_colors_theme.dart';
 import 'package:flutter/material.dart';
 
 extension ThemeExtension on BuildContext {
@@ -6,36 +7,35 @@ extension ThemeExtension on BuildContext {
 
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
 
+  AppColorsTheme get _colors => Theme.of(this).extension<AppColorsTheme>()!;
+
   // Containers / Surfaces
-  Color get containerBackground =>
-      isDarkMode ? AppColors.surfaceVariant : const Color(0xFFE3E5EA);
+  Color get containerBackground => _colors.containerBackground;
 
   // Text
-  Color get primaryText => isDarkMode ? Colors.white : Colors.black;
-  Color get mainText => isDarkMode ? Colors.white : AppColors.primaryDark;
-
-  Color get secondaryText =>
-      isDarkMode ? const Color(0xFFB0B0B0) : AppColors.textSecondary;
+  Color get primaryText => _colors.primaryText;
+  Color get mainText => _colors.mainText;
+  Color get secondaryText => _colors.secondaryText;
 
   Color get bttnav => AppColors.primary;
 
   // Icons
-  Color get iconColor => isDarkMode ? Colors.white70 : Colors.black87;
+  Color get iconColor => _colors.iconColor;
 
   // Cards
-  Color get cardBackground =>
-      isDarkMode ? AppColors.surfaceVariant : Colors.white;
+  Color get cardBackground => _colors.cardBackground;
+  Color get cardBorderColor => _colors.cardBorderColor;
+  List<BoxShadow> get cardShadow => _colors.cardShadow;
 
-  Color get cardBorderColor =>
-      isDarkMode ? Colors.white10 : const Color(0xFFE5E7EB);
+  // Status Colors
+  Color get successBackground => _colors.successBackground;
+  Color get successPrimary => _colors.successPrimary;
+  Color get successText => _colors.successText;
+  Color get errorBackground => _colors.errorBackground;
+  Color get errorText => _colors.errorText;
+  Color get infoColor => _colors.infoColor;
 
-  List<BoxShadow> get cardShadow => isDarkMode
-      ? []
-      : [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 2),
-          ),
-        ];
+  // Utility
+  Color get divider => _colors.divider;
+  Color get toggleBackground => _colors.toggleBackground;
 }

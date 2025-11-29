@@ -12,7 +12,6 @@ class LanguageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
     final currentLocale = context.locale;
 
     return Scaffold(
@@ -20,15 +19,13 @@ class LanguageScreen extends StatelessWidget {
         title: Text(
           TranslationKeys.language.tr(),
           style: AppTextStyles.styles.latoW600S16.copyWith(
-            color: isDark ? Colors.white : AppColors.primaryDark,
+            color: context.mainText,
           ),
         ),
-        backgroundColor: isDark ? AppColors.backgroundDark : Colors.white,
         iconTheme: IconThemeData(
-          color: isDark ? Colors.white : AppColors.primaryDark,
+          color: context.mainText,
         ),
       ),
-      backgroundColor: isDark ? AppColors.backgroundDark : Colors.white,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 20.0.h),
@@ -38,7 +35,7 @@ class LanguageScreen extends StatelessWidget {
               Text(
                 TranslationKeys.selectLanguage.tr(),
                 style: AppTextStyles.styles.latoW600S16.copyWith(
-                  color: isDark ? Colors.white : AppColors.primaryDark,
+                  color: context.mainText,
                 ),
               ),
               SizedBox(height: 20.0.h),
@@ -107,8 +104,6 @@ class _LanguageOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
-
     return InkWell(
       onTap: onTap,
       child: Row(
@@ -119,14 +114,14 @@ class _LanguageOption extends StatelessWidget {
             child: Text(
               title,
               style: AppTextStyles.styles.latoW600S16.copyWith(
-                color: isDark ? Colors.white : AppColors.primaryDark,
+                color: context.mainText,
               ),
             ),
           ),
           if (isSelected)
             Icon(
               Icons.check_circle,
-              color: isDark ? Colors.white : AppColors.primaryDark,
+              color: context.mainText,
               size: 24.0.r,
             )
           else

@@ -2,7 +2,6 @@ import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 
 class StaticsItem extends StatelessWidget {
@@ -12,7 +11,6 @@ class StaticsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -20,22 +18,18 @@ class StaticsItem extends StatelessWidget {
         Text(
           title,
           style: AppTextStyles.styles.latoW400S12.copyWith(
-            color: isDark ? AppColors.white : AppColors.surfaceDark,
+            color: context.primaryText,
           ),
         ),
         IconButton(
           onPressed: () {},
-          icon: Icon(
-            Icons.info_rounded,
-            size: 12.sp,
-            color: isDark ? AppColors.infoDark : AppColors.infoLight,
-          ),
+          icon: Icon(Icons.info_rounded, size: 12.sp, color: context.infoColor),
         ),
         const Spacer(),
         Text(
           value,
           style: AppTextStyles.styles.latoW500S14.copyWith(
-            color: isDark ? AppColors.white : AppColors.surfaceDark,
+            color: context.primaryText,
           ),
         ),
       ],

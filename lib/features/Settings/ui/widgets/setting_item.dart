@@ -19,15 +19,13 @@ class SettingItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
-
     return InkWell(
       onTap: onTap,
       child: Row(
         children: [
           CircleAvatar(
             radius: 15.0.r,
-            backgroundColor: isDark
+            backgroundColor: context.isDarkMode
                 ? AppColors.primaryDark
                 : AppColors.infoSecondary,
             child: SvgPicture.asset(iconName),
@@ -36,13 +34,13 @@ class SettingItem extends StatelessWidget {
           Text(
             title,
             style: AppTextStyles.styles.latoW600S16.copyWith(
-              color: isDark ? Colors.white : AppColors.primaryDark,
+              color: context.mainText,
             ),
           ),
           const Spacer(),
           Icon(
             Icons.arrow_forward_ios,
-            color: isDark ? Colors.white : AppColors.primaryDark,
+            color: context.mainText,
           ),
         ],
       ),

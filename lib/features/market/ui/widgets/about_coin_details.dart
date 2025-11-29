@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constant/translation_keys.dart';
-import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 
 class AboutCoinDetails extends StatelessWidget {
@@ -12,21 +11,20 @@ class AboutCoinDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           TranslationKeys.aboutCoin.tr(namedArgs: {'name': 'Bitcoin'}),
           style: AppTextStyles.styles.latoW600S18.copyWith(
-            color: context.isDarkMode ? AppColors.white : AppColors.surfaceDark,
+            color: context.primaryText,
           ),
         ),
         SizedBox(height: 20.h),
         Text(
           'Bitcoin is a decentralized cryptocurrency originally described in a 2008 whitepaper by a person, or group of people, using the alias Satoshi Nakamoto. It was launched soon after, in January 2009.',
           style: AppTextStyles.styles.latoW400S16.copyWith(
-            color: isDark ? AppColors.white : AppColors.textDisabled,
+            color: context.secondaryText,
             height: 1.50,
           ),
           textAlign: TextAlign.start,

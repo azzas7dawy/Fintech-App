@@ -1,5 +1,4 @@
 import 'package:fintech_app/core/extensions/theme_extension.dart';
-import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,8 +12,6 @@ class ProfileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
-
     return Column(
       children: [
         Align(
@@ -28,7 +25,7 @@ class ProfileHeader extends StatelessWidget {
                 ? Icon(
                     Icons.person,
                     size: 80.0.r,
-                    color: isDark ? Colors.white : AppColors.primaryDark,
+                    color: context.mainText,
                   )
                 : null,
           ),
@@ -39,7 +36,7 @@ class ProfileHeader extends StatelessWidget {
           child: Text(
             userName,
             style: AppTextStyles.styles.latoW700S20.copyWith(
-              color: isDark ? Colors.white : AppColors.primaryDark,
+              color: context.mainText,
             ),
           ),
         ),

@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/extensions/theme_extension.dart';
-import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/core/theme/icon_for_toggle_mode.dart';
 import 'package:fintech_app/features/home/ui/widget/togglebutton_appbar.dart';
 import 'package:flutter/material.dart';
@@ -17,13 +16,8 @@ class AppBarSection extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 24.r,
-          backgroundColor:
-          context.isDarkMode ? AppColors.surfaceVariant : Colors.blue.shade100,
-          child: Icon(
-            Icons.person,
-            size: 28.sp,
-            color: context.primaryText,
-          ),
+          backgroundColor: context.containerBackground,
+          child: Icon(Icons.person, size: 28.sp, color: context.primaryText),
         ),
         SizedBox(width: 12.w),
 

@@ -20,7 +20,6 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -32,7 +31,7 @@ class SettingScreen extends StatelessWidget {
                 Text(
                   TranslationKeys.settings.tr(),
                   style: AppTextStyles.styles.latoW700S24.copyWith(
-                    color: isDark ? Colors.white : AppColors.primaryDark,
+                    color: context.mainText,
                   ),
                 ),
                 SizedBox(height: 23.0.h),
@@ -45,7 +44,7 @@ class SettingScreen extends StatelessWidget {
                 Text(
                   TranslationKeys.general.tr(),
                   style: AppTextStyles.styles.latoW600S16.copyWith(
-                    color: isDark ? Colors.white : AppColors.primaryDark,
+                    color: context.mainText,
                   ),
                 ),
                 SizedBox(height: 20.0.h),
@@ -86,7 +85,7 @@ class SettingScreen extends StatelessWidget {
                 Text(
                   TranslationKeys.settings.tr(),
                   style: AppTextStyles.styles.latoW600S16.copyWith(
-                    color: isDark ? Colors.white : AppColors.primaryDark,
+                    color: context.mainText,
                   ),
                 ),
                 SizedBox(height: 20.0.h),
@@ -109,7 +108,7 @@ class SettingScreen extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 15.0.r,
-                      backgroundColor: isDark
+                      backgroundColor: context.isDarkMode
                           ? AppColors.primaryDark
                           : AppColors.infoSecondary,
                       child: SvgPicture.asset(Assets.imagesMoon),
@@ -118,7 +117,7 @@ class SettingScreen extends StatelessWidget {
                     Text(
                       TranslationKeys.darkMode.tr(),
                       style: AppTextStyles.styles.latoW600S16.copyWith(
-                        color: isDark ? Colors.white : AppColors.primaryDark,
+                        color: context.mainText,
                       ),
                     ),
                     const Spacer(),

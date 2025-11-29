@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constant/assets.dart';
 import '../../../../core/constant/translation_keys.dart';
-import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../widgets/card_crypto_market.dart';
 import '../widgets/crypto_market_tabbar.dart';
@@ -17,11 +16,7 @@ class CryptoMarketScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
     return Scaffold(
-      backgroundColor: isDark
-          ? AppColors.backgroundDark
-          : AppColors.backgroundLight,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 20.0.h),
@@ -32,15 +27,15 @@ class CryptoMarketScreen extends StatelessWidget {
                 Text(
                   TranslationKeys.cryptoMarket.tr(),
                   style: AppTextStyles.styles.latoW700S24.copyWith(
-                    color: isDark ? Colors.white : AppColors.primaryDark,
+                    color: context.mainText,
                   ),
                 ),
                 SizedBox(height: 16.0.h),
-                SearchTextField(isDark: isDark),
+                const SearchTextField(),
                 SizedBox(height: 16.0.h),
-                DefaultTabController(
+                const DefaultTabController(
                   length: 5,
-                  child: CryptoMarketTabBar(isDark: isDark),
+                  child: CryptoMarketTabBar(),
                 ),
                 SizedBox(height: 23.0.h),
                 ListView.builder(
@@ -49,7 +44,6 @@ class CryptoMarketScreen extends StatelessWidget {
                   itemCount: 10,
                   itemBuilder: (context, index) {
                     return CardCryptoMarket(
-                      isDark: isDark,
                       name: 'Bitcoin',
                       rank: 'Rank #$index',
                       price: '\$${((index + 1) * 1534.23).toStringAsFixed(2)}',

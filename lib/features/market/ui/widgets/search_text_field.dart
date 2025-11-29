@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,9 +10,7 @@ import '../../../../core/constant/translation_keys.dart';
 import '../../../../core/theme/app_colors.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key, required this.isDark});
-
-  final bool isDark;
+  const SearchTextField({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +26,7 @@ class SearchTextField extends StatelessWidget {
             Assets.imagesSearch,
             width: 24.0.w,
             height: 24.0.h,
-            colorFilter: ColorFilter.mode(
-              isDark ? AppColors.iconLight : AppColors.iconDark,
-              BlendMode.srcIn,
-            ),
+            colorFilter: ColorFilter.mode(context.iconColor, BlendMode.srcIn),
           ),
         ),
         suffixIcon: GestureDetector(
@@ -44,10 +40,7 @@ class SearchTextField extends StatelessWidget {
               Assets.imagesFilter,
               width: 24.0.w,
               height: 24.0.h,
-              colorFilter: ColorFilter.mode(
-                isDark ? AppColors.iconLight : AppColors.iconDark,
-                BlendMode.srcIn,
-              ),
+              colorFilter: ColorFilter.mode(context.iconColor, BlendMode.srcIn),
             ),
           ),
         ),
@@ -57,35 +50,25 @@ class SearchTextField extends StatelessWidget {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0.r),
-          borderSide: BorderSide(
-            color: isDark ? AppColors.containerDark : AppColors.white,
-          ),
+          borderSide: BorderSide(color: context.cardBackground),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0.r),
-          borderSide: BorderSide(
-            color: isDark ? AppColors.containerDark : AppColors.white,
-          ),
+          borderSide: BorderSide(color: context.cardBackground),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0.r),
-          borderSide: BorderSide(
-            color: isDark ? AppColors.containerDark : AppColors.white,
-          ),
+          borderSide: BorderSide(color: context.cardBackground),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0.r),
-          borderSide: BorderSide(
-            color: isDark ? AppColors.errorPrimary : AppColors.containerDark,
-          ),
+          borderSide: BorderSide(color: context.errorBackground),
         ),
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0.r),
-          borderSide: BorderSide(
-            color: isDark ? AppColors.containerDark : AppColors.neutral300,
-          ),
+          borderSide: const BorderSide(color: AppColors.neutral300),
         ),
-        fillColor: isDark ? AppColors.containerDark : AppColors.white,
+        fillColor: context.cardBackground,
         filled: true,
       ),
     );

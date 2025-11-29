@@ -1,4 +1,4 @@
-import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,14 +8,12 @@ import 'crypto_price_column.dart';
 class CardCryptoMarket extends StatelessWidget {
   const CardCryptoMarket({
     super.key,
-    required this.isDark,
     required this.name,
     required this.rank,
     required this.price,
     required this.percentage,
     required this.imageUrl,
   });
-  final bool isDark;
   final String name;
   final String rank;
   final String price;
@@ -24,12 +22,12 @@ class CardCryptoMarket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: isDark ? AppColors.containerDark : AppColors.white,
+      color: context.cardBackground,
       elevation: 0.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0.r),
         side: BorderSide(
-          color: isDark ? AppColors.containerDark : AppColors.white,
+          color: context.cardBackground,
         ),
       ),
       child: Padding(
@@ -44,9 +42,7 @@ class CardCryptoMarket extends StatelessWidget {
 
               clipBehavior: Clip.antiAlias,
               decoration: ShapeDecoration(
-                color: isDark
-                    ? AppColors.cardBackgroundDark
-                    : AppColors.cardBackgroundLight,
+                color: context.containerBackground,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0.r),
                 ),
@@ -55,10 +51,9 @@ class CardCryptoMarket extends StatelessWidget {
               //  CachedNetworkImage(imageUrl: imageUrl, fit: BoxFit.cover),
             ),
             SizedBox(width: 16.0.w),
-            CryptoNameColumn(isDark: isDark, name: name, symbol: rank),
+            CryptoNameColumn(name: name, symbol: rank),
             const Spacer(),
             CryptoPriceColumn(
-              isDark: isDark,
               price: price,
               percentage: percentage,
             ),

@@ -1,3 +1,4 @@
+import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,9 +9,7 @@ import 'selected_tab.dart';
 import 'unselected_tab.dart';
 
 class CryptoMarketTabBar extends StatelessWidget {
-  const CryptoMarketTabBar({super.key, required this.isDark});
-
-  final bool isDark;
+  const CryptoMarketTabBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +27,8 @@ class CryptoMarketTabBar extends StatelessWidget {
       builder: (context, child) {
         return TabBar(
           isScrollable: true,
-          indicatorColor: isDark ? Colors.white : AppColors.primaryDark,
-          labelColor: isDark ? Colors.white : AppColors.primaryDark,
+          indicatorColor: context.mainText,
+          labelColor: context.mainText,
           unselectedLabelColor: AppColors.neutral300,
           labelStyle: AppTextStyles.styles.latoW600S16,
           tabAlignment: TabAlignment.start,
@@ -41,8 +40,8 @@ class CryptoMarketTabBar extends StatelessWidget {
           tabs: List.generate(tabLabels.length, (index) {
             final isSelected = tabController.index == index;
             return isSelected
-                ? SelectedTab(isDark: isDark, label: tabLabels[index])
-                : UnSelectedTab(isDark: isDark, label: tabLabels[index]);
+                ? SelectedTab(label: tabLabels[index])
+                : UnSelectedTab(label: tabLabels[index]);
           }),
         );
       },

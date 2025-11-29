@@ -1,5 +1,6 @@
 import '../app_text_styles.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_colors_theme.dart';
 import 'package:flutter/material.dart';
 
 ThemeData getDarkModeTheme() {
@@ -11,6 +12,27 @@ ThemeData getDarkModeTheme() {
       seedColor: AppColors.textSecondary,
       brightness: Brightness.dark,
     ),
+
+    extensions: const [
+      AppColorsTheme(
+        containerBackground: AppColors.surfaceVariant,
+        cardBackground: AppColors.surfaceVariant,
+        cardBorderColor: Colors.white10,
+        cardShadow: [],
+        primaryText: Colors.white,
+        mainText: Colors.white,
+        secondaryText: Color(0xFFB0B0B0),
+        iconColor: Colors.white70,
+        successBackground: AppColors.successDark,
+        successPrimary: AppColors.successPrimaryDark,
+        successText: AppColors.successPrimaryDark,
+        errorBackground: AppColors.errorBackgroundDark,
+        errorText: AppColors.errorTextDark,
+        infoColor: AppColors.infoDark,
+        divider: AppColors.dividerDark,
+        toggleBackground: AppColors.primaryDark,
+      ),
+    ],
 
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.backgroundDark,

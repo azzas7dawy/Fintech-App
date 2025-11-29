@@ -16,7 +16,6 @@ class BuildChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final chartConfig = config ?? ChartConfigModel.mock();
-    final isDarkMode = context.isDarkMode;
 
     return LineChart(
       LineChartData(
@@ -27,7 +26,7 @@ class BuildChart extends StatelessWidget {
         maxX: chartConfig.maxX,
         minY: chartConfig.minY,
         maxY: chartConfig.maxY,
-        lineBarsData: [_buildLineBarData(chartConfig, isDarkMode)],
+        lineBarsData: [_buildLineBarData(chartConfig, context)],
         lineTouchData: ChartTouchConfiguration.buildTouchData(),
       ),
     );
@@ -88,11 +87,14 @@ class BuildChart extends StatelessWidget {
   }
 
   /// Builds the line bar data with gradient and styling
-  LineChartBarData _buildLineBarData(ChartConfigModel config, bool isDarkMode) {
+  LineChartBarData _buildLineBarData(
+    ChartConfigModel config,
+    BuildContext context,
+  ) {
     return LineChartBarData(
       spots: config.dataPoints,
       isCurved: true,
-      color: isDarkMode ? AppColors.white : AppColors.primaryDark,
+      color: context.mainText,
       barWidth: 1.5,
       isStrokeCapRound: true,
       dotData: const FlDotData(show: false),

@@ -10,7 +10,6 @@ class PriceHeaderRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -22,7 +21,7 @@ class PriceHeaderRow extends StatelessWidget {
               '\$54,382.64',
               textAlign: TextAlign.center,
               style: AppTextStyles.styles.latoW700S32.copyWith(
-                color: isDark ? AppColors.white : AppColors.successDark,
+                color: context.successText,
               ),
             ),
             Text(
@@ -38,7 +37,7 @@ class PriceHeaderRow extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(8.r),
           decoration: ShapeDecoration(
-            color: isDark ? AppColors.white : AppColors.primaryDark,
+            color: context.mainText,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.r),
             ),
@@ -51,13 +50,13 @@ class PriceHeaderRow extends StatelessWidget {
             children: [
               Icon(
                 Icons.call_made_outlined,
-                color: isDark ? AppColors.containerDark : AppColors.white,
+                color: context.cardBackground,
               ),
               Text(
                 '15.3%',
                 textAlign: TextAlign.center,
                 style: AppTextStyles.styles.latoW700S12.copyWith(
-                  color: isDark ? AppColors.containerDark : AppColors.white,
+                  color: context.cardBackground,
                 ),
               ),
             ],

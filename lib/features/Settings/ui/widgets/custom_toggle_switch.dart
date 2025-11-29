@@ -1,5 +1,4 @@
 import 'package:fintech_app/core/extensions/theme_extension.dart';
-import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/core/theme/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,9 +20,7 @@ class CustomToggleSwitch extends StatelessWidget {
         width: 50.0.w,
         height: 28.0.h,
         decoration: BoxDecoration(
-          color: isDark
-              ? AppColors.primaryDark
-              : AppColors.neutral500.withValues(alpha: 0.3),
+          color: context.toggleBackground,
           borderRadius: BorderRadius.circular(14.0.r),
         ),
         child: Stack(

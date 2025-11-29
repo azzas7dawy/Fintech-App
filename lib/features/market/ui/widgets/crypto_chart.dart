@@ -12,12 +12,11 @@ class CryptoChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
     return Container(
       height: 315.h,
       padding: EdgeInsets.all(16.r),
       decoration: BoxDecoration(
-        color: isDark ? AppColors.containerDark : AppColors.white,
+        color: context.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
         boxShadow: [
           BoxShadow(

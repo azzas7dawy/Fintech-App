@@ -1,10 +1,8 @@
 import 'package:fintech_app/core/extensions/theme_extension.dart';
-import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/core/theme/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class IconForToggleMode extends StatelessWidget {
   const IconForToggleMode({super.key});
@@ -19,7 +17,7 @@ class IconForToggleMode extends StatelessWidget {
       },
       icon: Icon(
         context.isDarkMode ? Icons.dark_mode : Icons.light_mode,
-        color: context.isDarkMode ? Colors.white : AppColors.primaryDark,
+        color: context.mainText,
         size: 35.w,
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,12 +8,10 @@ import '../../../../core/theme/app_text_styles.dart';
 class CryptoPriceColumn extends StatelessWidget {
   const CryptoPriceColumn({
     super.key,
-    required this.isDark,
     required this.price,
     required this.percentage,
   });
 
-  final bool isDark;
   final String price;
   final String percentage;
 
@@ -24,7 +23,7 @@ class CryptoPriceColumn extends StatelessWidget {
         Text(
           price,
           style: AppTextStyles.styles.latoW700S20.copyWith(
-            color: isDark ? AppColors.successLight : AppColors.successDark,
+            color: context.successText,
           ),
         ),
         SizedBox(height: 4.0.h),
@@ -47,12 +46,12 @@ class CryptoPriceColumn extends StatelessWidget {
                     ? Icons.call_received_outlined
                     : Icons.call_made_outlined,
                 size: 16.0.sp,
-                color: isDark ? AppColors.containerDark : AppColors.white,
+                color: AppColors.white,
               ),
               Text(
                 percentage,
                 style: AppTextStyles.styles.latoW400S16.copyWith(
-                  color: isDark ? AppColors.containerDark : AppColors.white,
+                  color: AppColors.white,
                 ),
               ),
             ],

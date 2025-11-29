@@ -10,7 +10,6 @@ class BuildTimeSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.isDarkMode;
     final List<String> times = ['1h', '1d', '1w', '1m', '1y'];
     const String selected = '1d';
     return Row(
@@ -21,7 +20,7 @@ class BuildTimeSelector extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
           decoration: isSelected
               ? BoxDecoration(
-                  color: isDark ? AppColors.white : AppColors.primaryDark,
+                  color: context.mainText,
                   borderRadius: BorderRadius.circular(8.r),
                 )
               : null,
@@ -29,9 +28,7 @@ class BuildTimeSelector extends StatelessWidget {
             time,
             style: AppTextStyles.styles.latoW600S12.copyWith(
               color: isSelected
-                  ? context.isDarkMode
-                        ? AppColors.containerDark
-                        : AppColors.white
+                  ? context.cardBackground
                   : AppColors.textDisabled,
             ),
           ),

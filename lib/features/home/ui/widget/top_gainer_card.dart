@@ -10,12 +10,13 @@ class TopGainerCard extends StatelessWidget {
   final String image;
 
   const TopGainerCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.symbol,
     required this.price,
-    required this.percentage, required this.image,
-  }) : super(key: key);
+    required this.percentage,
+    required this.image,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,24 +30,23 @@ class TopGainerCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-        Container(
-        width: 48.w,
-        height: 48.h,
-        decoration: BoxDecoration(
-          color: const Color(0xFF2B5BF5)
-              .withOpacity(context.isDarkMode ? 0.25 : 0.1),
-          borderRadius: BorderRadius.circular(24.r),
-        ),
-        child: Center(
-          child: Image.asset(
-            image,  // 🟦 غيّرها للصورة بتاعتك
-            width: 50.w,
-            height: 30.h,
-            fit: BoxFit.cover,
+          Container(
+            width: 48.w,
+            height: 48.h,
+            decoration: BoxDecoration(
+              color: context.containerBackground,
+              borderRadius: BorderRadius.circular(24.r),
+            ),
+            child: Center(
+              child: Image.asset(
+                image, // 🟦 غيّرها للصورة بتاعتك
+                width: 50.w,
+                height: 30.h,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-        ),
-      ),
-        SizedBox(width: 12.w),
+          SizedBox(width: 12.w),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
