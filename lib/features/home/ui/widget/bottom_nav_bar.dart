@@ -3,10 +3,11 @@ import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/constant/assets.dart';
 import 'bottom_nav_item.dart';
 
 class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({Key? key}) : super(key: key);
+  const BottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,25 +30,25 @@ class BottomNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           BottomNavItem(
-            image: 'assets/icons/home.png',
+            image: Assets.iconsHome,
             label: tr('home.nav.home'),
             isSelected: true,
             onTap: () {},
           ),
           BottomNavItem(
-            image: 'assets/icons/chart.png',
+            image: Assets.iconsChart,
             label: tr('home.nav.market'),
             isSelected: false,
             onTap: () {},
           ),
           BottomNavItem(
-            image: 'assets/icons/briefcase.png',
+            image: Assets.iconsBriefcase,
             label: tr('home.nav.portfolio'),
             isSelected: false,
             onTap: () {},
           ),
           BottomNavItem(
-            image: 'assets/icons/setting.png',
+            image: Assets.iconsSetting,
             label: tr('home.nav.settings'),
             isSelected: false,
             onTap: () {},

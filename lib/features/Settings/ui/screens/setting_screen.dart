@@ -50,7 +50,7 @@ class SettingScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20.0.h),
                 SettingItem(
-                  iconName: Assets.person,
+                  iconName: Assets.imagesProfile,
                   title: TranslationKeys.myAccount.tr(),
                   onTap: () {
                     // TODO: Navigate to crypto market screen
@@ -65,7 +65,7 @@ class SettingScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15.0.h),
                 SettingItem(
-                  iconName: Assets.wallet,
+                  iconName: Assets.imagesWallet,
                   title: TranslationKeys.billingPayment.tr(),
                   onTap: () {},
                 ),
@@ -77,7 +77,7 @@ class SettingScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 15.0.h),
                 SettingItem(
-                  iconName: Assets.faq,
+                  iconName: Assets.imagesFAQ,
                   title: TranslationKeys.faqSupport.tr(),
                   onTap: () {},
                 ),
@@ -91,7 +91,7 @@ class SettingScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20.0.h),
                 SettingItem(
-                  iconName: Assets.language,
+                  iconName: Assets.imagesLanguage,
                   title: TranslationKeys.language.tr(),
                   onTap: () {
                     context.push(Routes.language);
@@ -112,7 +112,7 @@ class SettingScreen extends StatelessWidget {
                       backgroundColor: isDark
                           ? AppColors.mainColor
                           : AppColors.blueColor,
-                      child: SvgPicture.asset(Assets.moon),
+                      child: SvgPicture.asset(Assets.imagesMoon),
                     ),
                     SizedBox(width: 15.0.w),
                     Text(

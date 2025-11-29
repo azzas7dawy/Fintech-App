@@ -6,6 +6,8 @@ import 'package:fintech_app/features/home/ui/widget/togglebutton_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/constant/assets.dart';
+
 class AppBarSection extends StatelessWidget {
   const AppBarSection({super.key});
 
@@ -44,7 +46,7 @@ class AppBarSection extends StatelessWidget {
             boxShadow: context.cardShadow,
           ),
           child: Image.asset(
-            'assets/icons/notification.png',
+            Assets.iconsNotification,
             width: 24.w,
             height: 24.h,
             color: context.iconColor,

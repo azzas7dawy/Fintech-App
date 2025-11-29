@@ -4,8 +4,10 @@ import 'package:fintech_app/features/home/ui/widget/top_gainer_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/constant/assets.dart';
+
 class TopGainersSection extends StatelessWidget {
-  const TopGainersSection({Key? key}) : super(key: key);
+  const TopGainersSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class TopGainersSection extends StatelessWidget {
           symbol: 'ETH',
           price: '\$20,788',
           percentage: '+0.25%',
-          image: 'assets/images/Ethereum (ETH).png',
+          image: Assets.imagesEthereum,
         ),
         SizedBox(height: 12.h),
         const TopGainerCard(
@@ -35,7 +37,7 @@ class TopGainersSection extends StatelessWidget {
           symbol: 'BNB',
           price: '\$312.45',
           percentage: '+1.15%',
-          image: 'assets/images/Binance Coin (BNB).png',
+          image: Assets.imagesBinanceCoin,
         ),
         SizedBox(height: 12.h),
         const TopGainerCard(
@@ -43,7 +45,7 @@ class TopGainersSection extends StatelessWidget {
           symbol: 'LTC',
           price: '\$94.32',
           percentage: '+0.85%',
-          image: 'assets/images/Group 48095472.png',
+          image: Assets.imagesGroup48095472,
         ),
       ],
     );

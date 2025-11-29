@@ -24,7 +24,7 @@ class SearchTextField extends StatelessWidget {
         prefixIcon: Padding(
           padding: EdgeInsetsDirectional.only(start: 15.0.w, end: 10.0.w),
           child: SvgPicture.asset(
-            Assets.search,
+            Assets.imagesSearch,
             width: 24.0.w,
             height: 24.0.h,
             colorFilter: ColorFilter.mode(
@@ -43,7 +43,7 @@ class SearchTextField extends StatelessWidget {
             padding: EdgeInsetsDirectional.only(start: 10.0.w, end: 15.0.w),
 
             child: SvgPicture.asset(
-              Assets.filter,
+              Assets.imagesFilter,
               width: 24.0.w,
               height: 24.0.h,
               colorFilter: ColorFilter.mode(

@@ -4,8 +4,10 @@ import 'package:fintech_app/features/home/ui/widget/trending_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/constant/assets.dart';
+
 class TrendingSection extends StatelessWidget {
-  const TrendingSection({Key? key}) : super(key: key);
+  const TrendingSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,7 @@ class TrendingSection extends StatelessWidget {
                 price: '1,132,151',
                 percentage: '+2.35%',
                 isPositive: true,
-                image: 'assets/images/Bitcoin (BTC).png',
+                image: Assets.imagesBitcoin,
               ),
               TrendingCard(
                 name: 'Ethereum',
@@ -55,7 +57,7 @@ class TrendingSection extends StatelessWidget {
                 price: '20,788',
                 percentage: '+1.85%',
                 isPositive: true,
-                image: 'assets/images/Ethereum (ETH).png',
+                image: Assets.imagesEthereum,
 
               ),
             ],

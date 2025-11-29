@@ -54,7 +54,7 @@ class CryptoMarketScreen extends StatelessWidget {
                       rank: 'Rank #$index',
                       price: '\$${((index + 1) * 1534.23).toStringAsFixed(2)}',
                       percentage: index.isEven ? '-12.2%' : '12.2%',
-                      imageUrl: Assets.bitcoin,
+                      imageUrl: Assets.imagesBitcoin,
                     );
                   },
                 ),
