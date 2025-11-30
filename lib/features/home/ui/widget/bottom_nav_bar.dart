@@ -53,7 +53,7 @@ class BottomNavBar extends StatelessWidget {
             image: Assets.iconsBriefcase,
             label: tr('home.nav.portfolio'),
             isSelected: index == 2,
-            onTap: () => context.go(Routes.buyCryptoScreen),
+              onTap: () => context.go(Routes.portfolioScreen),
           ),
           BottomNavItem(
             image: Assets.iconsSetting,

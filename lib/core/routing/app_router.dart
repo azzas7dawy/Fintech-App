@@ -64,6 +64,12 @@ final GoRouter appRouter = GoRouter(
           name: Routes.paymentMethodScreen,
           builder: (context, state) => const PaymentMethodScreen(amount: 100.0),
         ),
+
+        GoRoute(
+          path: Routes.portfolioScreen,
+          name: Routes.portfolioScreen,
+          builder: (context, state) => const PortfolioScreen(),
+        ),
       ],
     ),
   ],

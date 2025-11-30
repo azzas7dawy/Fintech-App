@@ -17,4 +17,5 @@ class Routes {
   static const String paymentScreen = '/paymentScreen';
   static const String buyCryptoScreen = '/buyCryptoScreen';
   static const String paymentMethodScreen = '/paymentMethodScreen';
+  static const String portfolioScreen = '/portfolioScreen';
 }
