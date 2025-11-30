@@ -2,9 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constant/assets.dart';
 import '../../../../core/constant/translation_keys.dart';
+import '../../../../core/routing/routes.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../widgets/card_crypto_market.dart';
 import '../widgets/crypto_market_tabbar.dart';
@@ -43,12 +45,18 @@ class CryptoMarketScreen extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: 10,
                   itemBuilder: (context, index) {
-                    return CardCryptoMarket(
-                      name: 'Bitcoin',
-                      rank: 'Rank #$index',
-                      price: '\$${((index + 1) * 1534.23).toStringAsFixed(2)}',
-                      percentage: index.isEven ? '-12.2%' : '12.2%',
-                      imageUrl: Assets.imagesBitcoin,
+                    return GestureDetector(
+                      onTap: () {
+                        context.push(Routes.coinDetails);
+                      },
+                      child: CardCryptoMarket(
+                        name: 'Bitcoin',
+                        rank: 'Rank #$index',
+                        price:
+                            '\$${((index + 1) * 1534.23).toStringAsFixed(2)}',
+                        percentage: index.isEven ? '-12.2%' : '12.2%',
+                        imageUrl: Assets.imagesBitcoin,
+                      ),
                     );
                   },
                 ),
