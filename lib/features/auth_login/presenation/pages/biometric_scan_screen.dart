@@ -3,6 +3,7 @@ import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/auth_background.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/home_indictor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 typedef AuthSuccessBuilder = void Function(BuildContext context);
@@ -70,59 +71,59 @@ class _BiometricScanScreenState extends State<BiometricScanScreen> {
           SafeArea(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
+                  EdgeInsets.symmetric(horizontal: 24.0.h, vertical: 16.h),
               child: Column(
                 children: [
-                  const SizedBox(height: 32),
+                   SizedBox(height: 32.h),
                   Text(
                     widget.title,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 18,
+                    style: TextStyle(
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
                       color: AppColors.primary,
                     ),
                   ),
                   const Spacer(),
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 32, horizontal: 32),
+                    padding: EdgeInsets.symmetric(
+                        vertical: 32.h, horizontal: 32.h),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(24),
+                      borderRadius: BorderRadius.circular(24.r),
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 16,
-                          offset: const Offset(0, 8),
+                          offset: Offset(0, 8.h),
                           color: Colors.black.withOpacity(0.10),
                         ),
                       ],
                     ),
                     child: Icon(
                       widget.icon,
-                      size: 80,
+                      size: 80.r,
                       color: AppColors.primary,
                     ),
                   ),
-                  const SizedBox(height: 32),
+                   SizedBox(height: 32.h),
                   Text(
                     widget.description,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      height: 1.5,
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      height: 1.5.h,
                       color: AppColors.textSecondary,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                   SizedBox(height: 16.h),
                   if (_isProcessing)
                     const CircularProgressIndicator()
                   else if (_errorText != null) ...[
                     Text(
                       _errorText!,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.redAccent,
-                        fontSize: 13,
+                        fontSize: 13.sp,
                       ),
                     ),
                     TextButton(

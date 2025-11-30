@@ -1,3 +1,4 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.35.7"
+  "dart.flutterSdkPath": ".fvm/versions/3.35.7",
+  "cmake.sourceDirectory": "D:/Flutter_mantorship_omerAhmed/fintech_app/windows/flutter"
 }

@@ -3,6 +3,7 @@ import 'package:fintech_app/features/auth_login/presenation/widget/auth_backgrou
 import 'package:fintech_app/features/auth_login/presenation/widget/home_indictor.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/login_primery_bottom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class VerificationSuccessScreen extends StatelessWidget {
   final String title;
@@ -28,35 +29,35 @@ class VerificationSuccessScreen extends StatelessWidget {
           SafeArea(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
+                  EdgeInsets.symmetric(horizontal: 24.h, vertical: 16.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const SizedBox(height: 16),
-                  const Center(
+                  SizedBox(height: 16.h),
+                  Center(
                     child: Text(
                       'Verify account',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                         color: AppColors.textSecondary,
                       ),
                     ),
                   ),
-                  const SizedBox(height: 48),
+                  SizedBox(height: 48.h),
                   Center(
                     child: Container(
                       width: 150,
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 28,
-                        horizontal: 32,
+                      padding: EdgeInsets.symmetric(
+                        vertical: 28.h,
+                        horizontal: 32.w,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(24),
+                        borderRadius: BorderRadius.circular(24.r),
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 16,
+                            blurRadius: 16.r,
                             offset: const Offset(0, 8),
                             color: Colors.black.withOpacity(0.10),
                           ),
@@ -64,13 +65,13 @@ class VerificationSuccessScreen extends StatelessWidget {
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: const [
+                        children:  [
                           CircleAvatar(
-                            radius: 35,
+                            radius: 35.r,
                             backgroundColor: AppColors.primary,
                             child: Icon(
                               Icons.check,
-                              size: 38,
+                              size: 38.sp,
                               color: Colors.white,
                             ),
                           ),
@@ -78,23 +79,23 @@ class VerificationSuccessScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 40),
+                  SizedBox(height: 40.h),
                   Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 22,
+                    style: TextStyle(
+                      fontSize: 22.sp,
                       fontWeight: FontWeight.w600,
                       color: AppColors.textPrimary,
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12.h),
                   Text(
                     description,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      height: 1.5,
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      height: 1.5.h,
                       color: AppColors.textSecondary,
                     ),
                   ),
@@ -103,7 +104,7 @@ class VerificationSuccessScreen extends StatelessWidget {
                     text: buttonText,
                     onPressed: onButtonPressed,
                   ),
-                  const SizedBox(height: 24),
+                  SizedBox(height: 24.h),
                   const HomeIndicator(),
                 ],
               ),

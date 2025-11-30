@@ -3,31 +3,31 @@ import 'package:fintech_app/features/auth_login/presenation/pages/face_id_scan_s
 import 'package:fintech_app/features/auth_login/presenation/pages/finger_print_scan_screen.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/circle_item_bottom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OrDivider extends StatelessWidget {
   const OrDivider();
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
       children:  [
         Expanded(child: Divider(thickness: 0.7)),
-        SizedBox(width: 8),
+        SizedBox(width: 8.w),
         Text(
           'Or login with',
           style: TextStyle(
-            fontSize: 13,
+            fontSize: 13.sp,
             color: AppColors.mainColor,
           ),
         ),
-        SizedBox(width: 8),
-        Expanded(child: Divider(thickness: 0.7)),
+        SizedBox(width: 8.w),
+        Expanded(child: Divider(thickness: 0.7.h)),
       ],
     );
   }
 }
 
-/// أيقونات البصمة / الفيس في دوائر
 class SocialRow extends StatelessWidget {
   const SocialRow();
 
@@ -41,7 +41,7 @@ class SocialRow extends StatelessWidget {
             Navigator.push(context, MaterialPageRoute(builder: (context) => const FingerprintScanPage()));
           }, 
           child: CircleIconButton(icon: Image.asset('assets/images/Group finger.png'))),
-        const SizedBox(width: 24),
+         SizedBox(width: 24.w),
         GestureDetector(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => const FaceIdScanPage()));

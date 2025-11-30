@@ -1,5 +1,6 @@
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextField extends StatelessWidget {
   final TextEditingController? controller;
@@ -34,24 +35,24 @@ class AppTextField extends StatelessWidget {
           
         ),
         hintText: hintText,
-        hintStyle: const TextStyle(
-          fontSize: 13,
+        hintStyle:  TextStyle(
+          fontSize: 13.sp,
           color: AppColors.textSecondary,
         ),
         prefixIcon: prefixIcon != null
-            ? Icon(prefixIcon, size: 20, color: AppColors.textSecondary)
+            ? Icon(prefixIcon, size: 20.sp, color: AppColors.textSecondary)
             : null,
         contentPadding:
-            const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+            EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           borderSide: const BorderSide(
             color: AppColors.inputBorder,
             width: 1,
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           borderSide: const BorderSide(
             color: AppColors.mainColor,
             width: 1.2,

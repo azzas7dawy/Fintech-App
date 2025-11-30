@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/header_section.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/login_form.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/sign_up_bottom.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginContent extends StatelessWidget {
@@ -15,9 +16,8 @@ class LoginContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state is LoginSuccess) {
-          // بعد تسجيل الدخول
-          context.go('/homePage'); // ⭐ لو عندك روت تاني قولي اسمه
+        if (state is LoginSuccess) {  
+          context.go('/homePage');
         } else if (state is LoginFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.message)),
@@ -36,13 +36,13 @@ class LoginContent extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 98),
+                   SizedBox(height: 98.h),
                   HeaderSection(),
-                  const SizedBox(height: 52),
+                   SizedBox(height: 52.h),
                   const LoginForm(),
-                  const SizedBox(height: 24),
+                   SizedBox(height: 24.h),
                   const BottomSignUpText(),
-                  const SizedBox(height: 16),
+                   SizedBox(height: 16.h),
                 ],
               ),
             ),

@@ -5,6 +5,7 @@ import 'package:fintech_app/features/auth_login/presenation/widget/home_indictor
 import 'package:fintech_app/features/auth_login/presenation/widget/icon_info_card.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/login_primery_bottom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FaceIdVerifiedPage extends StatelessWidget {
   const FaceIdVerifiedPage({super.key});
@@ -20,35 +21,35 @@ class FaceIdVerifiedPage extends StatelessWidget {
           SafeArea(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
+                  EdgeInsets.symmetric(horizontal: 24.h, vertical: 16.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const SizedBox(height: 46),
+                  SizedBox(height: 46.h),
              
-                  const SizedBox(height: 112),
+                  SizedBox(height: 112.h),
 
                
                   Center(
                     child: IconInfoCard(
-                      size: 150,
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 28,
-                        horizontal: 32,
+                      size: 150.w,
+                      padding: EdgeInsets.symmetric(
+                        vertical: 28.h,
+                        horizontal: 32.w,
                       ),
                       icon: Container(
-                        width: 70,
-                        height: 70,
+                        width: 70.w,
+                        height: 70.h,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20.r),
                           border: Border.all(
                             color: AppColors.darkBlue,
-                            width: 2,
+                            width: 2.r,
                           ),
                         ),
-                        child: const Icon(
+                        child: Icon(
                           Icons.check,
-                          size: 38,
+                          size: 38.sp,
                           color: AppColors.darkBlue,
                         ),
                       ),
@@ -56,24 +57,24 @@ class FaceIdVerifiedPage extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 40),
+                  SizedBox(height: 40.h),
 
-                  const Text(
+                  Text(
                     "You're verified",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 22.sp,
                       fontWeight: FontWeight.w600,
                       color: AppColors.textPrimary,
                     ),
                   ),
-                  const SizedBox(height: 40),
-                  const Text(
+                  SizedBox(height: 40.h),
+                  Text(
                     "You have been verified your information completely. Let's make transactions!",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 14,
-                      height: 1.5,
+                      fontSize: 14.sp,
+                      height: 1.5.h,
                       color: AppColors.textSecondary,
                     ),
                   ),
@@ -82,10 +83,9 @@ class FaceIdVerifiedPage extends StatelessWidget {
                   PrimaryButton(
                     text: 'Continue To Home',
                     onPressed: () {
-                      // TODO: روح لـ Home Screen
                     },
                   ),
-                  const SizedBox(height: 24),
+                  SizedBox(height: 24.h),
                   const HomeIndicator(color: Colors.black54),
                 ],
               ),

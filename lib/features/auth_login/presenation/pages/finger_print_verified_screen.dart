@@ -12,8 +12,7 @@ class FingerprintVerifiedPage extends StatelessWidget {
           "You have been verified your information completely. Let's make transactions!",
       buttonText: 'Continue To Home',
       onButtonPressed: () {
-        // TODO: روحي للـ Home Screen الحقيقية
-        // Navigator.pushReplacement(...);
+       
       },
     );
   }

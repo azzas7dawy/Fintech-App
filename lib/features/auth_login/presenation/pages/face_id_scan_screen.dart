@@ -5,6 +5,7 @@ import 'package:fintech_app/features/auth_login/presenation/pages/face_id_verifi
 import 'package:fintech_app/features/auth_login/presenation/widget/home_indictor.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/icon_info_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FaceIdScanPage extends StatefulWidget {
   const FaceIdScanPage({super.key});
@@ -62,12 +63,10 @@ class _FaceIdScanPageState extends State<FaceIdScanPage> {
             child:  Image(image:AssetImage(
              'assets/images/imagefcae_id_scan.jpg',
              
-            ), // عدّل المسار حسب مشروعك
+            ),    
              fit: BoxFit.cover,
             )
           ),
-
-          // Gradient خفيف عشان الكلام يبان
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
@@ -86,26 +85,26 @@ class _FaceIdScanPageState extends State<FaceIdScanPage> {
           SafeArea(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
+                   EdgeInsets.symmetric(horizontal: 24.h, vertical: 16.w),
               child: Column(
                 children: [
                  
-                  const Text(
+                   Text(
                     'Face ID',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
-                      color: Colors.white,
+                      color: AppColors.inputBorder,
                     ),
                   ),
                   const Spacer(),
 
                
                   IconInfoCard(
-                    size: 140,
+                    size: 140.w,
                     icon: Container(
-                      width: 66,
-                      height: 56,
+                      width: 66.w,
+                      height: 56.h,
                     
                       child:const Image(image: AssetImage('assets/images/face id.png'))
                   
@@ -113,22 +112,22 @@ class _FaceIdScanPageState extends State<FaceIdScanPage> {
                     title: 'Face ID',
                     
                   ),
-                  const SizedBox(height: 122),
+                   SizedBox(height: 122.h),
  if (_isProcessing)
                     const CircularProgressIndicator(
                       valueColor:
                           AlwaysStoppedAnimation<Color>(Colors.white),
                     )
                   else
-                    const Text(
+                     Text(
                       'Please wait until your scanning is complete',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         color: Colors.white,
                       ),
                     ),
-                  const SizedBox(height: 12),
+                   SizedBox(height: 12.h),
                   if (_errorText != null) ...[
                     Text(
                       _errorText!,
@@ -137,12 +136,12 @@ class _FaceIdScanPageState extends State<FaceIdScanPage> {
                         fontSize: 13,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8.h),
                     TextButton(
                       onPressed: _startAuth,
                       child: const Text(
                         'Try again',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: AppColors.background),
                       ),
                     ),
                   ],
@@ -154,7 +153,7 @@ class _FaceIdScanPageState extends State<FaceIdScanPage> {
                 //       color: AppColors.inputBorder,
                 //     ),
                 //   ),
-                  const SizedBox(height: 70),
+                   SizedBox(height: 70.h),
                   // const Spacer(),
 
                   const HomeIndicator(color: Colors.white),
