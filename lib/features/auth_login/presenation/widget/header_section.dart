@@ -1,4 +1,5 @@
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,10 +11,10 @@ class HeaderSection extends StatelessWidget {
       children:  [
         Text(
           'Login To Your Account',
-          style: TextStyle(
-            fontSize: 26.sp,
-            fontWeight: FontWeight.w700,
-            color: AppColors.mainColor,
+          style: AppTextStyles. styles.latoW600S24.copyWith(
+            color: AppColors.textPrimary,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w600,
           ),
           textAlign: TextAlign.center,
         ),
@@ -23,10 +24,10 @@ class HeaderSection extends StatelessWidget {
            children: [
              Text(
               "Welcome back you've ",
-              style: TextStyle(
+              style: AppTextStyles. styles.latoW400S16.copyWith(
+                color: AppColors.shadowColor,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
-                color: AppColors.shadowColor,
               ),
               textAlign: TextAlign.center,
                    ),

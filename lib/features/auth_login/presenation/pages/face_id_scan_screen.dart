@@ -1,6 +1,7 @@
 
 import 'package:fintech_app/core/services/biometric_service.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:fintech_app/features/auth_login/presenation/pages/face_id_verified_screen.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/home_indictor.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/icon_info_card.dart';
@@ -91,11 +92,12 @@ class _FaceIdScanPageState extends State<FaceIdScanPage> {
                  
                    Text(
                     'Face ID',
-                    style: TextStyle(
+                    style: AppTextStyles. styles.latoW600S18.copyWith(
+                      color: AppColors.inputBorder,
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.inputBorder,
                     ),
+                  
                   ),
                   const Spacer(),
 
@@ -116,32 +118,34 @@ class _FaceIdScanPageState extends State<FaceIdScanPage> {
  if (_isProcessing)
                     const CircularProgressIndicator(
                       valueColor:
-                          AlwaysStoppedAnimation<Color>(Colors.white),
+                          AlwaysStoppedAnimation<Color>(AppColors.background),
                     )
                   else
                      Text(
                       'Please wait until your scanning is complete',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: AppTextStyles. styles.latoW400S14.copyWith(
+                        color: AppColors.inputBorder,
                         fontSize: 14.sp,
-                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                    SizedBox(height: 12.h),
                   if (_errorText != null) ...[
                     Text(
                       _errorText!,
-                      style: const TextStyle(
+                      style:  AppTextStyles. styles.latoW400S14.copyWith(
                         color: Colors.redAccent,
-                        fontSize: 13,
-                      ),
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                      )
                     ),
                     SizedBox(height: 8.h),
                     TextButton(
                       onPressed: _startAuth,
-                      child: const Text(
+                      child:  Text(
                         'Try again',
-                        style: TextStyle(color: AppColors.background),
+                        style: AppTextStyles. styles.latoW600S14,
                       ),
                     ),
                   ],

@@ -1,4 +1,5 @@
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/auth_background.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/home_indictor.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/login_primery_bottom.dart';
@@ -37,11 +38,12 @@ class VerificationSuccessScreen extends StatelessWidget {
                   Center(
                     child: Text(
                       'Verify account',
-                      style: TextStyle(
+                      style: AppTextStyles. styles.latoW600S16.copyWith(
+                        color: AppColors.textSecondary,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
-                        color: AppColors.textSecondary,
                       ),
+                     
                     ),
                   ),
                   SizedBox(height: 48.h),
@@ -83,20 +85,21 @@ class VerificationSuccessScreen extends StatelessWidget {
                   Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: AppTextStyles. styles.latoW600S22.copyWith(
+                      color: AppColors.textPrimary,
                       fontSize: 22.sp,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.textPrimary,
                     ),
                   ),
                   SizedBox(height: 12.h),
                   Text(
                     description,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      height: 1.5.h,
+                    style: AppTextStyles. styles.latoW400S14.copyWith(
                       color: AppColors.textSecondary,
+                      fontSize: 14.sp,
+                      height: 1.5.h ,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   const Spacer(),

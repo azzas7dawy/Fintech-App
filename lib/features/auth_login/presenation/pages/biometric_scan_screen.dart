@@ -1,5 +1,6 @@
 import 'package:fintech_app/core/services/biometric_service.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/auth_background.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/home_indictor.dart';
 import 'package:flutter/material.dart';
@@ -78,10 +79,10 @@ class _BiometricScanScreenState extends State<BiometricScanScreen> {
                   Text(
                     widget.title,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 18.sp,
+                    style: AppTextStyles. styles.latoW600S22.copyWith(
+                      color: AppColors.textPrimary,
+                      fontSize: 22.sp,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.primary,
                     ),
                   ),
                   const Spacer(),
@@ -109,11 +110,12 @@ class _BiometricScanScreenState extends State<BiometricScanScreen> {
                   Text(
                     widget.description,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      height: 1.5.h,
+                    style: AppTextStyles. styles.latoW400S14.copyWith(
                       color: AppColors.textSecondary,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
                     ),
+                    
                   ),
                    SizedBox(height: 16.h),
                   if (_isProcessing)
@@ -121,9 +123,11 @@ class _BiometricScanScreenState extends State<BiometricScanScreen> {
                   else if (_errorText != null) ...[
                     Text(
                       _errorText!,
-                      style: TextStyle(
+                      style: AppTextStyles. styles.latoW400S13.copyWith(
                         color: Colors.redAccent,
                         fontSize: 13.sp,
+                        fontWeight: FontWeight.w400,
+                        
                       ),
                     ),
                     TextButton(

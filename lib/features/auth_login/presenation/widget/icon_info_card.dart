@@ -1,5 +1,7 @@
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IconInfoCard extends StatelessWidget {
   final Widget icon;
@@ -21,7 +23,7 @@ class IconInfoCard extends StatelessWidget {
       width: size,
       padding: padding,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.background,
         borderRadius: BorderRadius.circular(24),
         // boxShadow: [
         //   BoxShadow(
@@ -38,10 +40,10 @@ class IconInfoCard extends StatelessWidget {
           const SizedBox(height: 12),
           Text(
             title,
-            style: const TextStyle(
-              fontSize: 16,
+            style:AppTextStyles. styles.latoW600S16.copyWith(
+              color: AppColors.textPrimary,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
-              color: AppColors.mainColor,
             ),
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:fintech_app/features/auth_login/presenation/pages/face_id_scan_screen.dart';
 import 'package:fintech_app/features/auth_login/presenation/pages/finger_print_scan_screen.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/circle_item_bottom.dart';
@@ -16,9 +17,10 @@ class OrDivider extends StatelessWidget {
         SizedBox(width: 8.w),
         Text(
           'Or login with',
-          style: TextStyle(
-            fontSize: 13.sp,
-            color: AppColors.mainColor,
+          style: AppTextStyles. styles.latoW400S14.copyWith(
+            color: AppColors.shadowColor,
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w400,
           ),
         ),
         SizedBox(width: 8.w),

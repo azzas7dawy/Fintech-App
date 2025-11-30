@@ -1,5 +1,6 @@
 
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/auth_background.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/home_indictor.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/icon_info_card.dart';
@@ -62,21 +63,23 @@ class FaceIdVerifiedPage extends StatelessWidget {
                   Text(
                     "You're verified",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: AppTextStyles. styles.latoW600S22.copyWith(
+                      color: AppColors.textPrimary,
                       fontSize: 22.sp,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.textPrimary,
                     ),
                   ),
                   SizedBox(height: 40.h),
                   Text(
                     "You have been verified your information completely. Let's make transactions!",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: AppTextStyles. styles.latoW400S14.copyWith(
+                      color: AppColors.textSecondary,
                       fontSize: 14.sp,
                       height: 1.5.h,
-                      color: AppColors.textSecondary,
-                    ),
+                      fontWeight: FontWeight.w400,
+
+                    )
                   ),
                   const Spacer(),
 

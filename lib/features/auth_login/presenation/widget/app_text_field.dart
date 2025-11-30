@@ -1,4 +1,5 @@
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,7 +27,7 @@ class AppTextField extends StatelessWidget {
       keyboardType: keyboardType,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.white,
+        fillColor:AppColors.background,
         border: OutlineInputBorder(
           borderSide: const BorderSide(
             color: AppColors.gray800,
@@ -35,9 +36,10 @@ class AppTextField extends StatelessWidget {
           
         ),
         hintText: hintText,
-        hintStyle:  TextStyle(
-          fontSize: 13.sp,
+        hintStyle: AppTextStyles. styles.latoW400S14.copyWith(
           color: AppColors.textSecondary,
+          fontSize: 14.sp,
+          fontWeight: FontWeight.w400,
         ),
         prefixIcon: prefixIcon != null
             ? Icon(prefixIcon, size: 20.sp, color: AppColors.textSecondary)

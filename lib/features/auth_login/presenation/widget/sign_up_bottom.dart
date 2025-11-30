@@ -1,4 +1,5 @@
  import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class BottomSignUpText extends StatelessWidget {
@@ -12,9 +13,10 @@ class BottomSignUpText extends StatelessWidget {
         children: [
            Text(
             "Don't have an account? ",
-            style: TextStyle(
-              fontSize: 13.sp,
-              color: AppColors.textSecondary,
+            style: AppTextStyles. styles.latoW400S14.copyWith(
+              color: AppColors.shadowColor,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w600,
             ),
           ),
           GestureDetector(
@@ -23,10 +25,10 @@ class BottomSignUpText extends StatelessWidget {
             },
             child:  Text(
               'Sign Up',
-              style: TextStyle(
+              style: AppTextStyles. styles.latoW400S16.copyWith(
+                color: AppColors.mainColor,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
-                color: AppColors.mainColor,
               ),
             ),
           ),
@@ -35,3 +37,4 @@ class BottomSignUpText extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,5 @@
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:fintech_app/features/auth_login/presenation/cubit/login_cubit.dart';
 import 'package:fintech_app/features/auth_login/presenation/cubit/login_state.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/app_text_field.dart';
@@ -40,14 +41,18 @@ class LoginFormState extends State<LoginForm> {
               prefixIcon: Icons.mail_outline,
               keyboardType: TextInputType.emailAddress,
             ),
-             SizedBox(height: 16.h),
+
+            SizedBox(height: 16.h),
+
             AppTextField(
               controller: _passwordController,
               hintText: 'Password',
               prefixIcon: Icons.lock_outline,
               obscureText: true,
             ),
+
             SizedBox(height: 12.h),
+
             Row(
               children: [
                 Checkbox(
@@ -59,30 +64,32 @@ class LoginFormState extends State<LoginForm> {
                     borderRadius: BorderRadius.circular(4.r),
                   ),
                 ),
-                 Text(
+
+                Text(
                   'Remember me',
-                  style: TextStyle(
-                    fontSize: 13.sp,
+                  style: AppTextStyles.styles.latoW400S13.copyWith(
                     color: AppColors.textSecondary,
                   ),
                 ),
+
                 const Spacer(),
+
                 TextButton(
                   onPressed: () {
-                    // TODO: navigate to forgot password
+                    // TODO: Navigate to Forgot Password
                   },
-                  child:  Text(
+                  child: Text(
                     'Forget Password?',
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w500,
+                    style: AppTextStyles.styles.latoW500S12.copyWith(
                       color: AppColors.mainColor,
                     ),
                   ),
                 ),
               ],
             ),
+
             SizedBox(height: 12.h),
+
             PrimaryButton(
               text: state is LoginLoading ? "Loading..." : "Login",
               onPressed: state is LoginLoading
@@ -94,9 +101,13 @@ class LoginFormState extends State<LoginForm> {
                       );
                     },
             ),
+
             SizedBox(height: 24.h),
+
             const OrDivider(),
+
             SizedBox(height: 16.h),
+
             const SocialRow(),
           ],
         );

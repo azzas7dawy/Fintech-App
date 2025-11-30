@@ -12,7 +12,7 @@ class FingerprintScanPage extends StatelessWidget {
       title: 'Touch ID sensor to verify yourself',
       description:
           'Please verify your identity using touch ID and it will proceed automatically.',
-      icon: Icons.fingerprint, //  البصمة
+      icon: Icons.fingerprint, 
       onAuthenticated: (ctx) {
         Navigator.of(ctx).pushReplacement(
           MaterialPageRoute(
