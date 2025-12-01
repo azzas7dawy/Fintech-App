@@ -10,3 +10,4 @@ export 'package:fintech_app/features/home/ui/screens/home_page.dart';
 export '../main_layout.dart';
 export 'package:fintech_app/features/Portfolio/ui/screens/portfolio_screen.dart';
 export 'package:fintech_app/features/onboarding/ui/screens/onboarding_screen.dart';
+export 'package:fintech_app/features/splash/ui/screens/splash_screen.dart';

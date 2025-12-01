@@ -37,4 +37,8 @@ class Assets {
   static const String imagesOnBoarding2 = 'assets/images/onboarding2.png';
   static const String imagesOnBoarding3 = 'assets/images/onboarding3.png';
   static const String imagesGetStarted = 'assets/images/getStarted.png';
+
+  // Splash
+  static const String imagesSplashDark = 'assets/images/splash_dark.png';
+  static const String imagesSplashLight = 'assets/images/splash_light.png';
 }

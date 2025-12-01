@@ -21,4 +21,7 @@ class Routes {
 
   // Onboarding
   static const String onboarding = '/onboarding';
+
+  // Splash
+  static const String splash = '/splash';
 }
