@@ -1,6 +1,8 @@
 
   import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
  Widget buildPaymentRow({
     required String title,
     required VoidCallback onTap,
@@ -11,11 +13,11 @@ import 'package:flutter/material.dart';
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Container(
-          height: 56,
-          width:343 ,
+          height: 56.h,
+          width:343.w,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color:  Colors.white,
+            borderRadius: BorderRadius.circular(15.r),
+            color:  AppColors.darkLightContainerColor,
           ),
          
           child: Padding(
@@ -24,17 +26,16 @@ import 'package:flutter/material.dart';
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.mainColor
+                  style: 
+                  AppTextStyles.styles.latoW500S14.copyWith(
+                    color: AppColors.mainColor,
                   ),
                 ),
                 const Spacer(),
-                const Icon(
+                 Icon(
                   Icons.arrow_forward_ios,
                   color: AppColors.mainColor,
-                  size: 16,
+                  size: 16.sp,
                 ),
               ],
             ),

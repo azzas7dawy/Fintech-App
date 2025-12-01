@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 class AppColors {
   AppColors._();
   static const mainColor = Color(0xFF1D3A70);
+  static const orangColor=Color( 0xffF56C2A);
+
   static const darkModeBackGroundColor = Color(0xFF121212);
   static const darkModeContainerColor = Color(0xFF0D0D0D);
    static const darkLightContainerColor = Color(0xffFFFFFF);

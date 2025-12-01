@@ -1,8 +1,10 @@
 import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:fintech_app/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:fintech_app/features/payment/presentation/cubits/payment_statue.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FeeRow extends StatelessWidget {
   const FeeRow({super.key});
@@ -17,7 +19,7 @@ class FeeRow extends StatelessWidget {
               child: Card(
                 color: AppColors.darkLightContainerColor,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -26,7 +28,7 @@ class FeeRow extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          color: Colors.orange.shade100,
+                          color: AppColors.orangColor.withOpacity(0.07),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Image(image: AssetImage('assets/images/Rectangle 897.png')),
@@ -35,8 +37,16 @@ class FeeRow extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('Exchange fee',style: TextStyle(color: AppColors.darkLightGroundColor),),
-                          Text('${state.feePercent}%',style: TextStyle(color: AppColors.mainColor),),
+                           Text('Exchange fee',style:
+                          AppTextStyles.styles.latoW500S12.copyWith(
+                            color: AppColors.gray,
+                          ),
+                           ),
+                          Text('${state.feePercent}%',
+                          style: AppTextStyles.styles.latoW600S16.copyWith(
+                            color: AppColors.mainColor,
+                          ),
+                          ),
                         ],
                       ),
                     ],
@@ -55,11 +65,8 @@ class FeeRow extends StatelessWidget {
               child: Center(
                 child: Text(
                   '\$26',
-                  style: TextStyle(
-                  
-                    fontSize: 25,
-                    color:AppColors.mainColor,
-                    // Theme.of(context).primaryColor,
+                  style: AppTextStyles.styles.latoW600S15.copyWith(
+                    color: AppColors.mainColor,
                   ),
                 ),
               ),
@@ -69,4 +76,4 @@ class FeeRow extends StatelessWidget {
       },
     );
   }
-}
+} 

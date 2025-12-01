@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 // import 'package:maps_and_themeing/constants.dart';
 
 class PaymobManager{
@@ -31,7 +32,8 @@ class PaymobManager{
     final Response response=await Dio().post(
       "https://accept.paymob.com/api/auth/tokens",
       data: {
-        "api_key": "ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2TVRFd09UTTNNeXdpYm1GdFpTSTZJakUzTmpReE1EZzJNalF1T1RjeE5UUTVJbjAuX0lmR0RCRXlVVUtQU2M0TDRCRTBwdFJHeU5aTVFuR2FlenJYdTFxUUZJLVFhT3FDc3BVSENiT3M3WkhFOEplYTNHNFV2c3ZZeTlDV3NLSjdJOVBpYmc=",
+        "api_key":dotenv.env['API_KEY'],
+        
       }
     );
     return response.data["token"];
@@ -69,19 +71,20 @@ class PaymobManager{
 
         "auth_token": authanticationToken,//From First Api
         "order_id":orderId,//From Second Api  >>(STRING)<<
-        "integration_id": '5407998',//Integration Id Of The Payment Method
+        "integration_id": dotenv.env['INTEGRATION_ID'],
+       
         
         "amount_cents": amount, 
         "currency": currency, 
         
         "billing_data": {
-          //Have To Be Values
+      
           "first_name": "Clifford", 
           "last_name": "Nicolas", 
           "email": "claudette09@exa.com",
           "phone_number": "+86(8)9135210487",
 
-          //Can Set "NA"
+
           "apartment": "NA",  
           "floor": "NA", 
           "street": "NA", 
