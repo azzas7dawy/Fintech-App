@@ -16,7 +16,7 @@ class BottomNavBar extends StatelessWidget {
 
     if (location == Routes.homePage) return 0;
     if (location.startsWith(Routes.cryptoMarket)) return 1;
-    if (location.startsWith(Routes.buyCryptoScreen) ||
+    if (location.startsWith(Routes.portfolioScreen) ||
         location.startsWith(Routes.paymentMethodScreen))
       return 2;
     if (location.startsWith(Routes.settings)) return 3;
@@ -53,7 +53,7 @@ class BottomNavBar extends StatelessWidget {
             image: Assets.iconsBriefcase,
             label: tr('home.nav.portfolio'),
             isSelected: index == 2,
-              onTap: () => context.go(Routes.portfolioScreen),
+            onTap: () => context.go(Routes.portfolioScreen),
           ),
           BottomNavItem(
             image: Assets.iconsSetting,

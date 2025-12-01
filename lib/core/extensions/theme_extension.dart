@@ -11,11 +11,15 @@ extension ThemeExtension on BuildContext {
 
   // Containers / Surfaces
   Color get containerBackground => _colors.containerBackground;
+  Color get portfolioBackgroundSelectedTabBar => _colors.portfolioBackgroundSelectedTabBar;
+  Color get portfolioSelectedTextTabBar => _colors.portfolioSelectedTextTabBar;
 
   // Text
   Color get primaryText => _colors.primaryText;
   Color get mainText => _colors.mainText;
   Color get secondaryText => _colors.secondaryText;
+  Color get textOnDark => _colors.textOnDark;
+  Color get textGreen => _colors.textGreen;
 
   Color get bttnav => AppColors.primary;
 

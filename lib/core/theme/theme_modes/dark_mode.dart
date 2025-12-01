@@ -22,6 +22,7 @@ ThemeData getDarkModeTheme() {
         primaryText: Colors.white,
         mainText: Colors.white,
         secondaryText: Color(0xFFB0B0B0),
+        textOnDark: AppColors.white,
         iconColor: Colors.white70,
         successBackground: AppColors.successDark,
         successPrimary: AppColors.successPrimaryDark,
@@ -31,6 +32,9 @@ ThemeData getDarkModeTheme() {
         infoColor: AppColors.infoDark,
         divider: AppColors.dividerDark,
         toggleBackground: AppColors.primaryDark,
+        textGreen: AppColors.textGreenDark,
+        portfolioSelectedTextTabBar: AppColors.white,
+        portfolioBackgroundSelectedTabBar: AppColors.containerDark,
       ),
     ],
 

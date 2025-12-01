@@ -28,6 +28,7 @@ ThemeData getLightModeTheme() {
         primaryText: Colors.black,
         mainText: AppColors.primaryDark,
         secondaryText: AppColors.textSecondary,
+        textOnDark: AppColors.backgroundLight,
         iconColor: Colors.black87,
         successBackground: AppColors.successLight,
         successPrimary: AppColors.successPrimaryLight,
@@ -37,6 +38,9 @@ ThemeData getLightModeTheme() {
         infoColor: AppColors.infoLight,
         divider: AppColors.dividerLight,
         toggleBackground: AppColors.neutral500.withValues(alpha: 0.3),
+        textGreen: AppColors.textGreenLight,  
+        portfolioSelectedTextTabBar: AppColors.infoLight,
+        portfolioBackgroundSelectedTabBar: AppColors.white,
       ),
     ],
 

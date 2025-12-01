@@ -27,6 +27,10 @@ class AppColors {
   static const textTertiary = Color(0xff666D80);
   static const textDisabled = Color(0xff5D5C5D);
   static const textDark = Color(0xff222222);
+  static const portfolioTextTabBar = Color(0xFF484C58);
+
+  static const textGreenLight = Color(0xFF69D895);
+  static const textGreenDark = Color(0xFF7DDDA3);
 
   // Border Colors
   static const borderPrimary = Color(0xff272835);
