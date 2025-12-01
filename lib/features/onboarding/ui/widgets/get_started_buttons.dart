@@ -6,6 +6,7 @@ import '../../../../core/constant/translation_keys.dart';
 import '../../../../core/extensions/theme_extension.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theme/app_text_styles.dart';
+import '../../../../core/widgets/button_app.dart';
 
 class GetStartedButtons extends StatelessWidget {
   const GetStartedButtons({super.key});
@@ -16,52 +17,35 @@ class GetStartedButtons extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         // Login Button (filled with cardBackground)
-        SizedBox(
+        ButtonApp(
+          title: TranslationKeys.onboardingLogin.tr(),
           width: double.infinity,
-          height: 56.h,
-          child: ElevatedButton(
-            onPressed: () {
-              // Navigate to home for now (can be changed to login route later)
-              context.go(Routes.homePage);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: context.cardBackground,
-              foregroundColor: context.primaryText,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.r),
-              ),
-              elevation: 0,
-            ),
-            child: Text(
-              TranslationKeys.onboardingLogin.tr(),
-              style: AppTextStyles.styles.latoW600S16.copyWith(
-                color: context.primaryText,
-              ),
-            ),
-          ),
+          onPressed: () {
+            // Navigate to home for now (can be changed to login route later)
+            context.go(Routes.homePage);
+          },
         ),
-        SizedBox(height: 16.h),
+        SizedBox(height: 18.h),
         // Register Button (outlined with cardBackground border)
         SizedBox(
           width: double.infinity,
           height: 56.h,
           child: OutlinedButton(
             onPressed: () {
-              // Navigate to home for now (can be changed to register route later)
               context.go(Routes.homePage);
             },
             style: OutlinedButton.styleFrom(
               backgroundColor: Colors.transparent,
-              foregroundColor: context.cardBackground,
-              side: BorderSide(color: context.cardBackground, width: 1.5),
+              foregroundColor: context.mainText,
+              side: BorderSide(color: context.mainText, width: 2.5.w),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(31.r),
               ),
             ),
             child: Text(
               TranslationKeys.onboardingRegister.tr(),
               style: AppTextStyles.styles.latoW600S16.copyWith(
-                color: context.cardBackground,
+                color: context.mainText,
               ),
             ),
           ),
