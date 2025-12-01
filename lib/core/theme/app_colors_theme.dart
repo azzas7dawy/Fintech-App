@@ -17,6 +17,7 @@ class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
 
   // Icon Colors
   final Color iconColor;
+  final Color iconBackground; // icon background color
 
   // Status Colors
   final Color successBackground;
@@ -43,6 +44,7 @@ class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
     required this.secondaryText,
     required this.textOnDark,
     required this.iconColor,
+    required this.iconBackground,
     required this.successBackground,
     required this.successPrimary,
     required this.successText,
@@ -78,6 +80,7 @@ class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
     Color? textGreen,
     Color? portfolioSelectedTextTabBar,
     Color? portfolioBackgroundSelectedTabBar,
+    Color? iconBackground,
   }) {
     return AppColorsTheme(
       containerBackground: containerBackground ?? this.containerBackground,
@@ -89,6 +92,7 @@ class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
       secondaryText: secondaryText ?? this.secondaryText,
       textOnDark: textOnDark ?? this.textOnDark,
       iconColor: iconColor ?? this.iconColor,
+      iconBackground: iconBackground ?? this.iconBackground,
       successBackground: successBackground ?? this.successBackground,
       successPrimary: successPrimary ?? this.successPrimary,
       successText: successText ?? this.successText,
@@ -126,7 +130,8 @@ class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
       secondaryText: Color.lerp(secondaryText, other.secondaryText, t)!,
       textOnDark: Color.lerp(textOnDark, other.textOnDark, t)!,
       iconColor: Color.lerp(iconColor, other.iconColor, t)!,
-      successBackground: Color.lerp(
+      iconBackground: Color.lerp(iconBackground, other.iconBackground, t)!,
+        successBackground: Color.lerp(
         successBackground,
         other.successBackground,
         t,

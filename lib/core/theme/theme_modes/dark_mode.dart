@@ -24,6 +24,7 @@ ThemeData getDarkModeTheme() {
         secondaryText: Color(0xFFB0B0B0),
         textOnDark: AppColors.white,
         iconColor: Colors.white70,
+        iconBackground: AppColors.iconBackgroundDark,
         successBackground: AppColors.successDark,
         successPrimary: AppColors.successPrimaryDark,
         successText: AppColors.successPrimaryDark,

@@ -11,7 +11,8 @@ extension ThemeExtension on BuildContext {
 
   // Containers / Surfaces
   Color get containerBackground => _colors.containerBackground;
-  Color get portfolioBackgroundSelectedTabBar => _colors.portfolioBackgroundSelectedTabBar;
+  Color get portfolioBackgroundSelectedTabBar =>
+      _colors.portfolioBackgroundSelectedTabBar;
   Color get portfolioSelectedTextTabBar => _colors.portfolioSelectedTextTabBar;
 
   // Text
@@ -25,7 +26,7 @@ extension ThemeExtension on BuildContext {
 
   // Icons
   Color get iconColor => _colors.iconColor;
-
+  Color get iconBackground => _colors.iconBackground;
   // Cards
   Color get cardBackground => _colors.cardBackground;
   Color get cardBorderColor => _colors.cardBorderColor;

@@ -40,6 +40,8 @@ class AppColors {
   // Icon Colors
   static const iconDark = Color(0xff222222);
   static const iconLight = Color(0xffdddddd);
+  static const iconBackgroundDark = Color(0xFF1B1B1B);
+  static const iconBackgroundLight = Color(0xFFEDF0F3);
 
   // Basic Colors
   static const white = Color(0xFFFFFFFF);

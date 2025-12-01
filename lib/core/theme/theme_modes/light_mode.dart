@@ -30,6 +30,7 @@ ThemeData getLightModeTheme() {
         secondaryText: AppColors.textSecondary,
         textOnDark: AppColors.backgroundLight,
         iconColor: Colors.black87,
+        iconBackground: AppColors.iconBackgroundLight,
         successBackground: AppColors.successLight,
         successPrimary: AppColors.successPrimaryLight,
         successText: AppColors.successPrimaryLight,
