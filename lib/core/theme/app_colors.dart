@@ -73,4 +73,9 @@ class AppColors {
   static const neutral300 = Color(0xff8F8F8F);
   static const neutral500 = Color(0xff5E5E5E);
   static const neutral700 = Color(0xffdddddd);
+
+  // pie chart colors
+  static const Color softVioletPieChart1 = Color(0xFF8979FF);
+  static const Color brightCyanPieChart2 = Color(0xFF3BC3DE);
+  static const Color salmonPinkPieChart3 = Color(0xFFFF928A);
 }

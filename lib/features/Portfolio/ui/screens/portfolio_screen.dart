@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constant/translation_keys.dart';
 import '../../../../core/theme/app_text_styles.dart';
+import '../widgets/portfolio_pie_chart.dart';
 import '../widgets/portfolio_summary_card.dart';
 import '../widgets/portfolio_tab_bar.dart';
 
@@ -30,6 +31,8 @@ class PortfolioScreen extends StatelessWidget {
             SizedBox(height: 25.h),
 
             const DefaultTabController(length: 6, child: PortfolioTabBar()),
+            SizedBox(height: 25.h),
+            const PortfolioPieChart(),
           ],
         ),
       ),
