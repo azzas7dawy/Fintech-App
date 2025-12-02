@@ -1,10 +1,14 @@
-import 'package:fintech_app/core/theme/app_colors.dart';
+
 import 'package:fintech_app/features/payment/data/datasources/paymob_manger.dart';
-import 'package:fintech_app/features/payment/presentation/widgets/build_card_chip.dart';
-import 'package:fintech_app/features/payment/presentation/widgets/build_payment_row.dart';
-import 'package:fintech_app/features/payment/presentation/widgets/colored_card.dart';
+
+import 'package:fintech_app/features/payment/presentation/widgets/credit_card_section.dart';
 import 'package:fintech_app/features/payment/presentation/widgets/custom_bottom_sheet.dart';
+import 'package:fintech_app/features/payment/presentation/widgets/email_receipt_switch.dart';
+import 'package:fintech_app/features/payment/presentation/widgets/payment_app_bar.dart';
+import 'package:fintech_app/features/payment/presentation/widgets/payment_buy_button.dart';
+import 'package:fintech_app/features/payment/presentation/widgets/payment_methods_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 enum PaymentMethod { card, googlePay, mobileBanking }
@@ -22,7 +26,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
   PaymentMethod? _selectedMethod;
   bool _sendToEmail = false;
 
-  // ألوان شبه اللي في الـ Figma
+ 
   final Color _background = const Color(0xFFF4F7FF);
   final Color _cardBackground = Colors.white;
   final Color _primaryDark = const Color(0xFF1F3C88);
@@ -32,6 +36,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
     setState(() {
       _selectedMethod = method;
     });
+
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.white,
@@ -54,149 +59,69 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
     );
   }
 
+  Future<void> _pay() async {
+    try {
+      final paymentKey = await PaymobManager().getPaymentKey(
+        100,
+        "EGP",
+      );
+
+      final uri = Uri.parse(
+        "https://accept.paymob.com/api/acceptance/iframes/982007?payment_token=$paymentKey",
+      );
+
+      final launched = await launchUrl(uri);
+
+      if (!launched && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Could not open payment page. Please try again.'),
+          ),
+        );
+      }
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Something went wrong while processing payment.'),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: _background,
-      appBar: AppBar(
+      appBar: PaymentAppBar(
         backgroundColor: _background,
-        elevation: 0,
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: AppColors.primaryDark,
-            size: 18,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Payment method',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: AppColors.primaryDark,
-          ),
-        ),
+        onBack: () => Navigator.pop(context),
       ),
 
       // ====================== BODY ======================
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
           children: [
-            const SizedBox(height: 8),
-
-            // ======= Card Section (زي التصميم) =======
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: _cardBackground,
-                borderRadius: BorderRadius.circular(24),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // العنوان + سهم صغير
-                  const Row(
-                    children: [
-                      Text(
-                        'Credit Card',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: AppColors.primaryDark,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Spacer(),
-                      Icon(
-                        Icons.keyboard_arrow_up,
-                        color: AppColors.primaryDark,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-
-                  // أزرار فيزا / ماستر كارد / كارد فاضي
-                  Row(
-                    children: [
-                      buildCardTypeChip(
-                        'VISA',
-                        selected: true,
-                        logoImage: Image.asset('assets/images/Maskgroup.png'),
-                      ),
-                      const SizedBox(width: 12),
-                      buildCardTypeChip(
-                        '',
-                        logoImage: Image.asset(
-                          'assets/images/MastercardLogo.png',
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      buildCardTypeChip(
-                        '',
-                        logoImage: Image.asset('assets/images/apple.png'),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-
-                  const CustomColoredCard(),
-                ],
-              ),
+            SizedBox(height: 8.h),
+            CreditCardSection(cardBackground: _cardBackground),
+            SizedBox(height: 20.h),
+            PaymentMethodsSection(
+              onGooglePayTap: () => _onSelectMethod(PaymentMethod.googlePay),
+              onMobileBankingTap: () =>
+                  _onSelectMethod(PaymentMethod.mobileBanking),
             ),
-
-            const SizedBox(height: 20),
-
-            // ======= Google Pay =======
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white10,
-                borderRadius: BorderRadius.circular(24),
-              ),
-              child: Column(
-                children: [
-                  buildPaymentRow(
-                    title: 'Google Pay',
-                    onTap: () => _onSelectMethod(PaymentMethod.googlePay),
-                  ),
-
-                  buildPaymentRow(
-                    title: 'Mobile Banking',
-                    onTap: () => _onSelectMethod(PaymentMethod.mobileBanking),
-                  ),
-                ],
-              ),
+            SizedBox(height: 24.h),
+            EmailReceiptSwitchRow(
+              value: _sendToEmail,
+              primaryDark: _primaryDark,
+              onChanged: (value) {
+                setState(() {
+                  _sendToEmail = value;
+                });
+              },
             ),
-
-            const SizedBox(height: 24),
-
-            // ======= Send receipt to email + Switch =======
-            Row(
-              children: [
-                const Text(
-                  'Send receipt to your email',
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: AppColors.primaryDark,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const Spacer(),
-                Switch(
-                  value: _sendToEmail,
-                  activeThumbColor: AppColors.primaryDark,
-                  activeTrackColor: _primaryDark,
-                  onChanged: (value) {
-                    setState(() {
-                      _sendToEmail = value;
-                    });
-                  },
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 90), // مساحة فوق الزرار
+            SizedBox(height: 90.h),
           ],
         ),
       ),
@@ -205,40 +130,12 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
-          child: SizedBox(
-            height: 52,
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () async => _pay(),
-
-              style: ElevatedButton.styleFrom(
-                backgroundColor: _primaryDark,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(26),
-                ),
-              ),
-              child: const Text(
-                'Buy',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+          child: PaymentBuyButton(
+            primaryDark: _primaryDark,
+            onPressed: _pay,
           ),
         ),
       ),
     );
   }
-}
-
-Future<dynamic> _pay() async {
-  PaymobManager().getPaymentKey(10, 'EGP').then((String paymentKey) {
-    launchUrl(
-      Uri.parse(
-        'https://accept.paymob.com/api/acceptance/iframes/982007?payment_token=$paymentKey',
-      ),
-    );
-  });
 }
