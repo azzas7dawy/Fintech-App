@@ -1,6 +1,7 @@
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/features/payment/presentation/pages/payment_method_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBottomSheet extends StatelessWidget {
   const CustomBottomSheet({
@@ -24,12 +25,12 @@ class CustomBottomSheet extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              width: 40,
-              height: 4,
-              margin: const EdgeInsets.only(bottom: 16),
+              width: 40.w,
+              height: 4.h,
+              margin: EdgeInsets.only(bottom: 16.h),
               decoration: BoxDecoration(
                 color: Colors.blue.shade300,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(12.r),
               ),
             ),
           ),
@@ -39,21 +40,21 @@ class CustomBottomSheet extends StatelessWidget {
               context,
             ).textTheme.bodyMedium?.copyWith(color: Colors.black54),
           ),
-          const SizedBox(height: 4),
+           SizedBox(height: 4.h),
           Text(
             methodText,
             style: Theme.of(
               context,
             ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 16),
+           SizedBox(height: 16.h),
           Text(
             'Amount to pay',
             style: Theme.of(
               context,
             ).textTheme.bodyMedium?.copyWith(color: Colors.black54),
           ),
-          const SizedBox(height: 4),
+           SizedBox(height: 4.h),
           Text(
             '${widget.amount.toStringAsFixed(2)} EGP',
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
@@ -61,7 +62,7 @@ class CustomBottomSheet extends StatelessWidget {
               color: _primaryDark,
             ),
           ),
-          const SizedBox(height: 24),
+           SizedBox(height: 24.h),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
@@ -69,19 +70,16 @@ class CustomBottomSheet extends StatelessWidget {
                 Navigator.pop(context);
               },
               style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 14),
+                padding: EdgeInsets.symmetric(vertical: 14.h),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(16.r),
                 ),
               ),
-              child: const Text(
-                'OK',
-                style: TextStyle(fontSize: 16, color: AppColors.primaryDark),
-              ),
+              child:  Text('OK', style: TextStyle(fontSize: 16.sp,color: AppColors.mainColor,) )),
             ),
-          ),
+          
         ],
-      ),
+            )
     );
   }
 }

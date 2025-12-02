@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: Routes.homePage,
+  initialLocation: Routes.buyCryptoScreen,
 
   routes: [
     /// ---------- MAIN LAYOUT WITH BOTTOM NAV ----------
