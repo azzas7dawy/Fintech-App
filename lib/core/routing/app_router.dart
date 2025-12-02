@@ -3,12 +3,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes_exports.dart';
 import 'package:go_router/go_router.dart';
 
-
-
 final GoRouter appRouter = GoRouter(
-  initialLocation: Routes.buyCryptoScreen,
+  initialLocation: Routes.splash,
 
   routes: [
+    /// Splash Screen
+    GoRoute(
+      path: Routes.splash,
+      name: Routes.splash,
+      builder: (context, state) => const SplashScreen(),
+    ),
+
+    /// Onboarding (outside ShellRoute - no bottom nav)
+    GoRoute(
+      path: Routes.onboarding,
+      name: Routes.onboarding,
+      builder: (context, state) => const OnboardingScreen(),
+    ),
+
     /// ---------- MAIN LAYOUT WITH BOTTOM NAV ----------
     ShellRoute(
       builder: (context, state, child) {

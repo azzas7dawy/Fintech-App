@@ -31,6 +31,16 @@ class Assets {
   static const String imagesMastercardLogo = 'assets/images/MastercardLogo.png';
   static const String imagesRectangle897 = 'assets/images/Rectangle897.png';
   static const String imagesVisa1044 = 'assets/images/visa1044.png';
+
+  // onBoarding
+  static const String imagesOnBoarding1 = 'assets/images/onboarding1.png';
+  static const String imagesOnBoarding2 = 'assets/images/onboarding2.png';
+  static const String imagesOnBoarding3 = 'assets/images/onboarding3.png';
+  static const String imagesGetStarted = 'assets/images/getStarted.png';
+
+  // Splash
+  static const String imagesSplashDark = 'assets/images/splash_dark.png';
+  static const String imagesSplashLight = 'assets/images/splash_light.png';
   static const String imagesEllipseLeft = 'assets/images/ellipse_left.png';
   static const String imagesEllipseRight = 'assets/images/ellipse_right.png';
 

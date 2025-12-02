@@ -54,6 +54,26 @@
   "aboutCoin": "About {name}",
   "sell": "Sell",
   "buy": "Buy",
+  "onboarding": {
+    "welcome": {
+      "title": "Welcome To Crypto X",
+      "titlePart1": "Welcome To ",
+      "titlePart2": "Crypto X"
+    },
+    "market": {
+      "title": "Fast And Reliable Market Updated"
+    },
+    "security": {
+      "title": "Transaction Security"
+    },
+    "getStarted": {
+      "title": "Get Started Now!"
+    },
+    "skip": "Skip",
+    "next": "Next",
+    "login": "Login",
+    "register": "Register"
+  }
   "portfolio": "Portfolio",
   "total_value": "Total Value",
   "today": "Today",

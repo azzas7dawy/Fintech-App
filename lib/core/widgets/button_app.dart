@@ -11,17 +11,21 @@ class ButtonApp extends StatelessWidget {
     this.textColor,
     this.backgroundColor,
     this.foregroundColor,
+    this.width,
+    this.height,
   });
   final String title;
   final VoidCallback onPressed;
   final Color? textColor;
   final Color? backgroundColor;
   final Color? foregroundColor;
+  final double? width;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        minimumSize: Size(0.w, 50.h),
+        minimumSize: Size(width ?? 0.w, height ?? 50.h),
         backgroundColor: backgroundColor,
         foregroundColor: foregroundColor,
         shape: RoundedRectangleBorder(

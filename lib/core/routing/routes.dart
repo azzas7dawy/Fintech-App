@@ -18,4 +18,10 @@ class Routes {
   static const String buyCryptoScreen = '/buyCryptoScreen';
   static const String paymentMethodScreen = '/paymentMethodScreen';
   static const String portfolioScreen = '/portfolioScreen';
+
+  // Onboarding
+  static const String onboarding = '/onboarding';
+
+  // Splash
+  static const String splash = '/splash';
 }

@@ -36,6 +36,19 @@ class TranslationKeys {
   static const String sell = 'sell';
   static const String buy = 'buy';
 
+  // Onboarding
+  static const String onboardingWelcomeTitle = 'onboarding.welcome.title';
+  static const String onboardingWelcomeTitlePart1 =
+      'onboarding.welcome.titlePart1';
+  static const String onboardingWelcomeTitlePart2 =
+      'onboarding.welcome.titlePart2';
+  static const String onboardingMarketTitle = 'onboarding.market.title';
+  static const String onboardingSecurityTitle = 'onboarding.security.title';
+  static const String onboardingGetStartedTitle = 'onboarding.getStarted.title';
+  static const String onboardingSkip = 'onboarding.skip';
+  static const String onboardingNext = 'onboarding.next';
+  static const String onboardingLogin = 'onboarding.login';
+  static const String onboardingRegister = 'onboarding.register';
   // Portfolio
   static const String portfolio = 'portfolio';
   static const String totalValue = 'total_value';

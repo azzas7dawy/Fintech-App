@@ -54,6 +54,26 @@
   "aboutCoin": "عن {name}",
   "sell": "بيع",
   "buy": "شراء",
+  "onboarding": {
+    "welcome": {
+      "title": "مرحباً بك في Crypto X",
+      "titlePart1": "مرحباً بك في ",
+      "titlePart2": "Crypto X"
+    },
+    "market": {
+      "title": "سوق سريع وموثوق محدث"
+    },
+    "security": {
+      "title": "أمان المعاملات"
+    },
+    "getStarted": {
+      "title": "ابدأ الآن!"
+    },
+    "skip": "تخطي",
+    "next": "التالي",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب"
+  }
   "portfolio": "المحفظة",
   "total_value": "القيمة الإجمالية",
   "today": "اليوم",
