@@ -53,5 +53,22 @@
   "maxSupply": "Max Supply",
   "aboutCoin": "About {name}",
   "sell": "Sell",
-  "buy": "Buy"
+  "buy": "Buy",
+  "portfolio": "Portfolio",
+  "total_value": "Total Value",
+  "today": "Today",
+  "jan": "Jan",
+  "feb": "Feb",
+  "mar": "Mar",
+  "apr": "Apr",
+  "may": "May",
+  "jun": "Jun",
+  "jul": "Jul",
+  "aug": "Aug",
+  "sep": "Sep",
+  "oct": "Oct",
+  "nov": "Nov",
+  "dec": "Dec",
+  "my_holdings": "My Holdings",
+  "recent_transactions": "Recent Transactions"
 }
