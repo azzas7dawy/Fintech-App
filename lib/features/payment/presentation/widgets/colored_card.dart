@@ -1,5 +1,8 @@
 
+import 'package:fintech_app/core/theme/app_colors.dart';
+import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomColoredCard extends StatelessWidget {
   const CustomColoredCard({
@@ -12,7 +15,7 @@ class CustomColoredCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -22,49 +25,47 @@ class CustomColoredCard extends StatelessWidget {
           ],
         ),
       ),
-      child:const Column(
+      child:Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Row(
+           const Row(
              children: [
                Icon(
-                Icons.bolt, // أيقونة شبه اللي في التصميم
-                color: Colors.white,
+                Icons.bolt,
+                color: AppColors.darkLightContainerColor,
                                        ),
                                        Spacer(),
-                                       Image(image: AssetImage('assets/images/Group 2.png'))
+                                       Image(image: AssetImage('assets/images/Group2.png'))
              ],
            ),
-           SizedBox(height: 20),
-           Text(
+           const SizedBox(height: 20),
+           const Text(
             '8629  9257  0928  3456',
             style: TextStyle(
-              color: Colors.white,
+              color: AppColors.darkLightGroundColor,
               fontSize: 18,
               letterSpacing: 1.2,
               fontWeight: FontWeight.w500,
             ),
           ),
-           SizedBox(height: 12),
+           const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children:  [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'VALID THRU',
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontSize: 10,
+                    style:AppTextStyles.styles.latoW400S10.copyWith(
+                      color: AppColors.darkLightContainerColor,
                     ),
                   ),
-                  SizedBox(height: 2),
-                  Text(
+                  const SizedBox(height: 2),
+                   Text(
                     '09/24',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
+                    style: AppTextStyles.styles.latoW400S12.copyWith(
+                      color: AppColors.darkLightGroundColor,
                     ),
                   ),
                 ],
@@ -77,18 +78,18 @@ class CustomColoredCard extends StatelessWidget {
             children: [
               const Text(
                 'Arafat Alam',
-                style: TextStyle(
-                  color: Colors.white,
+                style: 
+                TextStyle(
+                  color: AppColors.darkLightGroundColor,
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-        Spacer(),
+        const Spacer(),
                 Text(
                 'VISA',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+                style: AppTextStyles.styles.latoW600S16.copyWith(
+                  color: AppColors.darkLightGroundColor,
                 ),
               )
             ],

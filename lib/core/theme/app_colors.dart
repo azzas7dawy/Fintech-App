@@ -27,6 +27,10 @@ class AppColors {
   static const textTertiary = Color(0xff666D80);
   static const textDisabled = Color(0xff5D5C5D);
   static const textDark = Color(0xff222222);
+  static const portfolioTextTabBar = Color(0xFF484C58);
+
+  static const textGreenLight = Color(0xFF69D895);
+  static const textGreenDark = Color(0xFF7DDDA3);
 
   // Border Colors
   static const borderPrimary = Color(0xff272835);
@@ -36,6 +40,8 @@ class AppColors {
   // Icon Colors
   static const iconDark = Color(0xff222222);
   static const iconLight = Color(0xffdddddd);
+  static const iconBackgroundDark = Color(0xFF1B1B1B);
+  static const iconBackgroundLight = Color(0xFFEDF0F3);
 
   // Basic Colors
   static const white = Color(0xFFFFFFFF);
@@ -69,4 +75,25 @@ class AppColors {
   static const neutral300 = Color(0xff8F8F8F);
   static const neutral500 = Color(0xff5E5E5E);
   static const neutral700 = Color(0xffdddddd);
+
+  // pie chart colors
+  static const Color softVioletPieChart1 = Color(0xFF8979FF);
+  static const Color brightCyanPieChart2 = Color(0xFF3BC3DE);
+  static const Color salmonPinkPieChart3 = Color(0xFFFF928A);
+  static const mainColor = Color(0xFF1D3A70);
+  static const orangColor=Color( 0xffF56C2A);
+
+  static const darkModeBackGroundColor = Color(0xFF121212);
+  static const darkModeContainerColor = Color(0xFF0D0D0D);
+   static const darkLightContainerColor = Color(0xffFFFFFF);
+   static const darkLightGroundColor = Color.fromARGB(223, 221, 213, 213);
+   static const darkBlue = Color(0xff1E1F4B);
+  static const gray = Color(0xff5D5C5D);
+  static const greenText = Color(0xff152C07);
+  static const gray400 = Color(0xff818898);
+  static const gray500 = Color(0xff666D80);
+  static const gray700 = Color(0xff272835);
+  static const gray800 = Color(0xff1A1B25);
+  
+  static const shadowColor = Color(0xFF0D0D12);
 }

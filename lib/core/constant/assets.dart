@@ -41,4 +41,7 @@ class Assets {
   // Splash
   static const String imagesSplashDark = 'assets/images/splash_dark.png';
   static const String imagesSplashLight = 'assets/images/splash_light.png';
+  static const String imagesEllipseLeft = 'assets/images/ellipse_left.png';
+  static const String imagesEllipseRight = 'assets/images/ellipse_right.png';
+
 }
