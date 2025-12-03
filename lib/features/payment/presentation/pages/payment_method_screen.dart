@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/features/payment/data/datasources/paymob_manger.dart';
 import 'package:fintech_app/features/payment/presentation/widgets/build_card_chip.dart';
@@ -70,8 +71,8 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
           ),
           onPressed: () => Navigator.pop(context),
         ),
-        title: const Text(
-          'Payment method',
+        title:  Text(
+           "payment_method".tr(),
           style: TextStyle(
             fontWeight: FontWeight.w600,
             color: AppColors.primaryDark,
@@ -98,11 +99,11 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // العنوان + سهم صغير
-                  const Row(
+                   Row(
                     children: [
                       Text(
-                        'Credit Card',
-                        style: TextStyle(
+                        "credit_card".tr(),
+                        style:const TextStyle(
                           fontSize: 14,
                           color: AppColors.primaryDark,
                           fontWeight: FontWeight.w500,
@@ -157,12 +158,12 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
               child: Column(
                 children: [
                   buildPaymentRow(
-                    title: 'Google Pay',
+                    title: "google_pay".tr(),
                     onTap: () => _onSelectMethod(PaymentMethod.googlePay),
                   ),
 
                   buildPaymentRow(
-                    title: 'Mobile Banking',
+                    title: "mobile_banking".tr(),
                     onTap: () => _onSelectMethod(PaymentMethod.mobileBanking),
                   ),
                 ],
@@ -174,8 +175,8 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
             // ======= Send receipt to email + Switch =======
             Row(
               children: [
-                const Text(
-                  'Send receipt to your email',
+                 Text(
+                 "send_receipt".tr(),
                   style: TextStyle(
                     fontSize: 13,
                     color: AppColors.primaryDark,
@@ -217,9 +218,9 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                   borderRadius: BorderRadius.circular(26),
                 ),
               ),
-              child: const Text(
-                'Buy',
-                style: TextStyle(
+              child:  Text(
+                "buy".tr(),
+                style:const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:fintech_app/features/payment/presentation/cubits/payment_statue.dart';
@@ -37,8 +38,8 @@ class FeeRow extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            'Exchange fee',
+                           Text(
+                           "exchange_fee".tr(),
                             style: TextStyle(color: AppColors.neutral700),
                           ),
                           Text(

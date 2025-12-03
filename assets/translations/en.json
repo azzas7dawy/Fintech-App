@@ -53,5 +53,55 @@
   "maxSupply": "Max Supply",
   "aboutCoin": "About {name}",
   "sell": "Sell",
-  "buy": "Buy"
+  "buy": "Buy",
+
+
+
+  "login_title": "Login To Your Account",
+  "login_sub": "Welcome back you’ve ",
+  "login_sub_part2": " been missed!",
+  "email": "Email",
+  "password": "Password",
+  "remember_me": "Remember me",
+  "forget_password": "Forget Password?",
+  "login": "Login",
+  "Loading...": "Loading...",
+  "or_login_with": "Or login with",
+  "no_account": "Don’t have an account? ",
+   "sign_up": "Sign Up",
+
+  "touch_id_title": "Touch ID sensor to verify yourself",
+  "touch_id_desc": "Please verify your identity using touch ID and it will proceed automatically.",
+  "verified_title": "You’re verified",
+  "verified_desc": "You have been verified, your information is complete. Let’s make transactions!",
+  "continue_home": "Continue To Home",
+  "face_id": "Face ID",
+  "face_id_wait": "Please wait until your scanning is complete.",
+  "retry": "Try again",
+  "verification": "Verification Successful",
+
+  "buy_crypto": "Buy Crypto",
+  "you_pay": "You Pay",
+  "you_receive": "You Receive",
+  "exchange_fee": "Exchange fee",
+  "continue": "Continue",
+
+  "payment_method": "Payment method",
+  "credit_card": "Credit Card",
+  "send_receipt": "Send receipt to your email",
+  "google_pay": "Google Pay",
+  "mobile_banking": "Mobile Banking"
+ 
+
+
+
+
+
+
+
+
+
 }
+
+  
+

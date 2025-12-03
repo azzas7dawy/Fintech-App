@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fintech_app/features/payment/presentation/cubits/payment_cubit.dart';
 import 'package:fintech_app/features/payment/presentation/cubits/payment_statue.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AmountCard extends StatelessWidget {
   const AmountCard({super.key});
@@ -27,7 +29,7 @@ class AmountCard extends StatelessWidget {
             color: AppColors.containerLight,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
-              // subtle soft shadow
+       
               BoxShadow(
                 color: Colors.white.withValues(
                   alpha: theme.brightness == Brightness.dark ? 0.35 : 0.06,
@@ -42,18 +44,18 @@ class AmountCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // "You Pay" label (no toggle)
-              const Text(
-                'You Pay',
-                style: TextStyle(color: AppColors.textDisabled, fontSize: 13),
+               Text(
+                 "you_pay".tr(),
+                style: TextStyle(color: AppColors.textDisabled, fontSize: 13.sp),
               ),
-              const SizedBox(height: 6),
+               SizedBox(height: 6.h),
               Row(
                 children: [
                   Expanded(
                     child: Text(
                       '\$${state.amountPay.toStringAsFixed(2)}',
                       style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 22.sp,
                         color: theme.brightness == Brightness.dark
                             ? AppColors.primaryDark
                             : AppColors.containerDark,
@@ -63,22 +65,22 @@ class AmountCard extends StatelessWidget {
                   ),
                   // currency pill
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 8,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 12.w,
+                      vertical: 8.h,
                     ),
                     decoration: BoxDecoration(
                       color: AppColors.containerLight,
-                      borderRadius: BorderRadius.circular(18),
+                      borderRadius: BorderRadius.circular(18.r),
                     ),
                     child: Row(
                       children: [
-                        const Icon(
+                         Icon(
                           Icons.attach_money,
-                          size: 18,
+                          size: 18.sp,
                           color: Colors.orangeAccent,
                         ),
-                        const SizedBox(width: 6),
+                        SizedBox(width: 6.w),
                         Text(
                           state.payCurrency,
                           style: TextStyle(
@@ -87,7 +89,7 @@ class AmountCard extends StatelessWidget {
                                 : Colors.black87,
                           ),
                         ),
-                        const SizedBox(width: 4),
+                        SizedBox(width: 4.w),
                         const Icon(
                           Icons.keyboard_arrow_down,
                           size: 18,
@@ -110,11 +112,11 @@ class AmountCard extends StatelessWidget {
               const SizedBox(height: 12),
 
               // You Receive label (no toggle)
-              const Text(
-                'You Receive',
-                style: TextStyle(color: Colors.grey, fontSize: 13),
+               Text(
+                 "you_receive".tr(),
+                style: TextStyle(color: Colors.grey, fontSize: 13.sp),
               ),
-              const SizedBox(height: 6),
+               SizedBox(height: 6.h),
               Row(
                 children: [
                   Expanded(
@@ -155,12 +157,12 @@ class AmountCard extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(width: 8),
+                         SizedBox(width: 8.w),
                         Text(
                           state.receiveCurrency,
                           style: const TextStyle(color: AppColors.primaryDark),
                         ),
-                        const SizedBox(width: 4),
+                         SizedBox(width: 4.w),
                         const Icon(
                           Icons.keyboard_arrow_down,
                           size: 18,
