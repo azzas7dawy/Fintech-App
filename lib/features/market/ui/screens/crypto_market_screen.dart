@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:fintech_app/features/market/data/datasources/crypto_services/crypto_service.dart';
 import 'package:fintech_app/features/market/ui/cubit/crypto_market_cubit.dart';
+import 'package:fintech_app/features/market/ui/cubit/crypto_market_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,16 +25,31 @@ class CryptoMarketScreen extends StatefulWidget {
 }
 
 class _CryptoMarketScreenState extends State<CryptoMarketScreen> {
-  late final CryptoMarketService _cryptoService;
+ 
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    _cryptoService = CryptoMarketService(Dio()); 
+    _scrollController.addListener(_onScroll);
+  
 
-    context
-        .read<CryptoMarketCubit>()
-        .getCryptoMarketData(cryptoMarketService: _cryptoService);
+ 
+  }
+  void _onScroll() {
+    if (!_scrollController.hasClients) return;
+
+    final threshold = 300.0; // لما يبقى فاضل 300px على آخر الليست
+
+    if (_scrollController.position.extentAfter < threshold) {
+      context.read<CryptoMarketCubit>().loadMoreCryptoMarkets();
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -61,60 +77,59 @@ class _CryptoMarketScreenState extends State<CryptoMarketScreen> {
                 ),
                 SizedBox(height: 23.0.h),
                 BlocBuilder<CryptoMarketCubit, CryptoMarketState>(
-                  builder: (context, state) {
-                    if (state is CryptoMarketLoading) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else if (state is CryptoMarketError) {
-                      return Center(
-                        child: Text(state.message),
-                      );
-                    } else if (state is CryptoMarketSuccess) {
-                      final markets = state.cryptoMarkets;
+  builder: (context, state) {
+    if (state is CryptoMarketLoading) {
+      return const Center(child: CircularProgressIndicator());
+    } else if (state is CryptoMarketError) {
+      return Center(child: Text(state.message));
+    } else if (state is CryptoMarketSuccess) {
+      final markets = state.cryptoMarkets;
+      final hasMore = state.hasMore;
 
-                      return ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: markets.length,
-                        itemBuilder: (context, index) {
-                          final coin = markets[index];
+      return ListView.builder(
+        controller: _scrollController,
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: markets.length + (hasMore ? 1 : 0),
+        itemBuilder: (context, index) {
+          if (index >= markets.length) {
+            // آخر عنصر = loader بتاع الـ pagination
+            return const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Center(child: CircularProgressIndicator()),
+            );
+          }
 
-                          return GestureDetector(
-                            onTap: () {
-                              // ممكن تبعتي العملة للـ details screen
-                              context.push(
-                                Routes.coinDetails,
-                                extra: coin,
-                              );
-                            },
-                            child: Expanded(
-                              child: CardCryptoMarket(
-                                name: coin.name ?? 'Bitcoin',
-                                rank: 'Rank #${coin.marketCapRank ?? index + 1}',
-                                price:
-                                    '\$${(coin.currentPrice ?? 0).toStringAsFixed(2)}',
-                              
-                                percentage:
-                                    '${(coin.priceChangePercentage24h ?? 0).toStringAsFixed(2)}%',
-                              
-                                imageUrl:coin.image??Assets.imagesBitcoin,
-                              ),
-                            ),
-                          );
-                        },
-                      );
-                    }
+          final coin = markets[index];
 
-                    // في حالة الـ initial state
-                    return const SizedBox.shrink();
-                  },
-                ),
-              ],
+          return GestureDetector(
+            onTap: () {
+              context.push(Routes.coinDetails, extra: coin);
+            },
+            child: CardCryptoMarket(
+              name: coin.name ?? 'Bitcoin',
+              rank: 'Rank #${coin.marketCapRank ?? index + 1}',
+              price:
+                  '\$${(coin.currentPrice ?? 0).toStringAsFixed(2)}',
+              percentage:
+                  '${(coin.priceChangePercentage24h ?? 0).toStringAsFixed(2)}%',
+              imageUrl: (coin.image ?? Assets.imagesBitcoin),
+            ),
+          );
+        },
+      );
+    }
+
+    return const SizedBox.shrink();
+  },
+),
+],
+               )
+
             ),
           ),
         ),
-      ),
     );
+
   }
 }

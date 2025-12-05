@@ -1,4 +1,6 @@
 // TODO: Do NOT add screen imports here. Add them in routes_exports.dart instead.
+import 'package:dio/dio.dart';
+import 'package:fintech_app/features/market/data/datasources/crypto_services/crypto_service.dart';
 import 'package:fintech_app/features/market/ui/cubit/crypto_market_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes_exports.dart';
@@ -40,7 +42,10 @@ final GoRouter appRouter = GoRouter(
           path: Routes.cryptoMarket,
           name: Routes.cryptoMarket,
           builder: (context, state) => BlocProvider(
-            create: (context) => CryptoMarketCubit(),
+            create: (context) => CryptoMarketCubit(
+                  cryptoMarketService: CryptoMarketService(Dio()),
+  )..getCryptoMarketData(),
+            
             child: const CryptoMarketScreen(),
           ),
         ),
