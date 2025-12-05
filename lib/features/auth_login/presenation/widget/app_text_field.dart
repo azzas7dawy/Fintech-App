@@ -27,16 +27,12 @@ class AppTextField extends StatelessWidget {
       keyboardType: keyboardType,
       decoration: InputDecoration(
         filled: true,
-        fillColor:AppColors.background,
+        fillColor: AppColors.background,
         border: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: AppColors.gray800,
-            width: 1,
-          ),
-          
+          borderSide: const BorderSide(color: AppColors.gray800, width: 1),
         ),
         hintText: hintText,
-        hintStyle: AppTextStyles. styles.latoW400S14.copyWith(
+        hintStyle: AppTextStyles.styles.latoW400S14.copyWith(
           color: AppColors.textSecondary,
           fontSize: 14.sp,
           fontWeight: FontWeight.w400,
@@ -44,21 +40,14 @@ class AppTextField extends StatelessWidget {
         prefixIcon: prefixIcon != null
             ? Icon(prefixIcon, size: 20.sp, color: AppColors.textSecondary)
             : null,
-        contentPadding:
-            EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
+        contentPadding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: const BorderSide(
-            color: AppColors.inputBorder,
-            width: 1,
-          ),
+          borderSide: const BorderSide(color: AppColors.inputBorder, width: 1),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: const BorderSide(
-            color: AppColors.mainColor,
-            width: 1.2,
-          ),
+          borderSide: const BorderSide(color: AppColors.mainColor, width: 1.2),
         ),
       ),
     );

@@ -7,7 +7,6 @@ import '../widget/market_overview_section.dart';
 import '../widget/top_gainers_section.dart';
 import '../widget/trending_section.dart';
 
-
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -39,7 +38,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-          //  const BottomNavBar(),
+            //  const BottomNavBar(),
           ],
         ),
       ),

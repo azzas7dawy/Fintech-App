@@ -24,5 +24,4 @@ class Routes {
   static const String faceIdScanPage = "/faceIdScanPage";
   static const String faceIdVerifiedPage = "/faceIdVerifiedPage";
   static const String fingerprintScanPage = "/fingerprintScanPage";
-  
 }

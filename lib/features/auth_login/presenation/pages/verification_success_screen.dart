@@ -30,8 +30,7 @@ class VerificationSuccessScreen extends StatelessWidget {
           const AuthBackground(),
           SafeArea(
             child: Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: 24.h, vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 16.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -39,12 +38,11 @@ class VerificationSuccessScreen extends StatelessWidget {
                   Center(
                     child: Text(
                       "verification".tr(),
-                      style: AppTextStyles. styles.latoW600S16.copyWith(
+                      style: AppTextStyles.styles.latoW600S16.copyWith(
                         color: AppColors.textSecondary,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                       ),
-                     
                     ),
                   ),
                   SizedBox(height: 48.h),
@@ -68,7 +66,7 @@ class VerificationSuccessScreen extends StatelessWidget {
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
-                        children:  [
+                        children: [
                           CircleAvatar(
                             radius: 35.r,
                             backgroundColor: AppColors.primary,
@@ -86,7 +84,7 @@ class VerificationSuccessScreen extends StatelessWidget {
                   Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: AppTextStyles. styles.latoW600S22.copyWith(
+                    style: AppTextStyles.styles.latoW600S22.copyWith(
                       color: AppColors.textPrimary,
                       fontSize: 22.sp,
                       fontWeight: FontWeight.w600,
@@ -96,18 +94,15 @@ class VerificationSuccessScreen extends StatelessWidget {
                   Text(
                     description,
                     textAlign: TextAlign.center,
-                    style: AppTextStyles. styles.latoW400S14.copyWith(
+                    style: AppTextStyles.styles.latoW400S14.copyWith(
                       color: AppColors.textSecondary,
                       fontSize: 14.sp,
-                      height: 1.5.h ,
+                      height: 1.5.h,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                   const Spacer(),
-                  PrimaryButton(
-                    text: buttonText,
-                    onPressed: onButtonPressed,
-                  ),
+                  PrimaryButton(text: buttonText, onPressed: onButtonPressed),
                   SizedBox(height: 24.h),
                   const HomeIndicator(),
                 ],

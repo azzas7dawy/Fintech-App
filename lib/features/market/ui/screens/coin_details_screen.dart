@@ -29,10 +29,7 @@ class CoinDetailsScreen extends StatelessWidget {
           onPressed: () {
             context.pop();
           },
-          icon: Icon(
-            Icons.arrow_back,
-            color: context.mainText,
-          ),
+          icon: Icon(Icons.arrow_back, color: context.mainText),
         ),
       ),
       body: Padding(

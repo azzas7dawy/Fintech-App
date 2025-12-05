@@ -40,7 +40,7 @@ class IconInfoCard extends StatelessWidget {
           const SizedBox(height: 12),
           Text(
             title,
-            style:AppTextStyles. styles.latoW600S16.copyWith(
+            style: AppTextStyles.styles.latoW600S16.copyWith(
               color: AppColors.textPrimary,
               fontSize: 16.sp,
               fontWeight: FontWeight.w600,

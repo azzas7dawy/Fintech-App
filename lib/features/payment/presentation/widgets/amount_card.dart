@@ -14,7 +14,6 @@ class AmountCard extends StatelessWidget {
     // pick card bg depending on theme (so works light/dark)
     final theme = Theme.of(context);
 
-
     final innerBg = theme.brightness == Brightness.dark
         ? AppColors
               .containerDark // dark card color similar to screenshot
@@ -29,7 +28,6 @@ class AmountCard extends StatelessWidget {
             color: AppColors.containerLight,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
-       
               BoxShadow(
                 color: Colors.white.withValues(
                   alpha: theme.brightness == Brightness.dark ? 0.35 : 0.06,
@@ -44,11 +42,14 @@ class AmountCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // "You Pay" label (no toggle)
-               Text(
-                 "you_pay".tr(),
-                style: TextStyle(color: AppColors.textDisabled, fontSize: 13.sp),
+              Text(
+                "you_pay".tr(),
+                style: TextStyle(
+                  color: AppColors.textDisabled,
+                  fontSize: 13.sp,
+                ),
               ),
-               SizedBox(height: 6.h),
+              SizedBox(height: 6.h),
               Row(
                 children: [
                   Expanded(
@@ -75,7 +76,7 @@ class AmountCard extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                         Icon(
+                        Icon(
                           Icons.attach_money,
                           size: 18.sp,
                           color: Colors.orangeAccent,
@@ -112,11 +113,11 @@ class AmountCard extends StatelessWidget {
               const SizedBox(height: 12),
 
               // You Receive label (no toggle)
-               Text(
-                 "you_receive".tr(),
+              Text(
+                "you_receive".tr(),
                 style: TextStyle(color: Colors.grey, fontSize: 13.sp),
               ),
-               SizedBox(height: 6.h),
+              SizedBox(height: 6.h),
               Row(
                 children: [
                   Expanded(
@@ -157,12 +158,12 @@ class AmountCard extends StatelessWidget {
                             ),
                           ),
                         ),
-                         SizedBox(width: 8.w),
+                        SizedBox(width: 8.w),
                         Text(
                           state.receiveCurrency,
                           style: const TextStyle(color: AppColors.primaryDark),
                         ),
-                         SizedBox(width: 4.w),
+                        SizedBox(width: 4.w),
                         const Icon(
                           Icons.keyboard_arrow_down,
                           size: 18,

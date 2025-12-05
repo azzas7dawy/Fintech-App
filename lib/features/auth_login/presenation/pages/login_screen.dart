@@ -15,12 +15,7 @@ class LoginPage extends StatelessWidget {
       create: (_) => LoginCubit(),
       child: const Scaffold(
         backgroundColor: AppColors.background,
-        body: Stack(
-          children: [
-            AuthBackground(),
-            LoginContent(),
-          ],
-        ),
+        body: Stack(children: [AuthBackground(), LoginContent()]),
       ),
     );
   }

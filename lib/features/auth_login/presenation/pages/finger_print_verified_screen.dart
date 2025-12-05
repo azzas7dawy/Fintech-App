@@ -8,13 +8,10 @@ class FingerprintVerifiedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VerificationSuccessScreen(
-      title:"verified_title".tr(),
-      description:
-          "verified_desc".tr(),
+      title: "verified_title".tr(),
+      description: "verified_desc".tr(),
       buttonText: "continue_home".tr(),
-      onButtonPressed: () {
-       
-      },
+      onButtonPressed: () {},
     );
   }
 }

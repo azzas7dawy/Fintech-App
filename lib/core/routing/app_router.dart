@@ -1,12 +1,11 @@
 // TODO: Do NOT add screen imports here. Add them in routes_exports.dart instead.
+import 'package:fintech_app/features/market/ui/cubit/crypto_market_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes_exports.dart';
 import 'package:go_router/go_router.dart';
 
-
-
 final GoRouter appRouter = GoRouter(
-  initialLocation: Routes.homePage,
+  initialLocation: Routes.cryptoMarket,
 
   routes: [
     /// ---------- MAIN LAYOUT WITH BOTTOM NAV ----------
@@ -40,7 +39,10 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: Routes.cryptoMarket,
           name: Routes.cryptoMarket,
-          builder: (context, state) => const CryptoMarketScreen(),
+          builder: (context, state) => BlocProvider(
+            create: (context) => CryptoMarketCubit(),
+            child: const CryptoMarketScreen(),
+          ),
         ),
 
         GoRoute(
@@ -70,35 +72,33 @@ final GoRouter appRouter = GoRouter(
           name: Routes.portfolioScreen,
           builder: (context, state) => const PortfolioScreen(),
         ),
-         GoRoute(
-      path: Routes.loginPage,
-      name: Routes.loginPage,
-      builder: (context, state) => const LoginPage(),
-    ),
-//     GoRoute(
-//   path: Routes.homePage,
-//   name: Routes.homePage,
-//   builder: (context, state) => const HomePage(),
-// ),
-     GoRoute(
-      path: Routes.faceIdScanPage,
-      name: Routes.faceIdScanPage,
-      builder: (context, state) => const FaceIdScanPage(),
-    ),
-     GoRoute(
-      path: Routes.faceIdVerifiedPage,
-      name: Routes.faceIdVerifiedPage,
-      builder: (context, state) => const FaceIdVerifiedPage(),
-    ),
+        GoRoute(
+          path: Routes.loginPage,
+          name: Routes.loginPage,
+          builder: (context, state) => const LoginPage(),
+        ),
+        //     GoRoute(
+        //   path: Routes.homePage,
+        //   name: Routes.homePage,
+        //   builder: (context, state) => const HomePage(),
+        // ),
+        GoRoute(
+          path: Routes.faceIdScanPage,
+          name: Routes.faceIdScanPage,
+          builder: (context, state) => const FaceIdScanPage(),
+        ),
+        GoRoute(
+          path: Routes.faceIdVerifiedPage,
+          name: Routes.faceIdVerifiedPage,
+          builder: (context, state) => const FaceIdVerifiedPage(),
+        ),
 
-    GoRoute(
-  
-     path: Routes.fingerprintScanPage,
-     name: Routes.fingerprintScanPage,
-builder: (context, state) => const FingerprintScanPage(),
-    ),
+        GoRoute(
+          path: Routes.fingerprintScanPage,
+          name: Routes.fingerprintScanPage,
+          builder: (context, state) => const FingerprintScanPage(),
+        ),
       ],
     ),
   ],
 );
-

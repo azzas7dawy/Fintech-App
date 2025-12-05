@@ -96,7 +96,11 @@ class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
     }
 
     return AppColorsTheme(
-      containerBackground: Color.lerp(containerBackground, other.containerBackground, t)!,
+      containerBackground: Color.lerp(
+        containerBackground,
+        other.containerBackground,
+        t,
+      )!,
       cardBackground: Color.lerp(cardBackground, other.cardBackground, t)!,
       cardBorderColor: Color.lerp(cardBorderColor, other.cardBorderColor, t)!,
       cardShadow: t < 0.5 ? cardShadow : other.cardShadow,
@@ -104,15 +108,22 @@ class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
       mainText: Color.lerp(mainText, other.mainText, t)!,
       secondaryText: Color.lerp(secondaryText, other.secondaryText, t)!,
       iconColor: Color.lerp(iconColor, other.iconColor, t)!,
-      successBackground: Color.lerp(successBackground, other.successBackground, t)!,
+      successBackground: Color.lerp(
+        successBackground,
+        other.successBackground,
+        t,
+      )!,
       successPrimary: Color.lerp(successPrimary, other.successPrimary, t)!,
       successText: Color.lerp(successText, other.successText, t)!,
       errorBackground: Color.lerp(errorBackground, other.errorBackground, t)!,
       errorText: Color.lerp(errorText, other.errorText, t)!,
       infoColor: Color.lerp(infoColor, other.infoColor, t)!,
       divider: Color.lerp(divider, other.divider, t)!,
-      toggleBackground: Color.lerp(toggleBackground, other.toggleBackground, t)!,
+      toggleBackground: Color.lerp(
+        toggleBackground,
+        other.toggleBackground,
+        t,
+      )!,
     );
   }
 }
-

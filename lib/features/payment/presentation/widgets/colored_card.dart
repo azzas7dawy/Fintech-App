@@ -1,10 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 class CustomColoredCard extends StatelessWidget {
-  const CustomColoredCard({
-    super.key,
-  });
+  const CustomColoredCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,27 +13,24 @@ class CustomColoredCard extends StatelessWidget {
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            Color(0xFF3B5AFB),
-            Color(0xFF8A2BE2),
-          ],
+          colors: [Color(0xFF3B5AFB), Color(0xFF8A2BE2)],
         ),
       ),
-      child:const Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Row(
-             children: [
-               Icon(
+          Row(
+            children: [
+              Icon(
                 Icons.bolt, // أيقونة شبه اللي في التصميم
                 color: Colors.white,
-                                       ),
-                                       Spacer(),
-                                       Image(image: AssetImage('assets/images/Group 2.png'))
-             ],
-           ),
-           SizedBox(height: 20),
-           Text(
+              ),
+              Spacer(),
+              Image(image: AssetImage('assets/images/Group2.png')),
+            ],
+          ),
+          SizedBox(height: 20),
+          Text(
             '8629  9257  0928  3456',
             style: TextStyle(
               color: Colors.white,
@@ -45,7 +39,7 @@ class CustomColoredCard extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-           SizedBox(height: 12),
+          SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
@@ -54,22 +48,15 @@ class CustomColoredCard extends StatelessWidget {
                 children: [
                   Text(
                     'VALID THRU',
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontSize: 10,
-                    ),
+                    style: TextStyle(color: Colors.white70, fontSize: 10),
                   ),
                   SizedBox(height: 2),
                   Text(
                     '09/24',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 12),
                   ),
                 ],
               ),
-            
             ],
           ),
           const SizedBox(height: 12),
@@ -83,14 +70,14 @@ class CustomColoredCard extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-        Spacer(),
-                Text(
+              Spacer(),
+              Text(
                 'VISA',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
-              )
+              ),
             ],
           ),
         ],

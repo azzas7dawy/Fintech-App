@@ -6,11 +6,7 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 
 class CryptoNameColumn extends StatelessWidget {
-  const CryptoNameColumn({
-    super.key,
-    required this.name,
-    required this.symbol,
-  });
+  const CryptoNameColumn({super.key, required this.name, required this.symbol});
 
   final String name;
   final String symbol;
@@ -22,7 +18,7 @@ class CryptoNameColumn extends StatelessWidget {
       children: [
         Text(
           name,
-          style: AppTextStyles.styles.latoW700S20.copyWith(
+          style: AppTextStyles.styles.latoW700S17.copyWith(
             color: context.successText,
           ),
         ),

@@ -4,10 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class HomeIndicator extends StatelessWidget {
   final Color color;
 
-  const HomeIndicator({
-    super.key,
-    this.color = Colors.white,
-  });
+  const HomeIndicator({super.key, this.color = Colors.white});
 
   @override
   Widget build(BuildContext context) {

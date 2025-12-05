@@ -15,7 +15,6 @@ class LoginCubit extends Cubit<LoginState> {
       );
 
       emit(LoginSuccess());
-
     } on FirebaseAuthException catch (e) {
       emit(LoginFailure(e.message ?? "Login failed"));
     }

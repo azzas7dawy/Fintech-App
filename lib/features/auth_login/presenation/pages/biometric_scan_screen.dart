@@ -6,7 +6,6 @@ import 'package:fintech_app/features/auth_login/presenation/widget/home_indictor
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 typedef AuthSuccessBuilder = void Function(BuildContext context);
 
 class BiometricScanScreen extends StatefulWidget {
@@ -71,15 +70,14 @@ class _BiometricScanScreenState extends State<BiometricScanScreen> {
           const AuthBackground(),
           SafeArea(
             child: Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: 24.0.h, vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 24.0.h, vertical: 16.h),
               child: Column(
                 children: [
-                   SizedBox(height: 32.h),
+                  SizedBox(height: 32.h),
                   Text(
                     widget.title,
                     textAlign: TextAlign.center,
-                    style: AppTextStyles. styles.latoW600S22.copyWith(
+                    style: AppTextStyles.styles.latoW600S22.copyWith(
                       color: AppColors.textPrimary,
                       fontSize: 22.sp,
                       fontWeight: FontWeight.w600,
@@ -88,7 +86,9 @@ class _BiometricScanScreenState extends State<BiometricScanScreen> {
                   const Spacer(),
                   Container(
                     padding: EdgeInsets.symmetric(
-                        vertical: 32.h, horizontal: 32.h),
+                      vertical: 32.h,
+                      horizontal: 32.h,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(24.r),
@@ -106,28 +106,26 @@ class _BiometricScanScreenState extends State<BiometricScanScreen> {
                       color: AppColors.primary,
                     ),
                   ),
-                   SizedBox(height: 32.h),
+                  SizedBox(height: 32.h),
                   Text(
                     widget.description,
                     textAlign: TextAlign.center,
-                    style: AppTextStyles. styles.latoW400S14.copyWith(
+                    style: AppTextStyles.styles.latoW400S14.copyWith(
                       color: AppColors.textSecondary,
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w400,
                     ),
-                    
                   ),
-                   SizedBox(height: 16.h),
+                  SizedBox(height: 16.h),
                   if (_isProcessing)
                     const CircularProgressIndicator()
                   else if (_errorText != null) ...[
                     Text(
                       _errorText!,
-                      style: AppTextStyles. styles.latoW400S13.copyWith(
+                      style: AppTextStyles.styles.latoW400S13.copyWith(
                         color: Colors.redAccent,
                         fontSize: 13.sp,
                         fontWeight: FontWeight.w400,
-                        
                       ),
                     ),
                     TextButton(

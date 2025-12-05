@@ -15,11 +15,7 @@ class LanguageToggleButton extends StatelessWidget {
         final newLocale = isArabic ? const Locale('en') : const Locale('ar');
         await context.setLocale(newLocale);
       },
-      icon: Icon(
-        Icons.language,
-        size: 28.sp,
-        color: context.iconColor,
-      ),
+      icon: Icon(Icons.language, size: 28.sp, color: context.iconColor),
       tooltip: tr('home.change_language_tooltip'),
     );
   }

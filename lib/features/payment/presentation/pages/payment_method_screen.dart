@@ -6,6 +6,7 @@ import 'package:fintech_app/features/payment/presentation/widgets/build_payment_
 import 'package:fintech_app/features/payment/presentation/widgets/colored_card.dart';
 import 'package:fintech_app/features/payment/presentation/widgets/custom_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 enum PaymentMethod { card, googlePay, mobileBanking }
@@ -64,15 +65,15 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back_ios,
             color: AppColors.primaryDark,
-            size: 18,
+            size: 18.sp,
           ),
           onPressed: () => Navigator.pop(context),
         ),
-        title:  Text(
-           "payment_method".tr(),
+        title: Text(
+          "payment_method".tr(),
           style: TextStyle(
             fontWeight: FontWeight.w600,
             color: AppColors.primaryDark,
@@ -99,11 +100,11 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // العنوان + سهم صغير
-                   Row(
+                  Row(
                     children: [
                       Text(
                         "credit_card".tr(),
-                        style:const TextStyle(
+                        style: const TextStyle(
                           fontSize: 14,
                           color: AppColors.primaryDark,
                           fontWeight: FontWeight.w500,
@@ -175,8 +176,8 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
             // ======= Send receipt to email + Switch =======
             Row(
               children: [
-                 Text(
-                 "send_receipt".tr(),
+                Text(
+                  "send_receipt".tr(),
                   style: TextStyle(
                     fontSize: 13,
                     color: AppColors.primaryDark,
@@ -218,9 +219,9 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                   borderRadius: BorderRadius.circular(26),
                 ),
               ),
-              child:  Text(
+              child: Text(
                 "buy".tr(),
-                style:const TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,

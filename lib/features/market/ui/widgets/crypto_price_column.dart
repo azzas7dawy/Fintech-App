@@ -45,7 +45,7 @@ class CryptoPriceColumn extends StatelessWidget {
                 percentage.startsWith('-')
                     ? Icons.call_received_outlined
                     : Icons.call_made_outlined,
-                size: 16.0.sp,
+                size: 14.0.sp,
                 color: AppColors.white,
               ),
               Text(

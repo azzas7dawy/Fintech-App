@@ -16,12 +16,12 @@ class LoginContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state is LoginSuccess) {  
+        if (state is LoginSuccess) {
           context.go('/homePage');
         } else if (state is LoginFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.message)),
-          );
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(state.message)));
         }
       },
       child: LayoutBuilder(
@@ -29,20 +29,18 @@ class LoginContent extends StatelessWidget {
           return SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: constraints.maxHeight,
-              ),
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   SizedBox(height: 98.h),
+                  SizedBox(height: 98.h),
                   HeaderSection(),
-                   SizedBox(height: 52.h),
+                  SizedBox(height: 52.h),
                   const LoginForm(),
-                   SizedBox(height: 24.h),
+                  SizedBox(height: 24.h),
                   const BottomSignUpText(),
-                   SizedBox(height: 16.h),
+                  SizedBox(height: 16.h),
                 ],
               ),
             ),

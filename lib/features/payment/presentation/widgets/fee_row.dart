@@ -38,8 +38,8 @@ class FeeRow extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                           Text(
-                           "exchange_fee".tr(),
+                          Text(
+                            "exchange_fee".tr(),
                             style: TextStyle(color: AppColors.neutral700),
                           ),
                           Text(

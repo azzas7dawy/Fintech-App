@@ -21,43 +21,40 @@ class CardCryptoMarket extends StatelessWidget {
   final String imageUrl;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: context.cardBackground,
-      elevation: 0.0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0.r),
-        side: BorderSide(
-          color: context.cardBackground,
+    return Expanded(
+      child: Card(
+        color: context.cardBackground,
+        elevation: 0.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0.r),
+          side: BorderSide(color: context.cardBackground),
         ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 12.0.h),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 52.0.w,
-              height: 52.0.h,
-              padding: EdgeInsets.all(6.0.r),
-
-              clipBehavior: Clip.antiAlias,
-              decoration: ShapeDecoration(
-                color: context.containerBackground,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0.r),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 12.0.h),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 52.0.w,
+                height: 52.0.h,
+                padding: EdgeInsets.all(6.0.r),
+      
+                clipBehavior: Clip.antiAlias,
+                decoration: ShapeDecoration(
+                  color: context.containerBackground,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0.r),
+                  ),
                 ),
+                child: Image.network(imageUrl, fit: BoxFit.cover, errorBuilder: (context, error, stackTrace) => const Icon(Icons.error),),
+                //  CachedNetworkImage(imageUrl: imageUrl, fit: BoxFit.cover),
               ),
-              child: Image.asset(imageUrl),
-              //  CachedNetworkImage(imageUrl: imageUrl, fit: BoxFit.cover),
-            ),
-            SizedBox(width: 16.0.w),
-            CryptoNameColumn(name: name, symbol: rank),
-            const Spacer(),
-            CryptoPriceColumn(
-              price: price,
-              percentage: percentage,
-            ),
-          ],
+              SizedBox(width: 16.0.w),
+              CryptoNameColumn(name: name, symbol: rank),
+              const Spacer(),
+              CryptoPriceColumn(price: price, percentage: percentage),
+            ],
+          ),
         ),
       ),
     );

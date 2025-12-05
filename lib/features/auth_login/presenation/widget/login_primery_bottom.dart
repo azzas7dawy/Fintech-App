@@ -6,11 +6,7 @@ class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
 
-  const PrimaryButton({
-    super.key,
-    required this.text,
-    this.onPressed,
-  });
+  const PrimaryButton({super.key, required this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +24,7 @@ class PrimaryButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w600,
-          ),
+          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
         ),
       ),
     );

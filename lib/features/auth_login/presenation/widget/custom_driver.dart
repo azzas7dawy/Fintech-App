@@ -12,13 +12,13 @@ class OrDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
-      children:  [
+    return Row(
+      children: [
         Expanded(child: Divider(thickness: 0.7)),
         SizedBox(width: 8.w),
         Text(
           "or_login_with".tr(),
-          style: AppTextStyles. styles.latoW400S14.copyWith(
+          style: AppTextStyles.styles.latoW400S14.copyWith(
             color: AppColors.shadowColor,
             fontSize: 14.sp,
             fontWeight: FontWeight.w400,
@@ -40,16 +40,30 @@ class SocialRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GestureDetector(
-        onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const FingerprintScanPage()));
-          }, 
-          child: CircleIconButton(icon: Image.asset('assets/images/Group finger.png'))),
-         SizedBox(width: 24.w),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const FingerprintScanPage(),
+              ),
+            );
+          },
+          child: CircleIconButton(
+            icon: Image.asset('assets/images/Group finger.png'),
+          ),
+        ),
+        SizedBox(width: 24.w),
         GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const FaceIdScanPage()));
-          }, 
-          child: CircleIconButton(icon: Image.asset('assets/images/face id.png'))),
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const FaceIdScanPage()),
+            );
+          },
+          child: CircleIconButton(
+            icon: Image.asset('assets/images/face id.png'),
+          ),
+        ),
       ],
     );
   }

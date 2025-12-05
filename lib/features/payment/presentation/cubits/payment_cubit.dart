@@ -10,7 +10,6 @@ import 'package:flutter/foundation.dart';
 
 import 'package:http/http.dart' as http;
 
-
 class PaymentCubit extends Cubit<PaymentState> {
   PaymentCubit() : super(PaymentState.initial());
 
@@ -19,7 +18,11 @@ class PaymentCubit extends Cubit<PaymentState> {
   String? paymobIntegrationId; // numeric integration id from Paymob dashboard
   String? paymobIframeId; // sometimes same as integration id
 
-  void setPaymobConfig({String? apiKey, String? integrationId, String? iframeId}) {
+  void setPaymobConfig({
+    String? apiKey,
+    String? integrationId,
+    String? iframeId,
+  }) {
     if (isClosed) return;
     paymobApiKey = apiKey ?? paymobApiKey;
     paymobIntegrationId = integrationId ?? paymobIntegrationId;
@@ -51,7 +54,12 @@ class PaymentCubit extends Cubit<PaymentState> {
     final success = Random().nextBool();
     if (!success) {
       if (!isClosed) {
-        emit(state.copyWith(isProcessing: false, lastError: 'Payment failed due to network/server error'));
+        emit(
+          state.copyWith(
+            isProcessing: false,
+            lastError: 'Payment failed due to network/server error',
+          ),
+        );
       }
       return false;
     }
@@ -65,9 +73,11 @@ class PaymentCubit extends Cubit<PaymentState> {
   Future<String?> _getPaymobAuthToken(String apiKey) async {
     try {
       final url = Uri.parse('https://accept.paymob.com/api/auth/tokens');
-      final resp = await http.post(url,
-          headers: {'Content-Type': 'application/json'},
-          body: jsonEncode({'api_key': apiKey}));
+      final resp = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'api_key': apiKey}),
+      );
       if (resp.statusCode == 201 || resp.statusCode == 200) {
         final j = jsonDecode(resp.body);
         return j['token'] as String?;
@@ -81,7 +91,11 @@ class PaymentCubit extends Cubit<PaymentState> {
     }
   }
 
-  Future<int?> _createPaymobOrder(String authToken, int amountCents, String currency) async {
+  Future<int?> _createPaymobOrder(
+    String authToken,
+    int amountCents,
+    String currency,
+  ) async {
     try {
       final url = Uri.parse('https://accept.paymob.com/api/ecommerce/orders');
       final body = jsonEncode({
@@ -91,12 +105,18 @@ class PaymentCubit extends Cubit<PaymentState> {
         'currency': currency,
         'merchant_order_id': DateTime.now().millisecondsSinceEpoch.toString(),
       });
-      final resp = await http.post(url, headers: {'Content-Type': 'application/json'}, body: body);
+      final resp = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: body,
+      );
       if (resp.statusCode == 201 || resp.statusCode == 200) {
         final j = jsonDecode(resp.body);
         return j['id'] as int?;
       } else {
-        debugPrint('Paymob create order error ${resp.statusCode}: ${resp.body}');
+        debugPrint(
+          'Paymob create order error ${resp.statusCode}: ${resp.body}',
+        );
         return null;
       }
     } catch (e) {
@@ -105,9 +125,16 @@ class PaymentCubit extends Cubit<PaymentState> {
     }
   }
 
-  Future<String?> _requestPaymentToken(String authToken, int orderId, int amountCents, Map billingData) async {
+  Future<String?> _requestPaymentToken(
+    String authToken,
+    int orderId,
+    int amountCents,
+    Map billingData,
+  ) async {
     try {
-      final url = Uri.parse('https://accept.paymob.com/api/acceptance/payment_keys');
+      final url = Uri.parse(
+        'https://accept.paymob.com/api/acceptance/payment_keys',
+      );
       final integration = int.tryParse(paymobIntegrationId ?? '') ?? null;
       final bodyMap = {
         'auth_token': authToken,
@@ -121,7 +148,11 @@ class PaymentCubit extends Cubit<PaymentState> {
         bodyMap['integration_id'] = integration;
       }
       final body = jsonEncode(bodyMap);
-      final resp = await http.post(url, headers: {'Content-Type': 'application/json'}, body: body);
+      final resp = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: body,
+      );
       if (resp.statusCode == 201 || resp.statusCode == 200) {
         final j = jsonDecode(resp.body);
         return j['token'] as String?;
@@ -151,7 +182,8 @@ class PaymentCubit extends Cubit<PaymentState> {
     try {
       if (paymobApiKey == null) {
         final err = 'Paymob API key not set. Call setPaymobConfig(...) first.';
-        if (!isClosed) emit(state.copyWith(isProcessing: false, lastError: err));
+        if (!isClosed)
+          emit(state.copyWith(isProcessing: false, lastError: err));
         return null;
       }
 
@@ -159,7 +191,8 @@ class PaymentCubit extends Cubit<PaymentState> {
       final auth = await _getPaymobAuthToken(paymobApiKey!);
       if (auth == null) {
         final err = 'Failed to get Paymob auth token (check API key)';
-        if (!isClosed) emit(state.copyWith(isProcessing: false, lastError: err));
+        if (!isClosed)
+          emit(state.copyWith(isProcessing: false, lastError: err));
         return null;
       }
 
@@ -167,15 +200,22 @@ class PaymentCubit extends Cubit<PaymentState> {
       final orderId = await _createPaymobOrder(auth, amountCents, currency);
       if (orderId == null) {
         final err = 'Failed to create Paymob order';
-        if (!isClosed) emit(state.copyWith(isProcessing: false, lastError: err));
+        if (!isClosed)
+          emit(state.copyWith(isProcessing: false, lastError: err));
         return null;
       }
 
       // 3) request payment token
-      final paymentToken = await _requestPaymentToken(auth, orderId, amountCents, billingData);
+      final paymentToken = await _requestPaymentToken(
+        auth,
+        orderId,
+        amountCents,
+        billingData,
+      );
       if (paymentToken == null) {
         final err = 'Failed to request Paymob payment token';
-        if (!isClosed) emit(state.copyWith(isProcessing: false, lastError: err));
+        if (!isClosed)
+          emit(state.copyWith(isProcessing: false, lastError: err));
         return null;
       }
 
@@ -183,7 +223,8 @@ class PaymentCubit extends Cubit<PaymentState> {
       final integrationId = paymobIntegrationId ?? paymobIframeId;
       if (integrationId == null) {
         final err = 'integrationId/iframeId not configured';
-        if (!isClosed) emit(state.copyWith(isProcessing: false, lastError: err));
+        if (!isClosed)
+          emit(state.copyWith(isProcessing: false, lastError: err));
         return null;
       }
       final iframeUrl = _buildIframeUrl(integrationId, paymentToken);
@@ -191,7 +232,8 @@ class PaymentCubit extends Cubit<PaymentState> {
       return iframeUrl;
     } catch (e, st) {
       debugPrint('startPaymobFlow error: $e\n$st');
-      if (!isClosed) emit(state.copyWith(isProcessing: false, lastError: e.toString()));
+      if (!isClosed)
+        emit(state.copyWith(isProcessing: false, lastError: e.toString()));
       return null;
     }
   }
@@ -202,8 +244,6 @@ class PaymentCubit extends Cubit<PaymentState> {
     return super.close();
   }
 }
-
-
 
 // class PaymentCubit extends Cubit<PaymentState> {
 //   PaymentCubit() : super(PaymentState.initial());
@@ -264,6 +304,4 @@ class PaymentCubit extends Cubit<PaymentState> {
 //     return '**** **** **** ${number.substring(number.length - 4)}';
 //   }
 
-  
 // }
-     

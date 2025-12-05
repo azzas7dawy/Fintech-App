@@ -16,7 +16,8 @@ class TrendingCard extends StatelessWidget {
     required this.symbol,
     required this.price,
     required this.percentage,
-    required this.isPositive, required this.image,
+    required this.isPositive,
+    required this.image,
   }) : super(key: key);
 
   @override
@@ -38,18 +39,28 @@ class TrendingCard extends StatelessWidget {
         children: [
           ListTile(
             contentPadding: EdgeInsets.all(0),
-            title: Text(name,style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w900,
-              color: context.primaryText,
-            ),),
-            subtitle: Text(symbol,style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w300,
-              color: context.primaryText,
-            ),),
-            trailing: Image.asset(image,width: 50.w,height: 50.h,fit: BoxFit.scaleDown,),
-
+            title: Text(
+              name,
+              style: TextStyle(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w900,
+                color: context.primaryText,
+              ),
+            ),
+            subtitle: Text(
+              symbol,
+              style: TextStyle(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w300,
+                color: context.primaryText,
+              ),
+            ),
+            trailing: Image.asset(
+              image,
+              width: 50.w,
+              height: 50.h,
+              fit: BoxFit.scaleDown,
+            ),
           ),
           SizedBox(height: 12.h),
           Row(
@@ -68,7 +79,9 @@ class TrendingCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.bold,
-                  color: isPositive ? const Color(0xFF10B981) : const Color(0xFFEF4444),
+                  color: isPositive
+                      ? const Color(0xFF10B981)
+                      : const Color(0xFFEF4444),
                 ),
               ),
             ],

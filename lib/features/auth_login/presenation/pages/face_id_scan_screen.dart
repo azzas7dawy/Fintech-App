@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/services/biometric_service.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
@@ -17,7 +16,7 @@ class FaceIdScanPage extends StatefulWidget {
 }
 
 class _FaceIdScanPageState extends State<FaceIdScanPage> {
-   bool _isProcessing = false;
+  bool _isProcessing = false;
   String? _errorText;
 
   @override
@@ -44,9 +43,7 @@ class _FaceIdScanPageState extends State<FaceIdScanPage> {
 
     if (ok) {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (_) => const FaceIdVerifiedPage(),
-        ),
+        MaterialPageRoute(builder: (_) => const FaceIdVerifiedPage()),
       );
     } else {
       setState(() {
@@ -58,16 +55,13 @@ class _FaceIdScanPageState extends State<FaceIdScanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-   
       body: Stack(
         children: [
-        const  Positioned.fill(
-            child:  Image(image:AssetImage(
-             'assets/images/imagefcae_id_scan.jpg',
-             
-            ),    
-             fit: BoxFit.cover,
-            )
+          const Positioned.fill(
+            child: Image(
+              image: AssetImage('assets/images/imagefcae_id_scan.jpg'),
+              fit: BoxFit.cover,
+            ),
           ),
           Positioned.fill(
             child: Container(
@@ -86,81 +80,78 @@ class _FaceIdScanPageState extends State<FaceIdScanPage> {
 
           SafeArea(
             child: Padding(
-              padding:
-                   EdgeInsets.symmetric(horizontal: 24.h, vertical: 16.w),
+              padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 16.w),
               child: Column(
                 children: [
-                 
-                   Text(
+                  Text(
                     "face_id".tr(),
-                    style: AppTextStyles. styles.latoW600S18.copyWith(
+                    style: AppTextStyles.styles.latoW600S18.copyWith(
                       color: AppColors.inputBorder,
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
                     ),
-                  
                   ),
                   const Spacer(),
 
-               
                   IconInfoCard(
                     size: 140.w,
                     icon: Container(
                       width: 66.w,
                       height: 56.h,
-                    
-                      child:const Image(image: AssetImage('assets/images/face id.png'))
-                  
+
+                      child: const Image(
+                        image: AssetImage('assets/images/face id.png'),
+                      ),
                     ),
                     title: "face_id".tr(),
-                    
                   ),
-                   SizedBox(height: 122.h),
- if (_isProcessing)
+                  SizedBox(height: 122.h),
+                  if (_isProcessing)
                     const CircularProgressIndicator(
-                      valueColor:
-                          AlwaysStoppedAnimation<Color>(AppColors.background),
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        AppColors.background,
+                      ),
                     )
                   else
-                     Text(
-                        "face_id_wait".tr(),
+                    Text(
+                      "face_id_wait".tr(),
                       textAlign: TextAlign.center,
-                      style: AppTextStyles. styles.latoW400S14.copyWith(
+                      style: AppTextStyles.styles.latoW400S14.copyWith(
                         color: AppColors.inputBorder,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                   SizedBox(height: 12.h),
+                  SizedBox(height: 12.h),
                   if (_errorText != null) ...[
                     Text(
                       _errorText!,
-                      style:  AppTextStyles. styles.latoW400S14.copyWith(
+                      style: AppTextStyles.styles.latoW400S14.copyWith(
                         color: Colors.redAccent,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
-                      )
+                      ),
                     ),
                     SizedBox(height: 8.h),
                     TextButton(
                       onPressed: _startAuth,
-                      child:  Text(
+                      child: Text(
                         "retry".tr(),
-                        style: AppTextStyles. styles.latoW600S14,
+                        style: AppTextStyles.styles.latoW600S14,
                       ),
                     ),
                   ],
-                // const    Text(
-                //     'Please wait until your scanning is complete',
-                //     textAlign: TextAlign.center,
-                //     style: TextStyle(
-                //       fontSize: 14,
-                //       color: AppColors.inputBorder,
-                //     ),
-                //   ),
-                   SizedBox(height: 70.h),
-                  // const Spacer(),
+                  // const    Text(
+                  //     'Please wait until your scanning is complete',
+                  //     textAlign: TextAlign.center,
+                  //     style: TextStyle(
+                  //       fontSize: 14,
+                  //       color: AppColors.inputBorder,
+                  //     ),
+                  //   ),
+                  SizedBox(height: 70.h),
 
+                  // const Spacer(),
                   const HomeIndicator(color: Colors.white),
                 ],
               ),

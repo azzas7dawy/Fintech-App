@@ -38,10 +38,7 @@ class SettingItem extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Icon(
-            Icons.arrow_forward_ios,
-            color: context.mainText,
-          ),
+          Icon(Icons.arrow_forward_ios, color: context.mainText),
         ],
       ),
     );

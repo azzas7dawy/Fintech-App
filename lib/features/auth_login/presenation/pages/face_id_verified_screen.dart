@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/core/theme/app_text_styles.dart';
@@ -22,16 +21,14 @@ class FaceIdVerifiedPage extends StatelessWidget {
 
           SafeArea(
             child: Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: 24.h, vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 16.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(height: 46.h),
-             
+
                   SizedBox(height: 112.h),
 
-               
                   Center(
                     child: IconInfoCard(
                       size: 150.w,
@@ -64,7 +61,7 @@ class FaceIdVerifiedPage extends StatelessWidget {
                   Text(
                     "verified_title".tr(),
                     textAlign: TextAlign.center,
-                    style: AppTextStyles. styles.latoW600S22.copyWith(
+                    style: AppTextStyles.styles.latoW600S22.copyWith(
                       color: AppColors.textPrimary,
                       fontSize: 22.sp,
                       fontWeight: FontWeight.w600,
@@ -74,21 +71,16 @@ class FaceIdVerifiedPage extends StatelessWidget {
                   Text(
                     "verified_desc".tr(),
                     textAlign: TextAlign.center,
-                    style: AppTextStyles. styles.latoW400S14.copyWith(
+                    style: AppTextStyles.styles.latoW400S14.copyWith(
                       color: AppColors.textSecondary,
                       fontSize: 14.sp,
                       height: 1.5.h,
                       fontWeight: FontWeight.w400,
-
-                    )
+                    ),
                   ),
                   const Spacer(),
 
-                  PrimaryButton(
-                    text: "continue_home".tr(),
-                    onPressed: () {
-                    },
-                  ),
+                  PrimaryButton(text: "continue_home".tr(), onPressed: () {}),
                   SizedBox(height: 24.h),
                   const HomeIndicator(color: Colors.black54),
                 ],
