@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fintech_app/features/market/data/models/crypto_merket_model/crypto_merket_model.dart';
+import 'package:fintech_app/features/market/data/models/search_response_model.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'crypto_service.g.dart';
@@ -18,4 +19,10 @@ abstract class CryptoMarketService {
     @Query('price_change_percentage') required String priceChangePercentage,
      @Query('category') String? category,
   });
+
+  @GET('search')
+Future<SearchResponse> searchCoins(
+  @Query('query') String query,
+);
+
 }

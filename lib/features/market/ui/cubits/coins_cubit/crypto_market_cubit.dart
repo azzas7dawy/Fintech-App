@@ -1,3 +1,4 @@
+
 import 'package:bloc/bloc.dart';
 import 'package:fintech_app/features/market/data/datasources/services/crypto_services/crypto_service.dart';
 import 'package:fintech_app/features/market/data/repository/crypto_merket_repo.dart';
@@ -8,18 +9,19 @@ class CryptoMarketCubit extends Cubit<CryptoMarketState> {
 
   final int _perPage = 20;
   bool _isLoadingMore = false;
+  bool _isSearching = false;
 
-  String? _currentCategoryId; // 👈 بنحفظ آخر كاتيجوري
+  String? _currentCategoryId;
 
   CryptoMarketCubit({required CryptoMarketService cryptoMarketService})
       : _repo = CryptoMarketRepo(cryptoMarketService: cryptoMarketService),
         super(CryptoMarketInitial());
 
-  /// ✅ أول تحميل للداتا - ممكن تبعتي فيها categoryId أو تسيبيها null (All)
   Future<void> getCryptoMarketData({String? categoryId}) async {
+    _isSearching = false;
     emit(CryptoMarketLoading());
     try {
-      _currentCategoryId = categoryId; // نحفظ الكاتيجوري الحالية
+      _currentCategoryId = categoryId;
 
       final cryptoMarkets = await _repo.getCryptoMarkets(
         vsCurrency: "usd",
@@ -28,7 +30,7 @@ class CryptoMarketCubit extends Cubit<CryptoMarketState> {
         page: 1,
         sparkline: false,
         priceChangePercentage: "24h",
-        category: _currentCategoryId, // 👈 هنا الفلترة الحقيقية
+        category: _currentCategoryId,
       );
 
       final hasMore = cryptoMarkets.length == _perPage;
@@ -42,15 +44,52 @@ class CryptoMarketCubit extends Cubit<CryptoMarketState> {
       );
 
       print(
-        "Crypto Market Data Fetched Successfully (page 1, category: $_currentCategoryId)",
-      );
+          "Crypto Market Data Fetched Successfully (page 1, category: $_currentCategoryId)");
     } catch (e) {
       emit(CryptoMarketError(message: e.toString()));
     }
   }
 
-  /// ✅ تحميل صفحة جديدة لنفس الـ category
+  /// Search – لما المستخدم يكتب في السيرش
+  Future<void> searchCrypto(String query) async {
+    // لو المستخدم مسح السيرش → نرجع للداتا الأساسية للكاتيجوري الحالية
+    if (query.trim().isEmpty) {
+      _isSearching = false;
+      if (_currentCategoryId == null && state is! CryptoMarketInitial) {
+        // لو All ومفيش state ملعوب فيه → رجّع نفس الداتا
+        await getCryptoMarketData(categoryId: _currentCategoryId);
+      } else {
+        await getCryptoMarketData(categoryId: _currentCategoryId);
+      }
+      return;
+    }
+
+    try {
+      _isSearching = true;
+      emit(CryptoMarketLoading());
+
+
+      final results = await _repo.searchCryptoMarkets(query: query);
+
+      emit(
+        CryptoMarketSuccess(
+          cryptoMarkets: results,
+          hasMore: false,
+          currentPage: 1,
+        ),
+      );
+
+      print("Search results for '$query' fetched successfully");
+    } catch (e) {
+      emit(CryptoMarketError(message: e.toString()));
+    }
+  }
+
+ 
   Future<void> loadMoreCryptoMarkets() async {
+  
+    if (_isSearching) return;
+
     final currentState = state;
 
     if (currentState is! CryptoMarketSuccess) return;
@@ -68,7 +107,7 @@ class CryptoMarketCubit extends Cubit<CryptoMarketState> {
         page: nextPage,
         sparkline: false,
         priceChangePercentage: "24h",
-        category: _currentCategoryId, // 👈 مهم جدًا عشان يحمل نفس الكاتيجوري
+        category: _currentCategoryId,
       );
 
       final hasMore = newMarkets.length == _perPage;
@@ -82,8 +121,7 @@ class CryptoMarketCubit extends Cubit<CryptoMarketState> {
       );
 
       print(
-        "Loaded more markets page $nextPage (category: $_currentCategoryId)",
-      );
+          "Loaded more markets page $nextPage (category: $_currentCategoryId)");
     } catch (e) {
       print(e);
       emit(CryptoMarketError(message: e.toString()));

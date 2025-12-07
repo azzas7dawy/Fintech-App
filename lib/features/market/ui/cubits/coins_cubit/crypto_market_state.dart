@@ -1,7 +1,6 @@
-// part of 'crypto_market_cubit.dart';
-
+// crypto_market_state.dart
 import 'package:fintech_app/features/market/data/models/crypto_merket_model/crypto_merket_model.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/foundation.dart';
 
 @immutable
 abstract class CryptoMarketState {}
@@ -38,3 +37,8 @@ class CryptoMarketError extends CryptoMarketState {
   final String message;
   CryptoMarketError({required this.message});
 }
+
+// class CryptoMarketSearchSuccess extends CryptoMarketState {
+//   final List<SearchCoin> searchCoins;
+//   CryptoMarketSearchSuccess({required this.searchCoins});
+// }
