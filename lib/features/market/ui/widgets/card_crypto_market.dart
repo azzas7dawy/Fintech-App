@@ -38,7 +38,7 @@ class CardCryptoMarket extends StatelessWidget {
                 width: 52.0.w,
                 height: 52.0.h,
                 padding: EdgeInsets.all(6.0.r),
-      
+
                 clipBehavior: Clip.antiAlias,
                 decoration: ShapeDecoration(
                   color: context.containerBackground,
@@ -46,7 +46,12 @@ class CardCryptoMarket extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10.0.r),
                   ),
                 ),
-                child: Image.network(imageUrl, fit: BoxFit.cover, errorBuilder: (context, error, stackTrace) => const Icon(Icons.error),),
+                child: Image.network(
+                  imageUrl,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) =>
+                      const Icon(Icons.error),
+                ),
                 //  CachedNetworkImage(imageUrl: imageUrl, fit: BoxFit.cover),
               ),
               SizedBox(width: 16.0.w),

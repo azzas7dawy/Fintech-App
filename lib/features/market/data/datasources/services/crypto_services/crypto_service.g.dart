@@ -31,6 +31,7 @@ class _CryptoMarketService implements CryptoMarketService {
     required int page,
     required bool sparkline,
     required String priceChangePercentage,
+    String? category,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -40,7 +41,9 @@ class _CryptoMarketService implements CryptoMarketService {
       r'page': page,
       r'sparkline': sparkline,
       r'price_change_percentage': priceChangePercentage,
+      r'category': category,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<List<CryptoMerketModel>>(Options(

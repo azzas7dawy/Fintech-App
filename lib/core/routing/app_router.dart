@@ -1,21 +1,21 @@
 // TODO: Do NOT add screen imports here. Add them in routes_exports.dart instead.
 import 'package:dio/dio.dart';
-import 'package:fintech_app/features/market/data/datasources/crypto_services/crypto_service.dart';
-import 'package:fintech_app/features/market/ui/cubit/crypto_market_cubit.dart';
+import 'package:fintech_app/features/market/data/datasources/services/crypto_services/crypto_service.dart';
+import 'package:fintech_app/features/market/ui/cubits/coins_cubit/crypto_market_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes_exports.dart';
 import 'package:go_router/go_router.dart';
 
+
+
 final GoRouter appRouter = GoRouter(
   initialLocation: Routes.cryptoMarket,
-
   routes: [
-    /// ---------- MAIN LAYOUT WITH BOTTOM NAV ----------
+  
     ShellRoute(
       builder: (context, state, child) {
         return MainLayout(child: child); // ثابت وفيه البوتوم ناف
       },
-
       routes: [
         /// Home
         GoRoute(
@@ -41,11 +41,21 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: Routes.cryptoMarket,
           name: Routes.cryptoMarket,
-          builder: (context, state) => BlocProvider(
-            create: (context) => CryptoMarketCubit(
-                  cryptoMarketService: CryptoMarketService(Dio()),
-  )..getCryptoMarketData(),
-            
+          builder: (context, state) => MultiBlocProvider(
+            providers: [
+              // BlocProvider(
+              
+              //   create: (_) => CatergoryCubitCubit(
+              //     categoryRepo: CategoryRepo(categoryService: CategoryService(Dio()))
+                
+              //   )..getCategories(),
+              // ),
+              BlocProvider(
+                create: (_) => CryptoMarketCubit(
+                   cryptoMarketService: CryptoMarketService(Dio())
+                )
+              ),
+            ],
             child: const CryptoMarketScreen(),
           ),
         ),
@@ -69,7 +79,8 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: Routes.paymentMethodScreen,
           name: Routes.paymentMethodScreen,
-          builder: (context, state) => const PaymentMethodScreen(amount: 100.0),
+          builder: (context, state) =>
+              const PaymentMethodScreen(amount: 100.0),
         ),
 
         GoRoute(
@@ -77,21 +88,19 @@ final GoRouter appRouter = GoRouter(
           name: Routes.portfolioScreen,
           builder: (context, state) => const PortfolioScreen(),
         ),
+
         GoRoute(
           path: Routes.loginPage,
           name: Routes.loginPage,
           builder: (context, state) => const LoginPage(),
         ),
-        //     GoRoute(
-        //   path: Routes.homePage,
-        //   name: Routes.homePage,
-        //   builder: (context, state) => const HomePage(),
-        // ),
+
         GoRoute(
           path: Routes.faceIdScanPage,
           name: Routes.faceIdScanPage,
           builder: (context, state) => const FaceIdScanPage(),
         ),
+
         GoRoute(
           path: Routes.faceIdVerifiedPage,
           name: Routes.faceIdVerifiedPage,

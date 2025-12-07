@@ -12,8 +12,8 @@ class CryptoMarketLoading extends CryptoMarketState {}
 
 class CryptoMarketSuccess extends CryptoMarketState {
   final List<CryptoMerketModel> cryptoMarkets;
-  final bool hasMore;     
-  final int currentPage;  
+  final bool hasMore;
+  final int currentPage;
 
   CryptoMarketSuccess({
     required this.cryptoMarkets,

@@ -6,7 +6,7 @@ part 'crypto_service.g.dart';
 
 @RestApi(baseUrl: 'https://api.coingecko.com/api/v3/')
 abstract class CryptoMarketService {
-  factory CryptoMarketService(Dio dio)= _CryptoMarketService;
+  factory CryptoMarketService(Dio dio) = _CryptoMarketService;
 
   @GET('coins/markets')
   Future<List<CryptoMerketModel>> getCryptoMarkets({
@@ -16,5 +16,6 @@ abstract class CryptoMarketService {
     @Query('page') required int page,
     @Query('sparkline') required bool sparkline,
     @Query('price_change_percentage') required String priceChangePercentage,
+     @Query('category') String? category,
   });
 }

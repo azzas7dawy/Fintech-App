@@ -17,6 +17,7 @@ class CryptoNameColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
+          overflow: TextOverflow.ellipsis,
           name,
           style: AppTextStyles.styles.latoW700S17.copyWith(
             color: context.successText,
@@ -25,6 +26,7 @@ class CryptoNameColumn extends StatelessWidget {
         SizedBox(height: 4.0.h),
         Text(
           symbol,
+          overflow: TextOverflow.ellipsis,
           style: AppTextStyles.styles.latoW400S16.copyWith(
             color: AppColors.textDisabled,
           ),

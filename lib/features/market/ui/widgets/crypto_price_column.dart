@@ -50,6 +50,7 @@ class CryptoPriceColumn extends StatelessWidget {
               ),
               Text(
                 percentage,
+                overflow: TextOverflow.ellipsis,
                 style: AppTextStyles.styles.latoW400S16.copyWith(
                   color: AppColors.white,
                 ),
