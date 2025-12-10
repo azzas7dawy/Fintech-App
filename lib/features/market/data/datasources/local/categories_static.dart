@@ -22,5 +22,13 @@ class StaticCategories {
       categoryId: 'metaverse',
       name: 'Metaverse',
     ),
+    CategoryModel(
+      categoryId: 'art',
+      name: 'Art',
+    ),
+    // CategoryModel(
+    //   categoryId: 'collectibles',
+    //   name: 'Collectibles',
+    // ),
   ];
 }

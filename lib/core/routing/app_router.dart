@@ -1,6 +1,7 @@
 // TODO: Do NOT add screen imports here. Add them in routes_exports.dart instead.
 import 'package:dio/dio.dart';
 import 'package:fintech_app/features/market/data/datasources/services/crypto_services/crypto_service.dart';
+import 'package:fintech_app/features/market/data/models/crypto_merket_model/crypto_merket_model.dart';
 import 'package:fintech_app/features/market/ui/cubits/coins_cubit/crypto_market_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes_exports.dart';
@@ -63,7 +64,10 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: Routes.coinDetails,
           name: Routes.coinDetails,
-          builder: (context, state) => const CoinDetailsScreen(),
+            
+          builder: (context, state) { 
+            final coin = state.extra as CryptoMerketModel; 
+            return CoinDetailsScreen(coin:coin);}
         ),
 
         /// Payment

@@ -85,7 +85,8 @@ class _CryptoMarketScreenState extends State<CryptoMarketScreen>
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+           crossAxisAlignment: CrossAxisAlignment.start,
+           
             children: [
               _buildHeader(context),
               SizedBox(height: 16.h),
@@ -94,7 +95,11 @@ class _CryptoMarketScreenState extends State<CryptoMarketScreen>
 
               Expanded(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  
                   children: [
+                    
                     CryptoMarketTabBar(
                       categories: _categories,
                       controller: _tabController,
