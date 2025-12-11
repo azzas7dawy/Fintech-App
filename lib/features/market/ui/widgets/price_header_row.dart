@@ -48,10 +48,7 @@ class PriceHeaderRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 4,
             children: [
-              Icon(
-                Icons.call_made_outlined,
-                color: context.cardBackground,
-              ),
+              Icon(Icons.call_made_outlined, color: context.cardBackground),
               Text(
                 '15.3%',
                 textAlign: TextAlign.center,

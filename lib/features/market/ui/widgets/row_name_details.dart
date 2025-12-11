@@ -6,8 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/theme/app_text_styles.dart';
 
 class RowNameDetails extends StatelessWidget {
-  const RowNameDetails({super.key});
-
+   RowNameDetails({super.key,required this.name,required this.symbol,required this.image});
+ final  String name;
+  final String symbol;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,8 +19,7 @@ class RowNameDetails extends StatelessWidget {
           radius: 20.r,
           backgroundColor: context.cardBackground,
           child: CachedNetworkImage(
-            imageUrl:
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/96px-Bitcoin.svg.png?20140331024207',
+            imageUrl:image,
             placeholder: (context, url) => const CircularProgressIndicator(),
             errorWidget: (context, url, error) => const Icon(Icons.error),
             width: 30.w,
@@ -27,7 +28,8 @@ class RowNameDetails extends StatelessWidget {
         ),
         SizedBox(width: 12.w),
         Text(
-          'Bitcoin',
+          '$name (' + symbol + ')',
+          textAlign: TextAlign.start,
           style: AppTextStyles.styles.latoW700S24.copyWith(
             color: context.mainText,
           ),

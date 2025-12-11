@@ -22,9 +22,7 @@ class LanguageScreen extends StatelessWidget {
             color: context.mainText,
           ),
         ),
-        iconTheme: IconThemeData(
-          color: context.mainText,
-        ),
+        iconTheme: IconThemeData(color: context.mainText),
       ),
       body: SafeArea(
         child: Padding(
@@ -119,11 +117,7 @@ class _LanguageOption extends StatelessWidget {
             ),
           ),
           if (isSelected)
-            Icon(
-              Icons.check_circle,
-              color: context.mainText,
-              size: 24.0.r,
-            )
+            Icon(Icons.check_circle, color: context.mainText, size: 24.0.r)
           else
             Icon(
               Icons.radio_button_unchecked,

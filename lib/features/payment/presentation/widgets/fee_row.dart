@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:fintech_app/features/payment/presentation/cubits/payment_cubit.dart';
@@ -39,15 +40,17 @@ class FeeRow extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                           Text('Exchange fee',style:
-                          AppTextStyles.styles.latoW500S12.copyWith(
-                            color: AppColors.gray,
+                          Text(
+                            'exchange_fee'.tr(),
+                            style: AppTextStyles.styles.latoW500S12.copyWith(
+                              color: AppColors.gray,
+                            ),
                           ),
-                           ),
-                          Text('${state.feePercent}%',
-                          style: AppTextStyles.styles.latoW600S16.copyWith(
-                            color: AppColors.mainColor,
-                          ),
+                          Text(
+                            '${state.feePercent}%',
+                            style: AppTextStyles.styles.latoW600S16.copyWith(
+                              color: AppColors.mainColor,
+                            ),
                           ),
                         ],
                       ),
@@ -64,7 +67,7 @@ class FeeRow extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child:  Center(
+              child: Center(
                 child: Text(
                   '\$26',
                   style: AppTextStyles.styles.latoW600S15.copyWith(
@@ -78,4 +81,4 @@ class FeeRow extends StatelessWidget {
       },
     );
   }
-} 
+}

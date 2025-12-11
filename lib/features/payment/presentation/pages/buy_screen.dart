@@ -1,5 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
-import 'package:fintech_app/features/payment/presentation/cubits/payment_cubit.dart';
 
 import 'package:fintech_app/features/payment/presentation/widgets/amount_card.dart';
 import 'package:fintech_app/features/payment/presentation/widgets/fee_row.dart';
@@ -20,13 +20,12 @@ class BuyCryptoPage extends StatelessWidget {
         backgroundColor: AppColors.darkLightGroundColor,
         title: Row(
           children: [
-            Icon(Icons.arrow_back_ios,color: AppColors.mainColor,),
-            SizedBox(width: 50.w,),
-             Text('Buy Crypto',
-                   style: TextStyle(
-             color: AppColors.mainColor
-                   ),
-                   ),
+            const Icon(Icons.arrow_back_ios, color: AppColors.mainColor),
+            SizedBox(width: 50.w),
+            Text(
+              'buy_crypto'.tr(),
+              style: const TextStyle(color: AppColors.mainColor),
+            ),
           ],
         ),
       ),
@@ -35,16 +34,13 @@ class BuyCryptoPage extends StatelessWidget {
           children: [
             Expanded(
               child: Padding(
-                padding:  EdgeInsets.symmetric(
-                  horizontal: 20.w,
-                  vertical: 12.h,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
                 child: ListView(
-                  children:  [
+                  children: [
                     SizedBox(height: 20.h),
-                    AmountCard(),
+                    const AmountCard(),
                     SizedBox(height: 16.h),
-                    FeeRow(),
+                    const FeeRow(),
                   ],
                 ),
               ),
@@ -52,7 +48,7 @@ class BuyCryptoPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
               child: PrimaryButton(
-                text: 'Continue',
+                text: 'continue'.tr(),
 
                 onPressed: () => context.go('/paymentMethodScreen'),
 

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/theme/app_colors.dart';
 
 class BottomNavItem extends StatelessWidget {
-  final String  image;
+  final String image;
   final String label;
   final bool isSelected;
   final VoidCallback onTap;

@@ -24,4 +24,10 @@ class Routes {
 
   // Splash
   static const String splash = '/splash';
+
+  // Auth/Login
+  static const String loginPage = '/loginPage';
+  static const String faceIdScanPage = '/faceIdScanPage';
+  static const String faceIdVerifiedPage = '/faceIdVerifiedPage';
+  static const String fingerprintScanPage = '/fingerprintScanPage';
 }

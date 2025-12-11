@@ -58,7 +58,6 @@ class TrendingSection extends StatelessWidget {
                 percentage: '+1.85%',
                 isPositive: true,
                 image: Assets.imagesEthereum,
-
               ),
             ],
           ),

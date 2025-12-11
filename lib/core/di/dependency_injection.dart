@@ -9,6 +9,4 @@ Future<void> setupGetIt() async {
   // getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
   // getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
   // getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
-
-
 }

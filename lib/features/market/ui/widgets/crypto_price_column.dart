@@ -17,47 +17,65 @@ class CryptoPriceColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Text(
-          price,
-          style: AppTextStyles.styles.latoW700S20.copyWith(
-            color: context.successText,
-          ),
-        ),
-        SizedBox(height: 4.0.h),
-        Container(
-          padding: EdgeInsets.all(4.0.r),
-          decoration: ShapeDecoration(
-            // con
-            color: percentage.startsWith('-')
-                ? AppColors.errorPrimary.withValues(alpha: 0.8)
-                : AppColors.successPrimaryLight.withValues(alpha: 0.8),
+    return ConstrainedBox(
+      constraints:  BoxConstraints(minWidth: 90.w, maxWidth: 140.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          FittedBox(
+               alignment: Alignment.centerRight,
 
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.r),
+        fit: BoxFit.scaleDown,
+            child: Text(
+  
+              price,
+              style: AppTextStyles.styles.latoW700S20.copyWith(
+                color: context.successText,
+              ),
             ),
           ),
-          child: Row(
-            children: [
-              Icon(
-                percentage.startsWith('-')
-                    ? Icons.call_received_outlined
-                    : Icons.call_made_outlined,
-                size: 16.0.sp,
-                color: AppColors.white,
+          SizedBox(height: 4.0.h),
+          Container(
+            padding: EdgeInsets.all(4.0.r),
+            decoration: ShapeDecoration(
+              // con
+              color: percentage.startsWith('-')
+                  ? AppColors.errorPrimary.withValues(alpha: 0.8)
+                  : AppColors.successPrimaryLight.withValues(alpha: 0.8),
+      
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.r),
               ),
-              Text(
-                percentage,
-                style: AppTextStyles.styles.latoW400S16.copyWith(
-                  color: AppColors.white,
-                ),
+            ),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: 80.w),
+
+              child: Row(
+                children: [
+                  Icon(
+              
+                    percentage.startsWith('-')
+                        ? Icons.call_received_outlined
+                        : Icons.call_made_outlined,
+                    size: 14.0.sp,
+                    color: AppColors.white,
+                  ),
+                  Flexible(
+                    child: Text(
+                      percentage,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: AppTextStyles.styles.latoW400S16.copyWith(
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

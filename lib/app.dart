@@ -26,7 +26,7 @@ class CoinsApp extends StatelessWidget {
               title: 'Fintech App',
               debugShowCheckedModeBanner: false,
               theme: getLightModeTheme(),
-              darkTheme: getDarkModeTheme(),
+              darkTheme: getLightModeTheme(),
               themeMode: newMode,
               locale: context.locale,
               supportedLocales: context.supportedLocales,

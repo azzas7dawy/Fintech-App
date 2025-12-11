@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:fintech_app/core/theme/app_text_styles.dart';
+import 'package:fintech_app/features/market/ui/cubits/coins_cubit/crypto_market_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -18,6 +20,9 @@ class SearchTextField extends StatelessWidget {
       onTapOutside: (_) {
         FocusScope.of(context).unfocus();
       },
+     onChanged: (value) {
+  context.read<CryptoMarketCubit>().searchCrypto(value);
+},
 
       decoration: InputDecoration(
         prefixIcon: Padding(

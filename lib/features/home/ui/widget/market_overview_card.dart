@@ -29,7 +29,7 @@ class MarketOverviewCard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween ,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
@@ -52,7 +52,9 @@ class MarketOverviewCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 12.sp,
               fontWeight: FontWeight.w600,
-              color: isPositive ? const Color(0xFF10B981) : const Color(0xFFEF4444),
+              color: isPositive
+                  ? const Color(0xFF10B981)
+                  : const Color(0xFFEF4444),
             ),
           ),
         ],

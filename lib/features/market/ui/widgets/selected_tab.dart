@@ -13,26 +13,31 @@ class SelectedTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 35.0.h,
-      padding: EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 6.0.h),
+      height: 39.0.h,
+      width:100.w ,
+      padding: EdgeInsets.symmetric(horizontal: 14.0.w, vertical: 6.0.h),
       clipBehavior: Clip.antiAlias,
-      decoration: ShapeDecoration(
+      decoration: BoxDecoration(
         color: context.mainText,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            label.tr(),
-            textAlign: TextAlign.center,
-            style: AppTextStyles.styles.latoW600S14.copyWith(
-              color: context.cardBackground,
-            ),
+        borderRadius: BorderRadius.circular(100.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
           ),
         ],
+      ),
+      child: Center(
+        child: Text(
+          label.tr(),
+          textAlign: TextAlign.center,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: AppTextStyles.styles.latoW600S14.copyWith(
+            color: context.cardBackground,
+          ),
+        ),
       ),
     );
   }

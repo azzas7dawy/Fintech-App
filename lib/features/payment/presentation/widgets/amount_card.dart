@@ -13,10 +13,12 @@ class AmountCard extends StatelessWidget {
     // pick card bg depending on theme (so works light/dark)
     final theme = Theme.of(context);
     final cardBg = theme.brightness == Brightness.dark
-        ? AppColors.darkLightContainerColor // dark card color similar to screenshot
+        ? AppColors
+              .darkLightContainerColor // dark card color similar to screenshot
         : AppColors.darkModeContainerColor;
     final innerBg = theme.brightness == Brightness.dark
-        ? AppColors.darkModeContainerColor // dark card color similar to screenshot
+        ? AppColors
+              .darkModeContainerColor // dark card color similar to screenshot
         : AppColors.darkLightContainerColor;
 
     return BlocBuilder<PaymentCubit, PaymentState>(
@@ -31,4 +33,3 @@ class AmountCard extends StatelessWidget {
     );
   }
 }
-

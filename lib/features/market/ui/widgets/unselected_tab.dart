@@ -13,26 +13,32 @@ class UnSelectedTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 35.0.h,
-      padding: EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 6.0.h),
+      height: 36.0.h,
+      width: 110.w,
+      padding: EdgeInsets.symmetric(horizontal: 14.0.w, vertical: 6.0.h),
       clipBehavior: Clip.antiAlias,
-      decoration: ShapeDecoration(
+      decoration: BoxDecoration(
         color: context.cardBackground,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            label.tr(),
-            textAlign: TextAlign.center,
-            style: AppTextStyles.styles.latoW600S14.copyWith(
-              color: context.primaryText,
-            ),
+        borderRadius: BorderRadius.circular(100.r),
+        border: Border.all(color: context.divider.withOpacity(0.12), width: 1),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.02),
+            blurRadius: 6,
+            offset: const Offset(0, 2),
           ),
         ],
+      ),
+      child: Center(
+        child: Text(
+          label.tr(),
+          textAlign: TextAlign.center,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: AppTextStyles.styles.latoW600S14.copyWith(
+            color: context.primaryText,
+          ),
+        ),
       ),
     );
   }

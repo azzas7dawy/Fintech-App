@@ -29,7 +29,6 @@ class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
   final Color portfolioSelectedTextTabBar;
   final Color portfolioBackgroundSelectedTabBar;
 
-
   // Utility Colors
   final Color divider;
   final Color toggleBackground;
@@ -102,8 +101,11 @@ class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
       divider: divider ?? this.divider,
       toggleBackground: toggleBackground ?? this.toggleBackground,
       textGreen: textGreen ?? this.textGreen,
-      portfolioSelectedTextTabBar: portfolioSelectedTextTabBar ?? this.portfolioSelectedTextTabBar,
-      portfolioBackgroundSelectedTabBar: portfolioBackgroundSelectedTabBar ?? this.portfolioBackgroundSelectedTabBar,
+      portfolioSelectedTextTabBar:
+          portfolioSelectedTextTabBar ?? this.portfolioSelectedTextTabBar,
+      portfolioBackgroundSelectedTabBar:
+          portfolioBackgroundSelectedTabBar ??
+          this.portfolioBackgroundSelectedTabBar,
     );
   }
 
@@ -131,7 +133,7 @@ class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
       textOnDark: Color.lerp(textOnDark, other.textOnDark, t)!,
       iconColor: Color.lerp(iconColor, other.iconColor, t)!,
       iconBackground: Color.lerp(iconBackground, other.iconBackground, t)!,
-        successBackground: Color.lerp(
+      successBackground: Color.lerp(
         successBackground,
         other.successBackground,
         t,
@@ -148,8 +150,16 @@ class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
         t,
       )!,
       textGreen: Color.lerp(textGreen, other.textGreen, t)!,
-      portfolioSelectedTextTabBar: Color.lerp(portfolioSelectedTextTabBar, other.portfolioSelectedTextTabBar, t)!,
-      portfolioBackgroundSelectedTabBar: Color.lerp(portfolioBackgroundSelectedTabBar, other.portfolioBackgroundSelectedTabBar, t)!,
+      portfolioSelectedTextTabBar: Color.lerp(
+        portfolioSelectedTextTabBar,
+        other.portfolioSelectedTextTabBar,
+        t,
+      )!,
+      portfolioBackgroundSelectedTabBar: Color.lerp(
+        portfolioBackgroundSelectedTabBar,
+        other.portfolioBackgroundSelectedTabBar,
+        t,
+      )!,
     );
   }
 }

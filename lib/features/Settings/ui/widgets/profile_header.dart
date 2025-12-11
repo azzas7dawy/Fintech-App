@@ -22,11 +22,7 @@ class ProfileHeader extends StatelessWidget {
                 ? CachedNetworkImageProvider(imageUrl!)
                 : null,
             child: imageUrl == null
-                ? Icon(
-                    Icons.person,
-                    size: 80.0.r,
-                    color: context.mainText,
-                  )
+                ? Icon(Icons.person, size: 80.0.r, color: context.mainText)
                 : null,
           ),
         ),

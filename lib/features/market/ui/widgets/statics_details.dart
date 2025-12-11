@@ -8,7 +8,14 @@ import 'divider_statics.dart';
 import 'statics_item.dart';
 
 class StaticsDetails extends StatelessWidget {
-  const StaticsDetails({super.key});
+  final double currentPrice;
+  final double marketCap;
+  final int marketCapRank;
+  final double priceChangePercentage24h;
+  final double totalSupply;
+  final double maxSupply;
+  const StaticsDetails( {super.key, required this.currentPrice, required this.marketCap, required this.marketCapRank, required this.priceChangePercentage24h, required this.totalSupply, required this.maxSupply});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -22,20 +29,20 @@ class StaticsDetails extends StatelessWidget {
           ),
         ),
         StaticsItem(
-          title: TranslationKeys.currentPrice.tr(),
+          title: currentPrice.toString(),
           value: '44.826,12 \$',
         ),
         const DividerStatics(),
-        StaticsItem(title: TranslationKeys.marketCap.tr(), value: '836,819 \$'),
+        StaticsItem(title: marketCap.toString(), value: '836,819 \$'),
         const DividerStatics(),
-        StaticsItem(title: TranslationKeys.volume24h.tr(), value: '35,867 \$'),
+        StaticsItem(title: marketCapRank.toString(), value: '35,867 \$'),
         const DividerStatics(),
         StaticsItem(
-          title: TranslationKeys.availableSupply.tr(),
+          title: priceChangePercentage24h.toString(),
           value: '18,784',
         ),
         const DividerStatics(),
-        StaticsItem(title: TranslationKeys.maxSupply.tr(), value: '21,000'),
+        StaticsItem(title: maxSupply.toString(), value: '21,000'),
       ],
     );
   }
