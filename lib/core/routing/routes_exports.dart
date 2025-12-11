@@ -16,3 +16,9 @@ export 'package:fintech_app/features/auth_login/presenation/pages/face_id_verifi
 export 'package:fintech_app/features/auth_login/presenation/pages/finger_print_scan_screen.dart';
 export 'package:fintech_app/features/auth_login/presenation/pages/login_screen.dart';
 export 'package:go_router/go_router.dart';
+export 'package:dio/dio.dart';
+export 'package:fintech_app/features/market/data/datasources/services/crypto_services/crypto_service.dart';
+export 'package:fintech_app/features/market/data/models/crypto_merket_model/crypto_merket_model.dart';
+export 'package:fintech_app/features/market/ui/cubits/coins_cubit/crypto_market_cubit.dart';
+export 'package:fintech_app/features/Portfolio/data/datasources/services/portfolio_service.dart';
+export 'package:fintech_app/features/Portfolio/ui/cubits/portfolio_cubit.dart';

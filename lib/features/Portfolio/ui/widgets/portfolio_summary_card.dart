@@ -9,10 +9,24 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 
 class PortfolioSummaryCard extends StatelessWidget {
-  const PortfolioSummaryCard({super.key});
+  final double totalValue;
+  final double changePercentage;
+  final double changeAmount;
+  final bool isLoading;
+
+  const PortfolioSummaryCard({
+    super.key,
+    required this.totalValue,
+    required this.changePercentage,
+    required this.changeAmount,
+    this.isLoading = false,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final isPositive = changeAmount >= 0;
+    final changeColor = isPositive ? context.textGreen : context.errorText;
+
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 8.w),
       width: double.infinity,
@@ -46,21 +60,32 @@ class PortfolioSummaryCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10.h),
-                Text(
-                  ' \$143,421.20',
-                  style: AppTextStyles.styles.latoW700S28.copyWith(
-                    height: 1.01,
-                    letterSpacing: 0.44,
-                    color: AppColors.white,
-                  ),
-                ),
+                isLoading
+                    ? SizedBox(
+                        height: 28.h,
+                        child: const Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.white,
+                            strokeWidth: 2,
+                          ),
+                        ),
+                      )
+                    : Text(
+                        '\$${totalValue.toStringAsFixed(2)}',
+                        style: AppTextStyles.styles.latoW700S28.copyWith(
+                          height: 1.01,
+                          letterSpacing: 0.44,
+                          color: AppColors.white,
+                        ),
+                      ),
                 SizedBox(height: 14.h),
-                Text(
-                  '+2.5% (\$305.20) ${TranslationKeys.today.tr()}',
-                  style: AppTextStyles.styles.latoW400S14.copyWith(
-                    color: context.textGreen,
+                if (!isLoading)
+                  Text(
+                    '${isPositive ? '+' : ''}${changePercentage.toStringAsFixed(2)}% (${isPositive ? '+' : ''}\$${changeAmount.abs().toStringAsFixed(2)}) ${TranslationKeys.today.tr()}',
+                    style: AppTextStyles.styles.latoW400S14.copyWith(
+                      color: changeColor,
+                    ),
                   ),
-                ),
               ],
             ),
           ),
