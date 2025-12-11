@@ -1,27 +1,46 @@
 // TODO: Do NOT add screen imports here. Add them in routes_exports.dart instead.
 import 'package:dio/dio.dart';
+import 'package:fintech_app/features/home/data/datasources/repos/home_repo.dart';
+import 'package:fintech_app/features/home/data/home_servicea/api_client_service.dart';
+import 'package:fintech_app/features/home/ui/cubits/home_cubit.dart';
 import 'package:fintech_app/features/market/data/datasources/services/crypto_services/crypto_service.dart';
 import 'package:fintech_app/features/market/ui/cubits/coins_cubit/crypto_market_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes_exports.dart';
 import 'package:go_router/go_router.dart';
 
-
-
 final GoRouter appRouter = GoRouter(
-  initialLocation: Routes.cryptoMarket,
+  initialLocation: Routes.homePage,
   routes: [
-  
     ShellRoute(
       builder: (context, state, child) {
         return MainLayout(child: child); // ثابت وفيه البوتوم ناف
       },
       routes: [
-        /// Home
+     
         GoRoute(
           path: Routes.homePage,
           name: Routes.homePage,
-          builder: (context, state) => const HomePage(),
+          builder: (context, state) {
+            final dio = createDio();
+            final apiClient = ApiClient(dio);
+            final homeRepo = HomeRepository(apiClient);
+
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (_) =>
+                      HomeCubit(homeRepo)
+                        ..loadHome(),
+                ),
+                BlocProvider(create: 
+                (context) => CryptoMarketCubit(
+                cryptoMarketService: CryptoMarketService(Dio()),
+                  )),
+              ],
+              child: const HomePage(),
+            );
+          },
         ),
 
         /// Settings
@@ -44,16 +63,16 @@ final GoRouter appRouter = GoRouter(
           builder: (context, state) => MultiBlocProvider(
             providers: [
               // BlocProvider(
-              
+
               //   create: (_) => CatergoryCubitCubit(
               //     categoryRepo: CategoryRepo(categoryService: CategoryService(Dio()))
-                
+
               //   )..getCategories(),
               // ),
               BlocProvider(
                 create: (_) => CryptoMarketCubit(
-                   cryptoMarketService: CryptoMarketService(Dio())
-                )
+                  cryptoMarketService: CryptoMarketService(Dio()),
+                ),
               ),
             ],
             child: const CryptoMarketScreen(),
@@ -79,8 +98,7 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: Routes.paymentMethodScreen,
           name: Routes.paymentMethodScreen,
-          builder: (context, state) =>
-              const PaymentMethodScreen(amount: 100.0),
+          builder: (context, state) => const PaymentMethodScreen(amount: 100.0),
         ),
 
         GoRoute(
