@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'maps-bf503.firebasestorage.app',
     measurementId: 'G-9MEHKJJM9P',
   );
+
 }

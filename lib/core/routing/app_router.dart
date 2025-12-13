@@ -1,5 +1,8 @@
 // TODO: Do NOT add screen imports here. Add them in routes_exports.dart instead.
 import 'package:dio/dio.dart';
+import 'package:fintech_app/features/home/data/datasources/repos/home_repo.dart';
+import 'package:fintech_app/features/home/data/home_servicea/api_client_service.dart';
+import 'package:fintech_app/features/home/ui/cubits/home_cubit.dart';
 import 'package:fintech_app/features/market/data/datasources/services/crypto_services/crypto_service.dart';
 import 'package:fintech_app/features/market/data/models/crypto_merket_model/crypto_merket_model.dart';
 import 'package:fintech_app/features/market/ui/cubits/coins_cubit/crypto_market_cubit.dart';
@@ -8,34 +11,37 @@ import 'routes_exports.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: Routes.splash,
-
+  initialLocation: Routes.onboarding,
   routes: [
-    /// Splash Screen
-    GoRoute(
-      path: Routes.splash,
-      name: Routes.splash,
-      builder: (context, state) => const SplashScreen(),
-    ),
-
-    /// Onboarding (outside ShellRoute - no bottom nav)
-    GoRoute(
-      path: Routes.onboarding,
-      name: Routes.onboarding,
-      builder: (context, state) => const OnboardingScreen(),
-    ),
-
-    /// ---------- MAIN LAYOUT WITH BOTTOM NAV ----------
     ShellRoute(
       builder: (context, state, child) {
         return MainLayout(child: child); // ثابت وفيه البوتوم ناف
       },
       routes: [
-        /// Home
+     
         GoRoute(
           path: Routes.homePage,
           name: Routes.homePage,
-          builder: (context, state) => const HomePage(),
+          builder: (context, state) {
+            final dio = createDio();
+            final apiClient = ApiClient(dio);
+            final homeRepo = HomeRepository(apiClient);
+
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (_) =>
+                      HomeCubit(homeRepo)
+                        ..loadHome(),
+                ),
+                BlocProvider(create: 
+                (context) => CryptoMarketCubit(
+                cryptoMarketService: CryptoMarketService(Dio()),
+                  )),
+              ],
+              child: const HomePage(),
+            );
+          },
         ),
 
         /// Settings
@@ -104,6 +110,12 @@ final GoRouter appRouter = GoRouter(
           path: Routes.portfolioScreen,
           name: Routes.portfolioScreen,
           builder: (context, state) => const PortfolioScreen(),
+        ),
+
+        GoRoute(
+          path: Routes.onboarding,
+          name: Routes.onboarding  ,
+          builder: (context, state) => const OnboardingScreen(),
         ),
 
         GoRoute(

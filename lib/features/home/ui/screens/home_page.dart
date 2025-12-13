@@ -28,8 +28,10 @@ class HomePage extends StatelessWidget {
                     SizedBox(height: 24.h),
                     const BalanceCard(),
                     SizedBox(height: 24.h),
-                    const MarketOverviewSection(),
-                    SizedBox(height: 24.h),
+                    const MarketOverviewSection(
+                      
+                    ),
+                    // SizedBox(height: 24.h),
                     const TrendingSection(),
                     SizedBox(height: 24.h),
                     const TopGainersSection(),

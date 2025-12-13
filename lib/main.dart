@@ -10,6 +10,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // ================== Firebase Initialization =================//
@@ -18,6 +19,15 @@ Future<void> main() async {
 
   //================= Easy Localization Initialization =================//
   await EasyLocalization.ensureInitialized();
+  // // ================ firebase crashlytics =================//
+  //  FlutterError.onError =
+  //     FirebaseCrashlytics.instance.recordFlutterFatalError;
+
+  // // Android native errors
+  // PlatformDispatcher.instance.onError = (error, stack) {
+  //   FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+  //   return true;
+  // };
 
    //==================== Load .env file =================//
  await dotenv.load(fileName:'.env');

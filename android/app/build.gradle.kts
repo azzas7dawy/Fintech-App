@@ -1,11 +1,15 @@
 plugins {
     id("com.android.application")
-    // START: FlutterFire Configuration
-    id("com.google.gms.google-services")
-    // END: FlutterFire Configuration
     id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+
+    // Flutter plugin لازم يكون آخر واحد
     id("dev.flutter.flutter-gradle-plugin")
+
+    // Firebase موجود بس مش هنستخدمه دلوقتي
+    id("com.google.gms.google-services")
+    id("com.google.firebase.appdistribution")
+
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -23,20 +27,47 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.fintech_app"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
+    // ✅ Flavors
+    flavorDimensions += "default"
+
+    productFlavors {
+        create("dev") {
+            dimension = "default"
+            applicationIdSuffix = ".dev"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "Fintech Development"
+            )
+        }
+
+        create("prod") {
+            dimension = "default"
+            applicationIdSuffix = ".prod"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "Fintech Production"
+            )
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+     
+           isMinifyEnabled = false
+           isShrinkResources = false
+        proguardFiles(
+            getDefaultProguardFile("proguard-android-optimize.txt"),
+            "proguard-rules.pro"
+        )
             signingConfig = signingConfigs.getByName("debug")
         }
     }
@@ -48,4 +79,7 @@ flutter {
 
 dependencies {
     implementation("com.google.android.gms:play-services-wallet:19.5.0")
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    
+    implementation("com.google.firebase:firebase-crashlytics")
 }

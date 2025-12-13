@@ -23,7 +23,7 @@ class HeaderSection extends StatelessWidget {
         Column(
           children: [
             Text(
-              "login_sub".tr(),
+              "login_sub1".tr(),
               style: AppTextStyles.styles.latoW400S16.copyWith(
                 color: AppColors.shadowColor,
                 fontSize: 16.sp,

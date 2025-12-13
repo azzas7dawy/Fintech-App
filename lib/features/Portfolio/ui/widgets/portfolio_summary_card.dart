@@ -55,10 +55,14 @@ class PortfolioSummaryCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 14.h),
-                Text(
-                  '+2.5% (\$305.20) ${TranslationKeys.today.tr()}',
-                  style: AppTextStyles.styles.latoW400S14.copyWith(
-                    color: context.textGreen,
+                Expanded(
+                  child: Text(
+                    '+2.5% (\$305.20) ${TranslationKeys.today.tr()}',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: AppTextStyles.styles.latoW400S14.copyWith(
+                      color: context.textGreen,
+                    ),
                   ),
                 ),
               ],

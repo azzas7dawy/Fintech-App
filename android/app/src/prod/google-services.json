@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "613593069663",
+    "project_id": "maps-bf503",
+    "storage_bucket": "maps-bf503.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613593069663:android:1ab696dd803c26cdf843ea",
+        "android_client_info": {
+          "package_name": "com.example.fintech_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1_iSzWLMA5IHjjTpsT3s6xQrV7MF_jqI"
+        },
+        {
+          "current_key": "AIzaSyDdTTUZVD-buMaK2xlp1ownigFoMfvQUfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613593069663:android:665598709aa7a61cf843ea",
+        "android_client_info": {
+          "package_name": "com.example.fintech_app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1_iSzWLMA5IHjjTpsT3s6xQrV7MF_jqI"
+        },
+        {
+          "current_key": "AIzaSyDdTTUZVD-buMaK2xlp1ownigFoMfvQUfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613593069663:android:7dd87e7b707ed0bef843ea",
+        "android_client_info": {
+          "package_name": "com.example.fintech_app.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1_iSzWLMA5IHjjTpsT3s6xQrV7MF_jqI"
+        },
+        {
+          "current_key": "AIzaSyDdTTUZVD-buMaK2xlp1ownigFoMfvQUfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613593069663:android:ed289fd604f55d2df843ea",
+        "android_client_info": {
+          "package_name": "com.example.maps_and_themeing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1_iSzWLMA5IHjjTpsT3s6xQrV7MF_jqI"
+        },
+        {
+          "current_key": "AIzaSyDdTTUZVD-buMaK2xlp1ownigFoMfvQUfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

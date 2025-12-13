@@ -12,7 +12,7 @@ class IconForToggleMode extends StatelessWidget {
     return IconButton(
       onPressed: () {
         context.read<ThemeCubit>().toggleTheme(
-          Theme.of(context).brightness == Brightness.dark,
+          Theme.of(context).brightness == Brightness.light,
         );
       },
       icon: Icon(

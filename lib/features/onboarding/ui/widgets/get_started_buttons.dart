@@ -22,7 +22,7 @@ class GetStartedButtons extends StatelessWidget {
           width: double.infinity,
           onPressed: () {
             // Navigate to home for now (can be changed to login route later)
-            context.go(Routes.homePage);
+            context.go(Routes.loginPage);
           },
         ),
         SizedBox(height: 18.h),

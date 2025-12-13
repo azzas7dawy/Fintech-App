@@ -1,4 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fintech_app/core/routing/routes.dart';
+import 'package:fintech_app/core/routing/routes_exports.dart';
 import 'package:fintech_app/core/theme/app_colors.dart';
 import 'package:fintech_app/core/theme/app_text_styles.dart';
 import 'package:fintech_app/features/auth_login/presenation/widget/auth_background.dart';
@@ -80,7 +82,9 @@ class FaceIdVerifiedPage extends StatelessWidget {
                   ),
                   const Spacer(),
 
-                  PrimaryButton(text: "continue_home".tr(), onPressed: () {}),
+                  PrimaryButton(text: "continue_home".tr(), onPressed: () {
+                 context.go(Routes.homePage);
+                  }),
                   SizedBox(height: 24.h),
                   const HomeIndicator(color: Colors.black54),
                 ],
