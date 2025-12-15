@@ -1,16 +1,32 @@
 # fintech_app
 
-A new Flutter project.
+The app allows users to follow the crypto market, manage a portfolio, and simulate buy/sell flows using real-time market data.
 
-## Getting Started
+What makes this project stand out is how it’s engineered:
 
-This project is a starting point for a Flutter application.
+Clean Architecture for scalability and maintainability
 
-A few resources to get you started if this is your first Flutter project:
+Dev / Prod flavors
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+CI/CD automation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Unit & Integration testing
+
+Security was a first-class requirement:
+
+Biometric authentication
+
+Encrypted local storage
+
+https://github.com/user-attachments/assets/23b975d6-0f66-49d0-9ec3-270b9c650480
+
+
+
+Screenshot prevention & background protection
+
+Auto-lock after inactivity
+
+Secure session & token handling
+
+This project reflects my approach to Flutter development:
+building secure, scalable apps with long-term maintainability in mind.
